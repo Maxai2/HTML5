@@ -1,16 +1,81 @@
 .Header1Style
 {
     text-align: center;
+    color: #000080;
 }
 
 .iTitle
 {
-    font-weight:bold;
-    
+    font-weight: bold;
+    margin-left: 2em;
+    text-align: end;
+    text-align-last: justify;
 }
-
+ 
 .throwLine
 {
     text-decoration: line-through;
     color: #ff0000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.headStyle
+{
+    font-family: sans-serif;
+}
+
+.MiddleTextFirst
+{
+    text-align: center;
+}
+
+.MiddleTextSecond
+{
+    text-align: start;
+}
+
+.MiddleTextThird
+{
+    text-align: center;
+}
+
+.MiddleTextFourth
+{
+    text-align: end;
+}
+
+
+.MiddleTextStyle
+{
+    color: #000080;
+}
+
+.DarkBlue
+{
+    color: #000080;
+}
+
+.RedCol
+{
+    color: #ff0000; 
+}
+
+.CyanCol
+{
+    color: #ff00ff;
+}
+
+.GreenCol
+{
+    color: #008000;
+}
+
+.BlueCol
+{
+    color: #0000ff;
+}
+
+.SkinCol
+{
+    color: #ffb280;
 }
