@@ -1,0 +1,16 @@
+.Header1Style
+{
+    text-align: center;
+}
+
+.iTitle
+{
+    font-weight:bold;
+    
+}
+
+.throwLine
+{
+    text-decoration: line-through;
+    color: #ff0000;
+}
