@@ -1,0 +1,112 @@
+body
+{    
+    margin: 0;
+}
+
+h1 
+{
+    background: bisque; 
+    color: blue;
+}    
+
+.wrap
+{
+    min-width: 600px;
+    max-width: 1200px;
+    width: 1000px;
+    margin: 0 auto;
+    background-color: blue;
+}
+
+.header3
+{
+    color: burlywood;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: normal; /*bold bolder normal 100-900*/
+    font-style: italic; /*normal*/
+    text-decoration: underline; /*overline line-through none*/
+    text-align: center; /*left right justify*/
+}
+
+.div1
+{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlA31W25U48VZevnp_scg61PVUzCJeuzfu6HwM6k-TcbmdwkGAjA); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center; 
+    height: 100px;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    border: 1px dashed gray;
+    color: yellow;
+}
+
+#id1
+{
+    text-align: right;
+}
+
+.pic1
+{
+    width: 100px;
+}
+
+.p1
+{
+    text-shadow: 5px -5px 5px green;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.p2
+{
+    box-shadow: 5px -5px 5px darkviolet;
+    border: 1px solid darkviolet;
+    border-right: 1px solid crimson;
+    border-radius: 10px;
+}
+
+.ul1
+{
+    list-style-type: georgian;
+    list-style-image: url(https://secure.gravatar.com/avatar/614c659a054fb007dcee7e86b3a24f9d?d=identicon&r=PG&s=24);
+}
+
+.ol1
+{
+    list-style-type: none;
+}
+
+.ojegov
+{
+    font-family: 'PT Sans', Verdana, sans-serif;
+    color: #293848;
+    border: 1px solid #31a354;
+    padding: 20px;
+}
+
+.ojegov dt
+{
+    color: #31a354;
+    display: inline-block;
+    margin: 20px;
+}
+
+.ojegov dd
+{
+    margin-top: 0;
+    margin-left: 0;
+    display: inline-block;
+}
+
+.ul2 li ul li
+{
+    color: coral;
+}
+
+.ul2 > li
+{
+    border-left: chartreuse;
+}
