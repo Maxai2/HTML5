@@ -1,4 +1,104 @@
 body
 {
     background-image: url('images/fon.png');
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hrShortUp
+{
+    width: 35%;
+    position: absolute;
+    top: 5%;
+    right: 30%;
+    font-weight: bold;
+}
+
+.pHW
+{
+    color: #555555;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: absolute;
+    top: 4%;
+    right: 30%;
+    font-size: 45px;
+}
+
+.hrShortDown
+{
+    width: 35%;
+    position: absolute;
+    top: 20%;
+    right: 30%;
+}
+
+.leftMargin
+{
+    margin-left: 20px;
+}
+
+.TitleClLeftTop
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.TitleClRightTop
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.TitleClLeftBottom
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.TitleClRightBottom
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.pText
+{
+    text-align: justify;
+    position: absolute;
+    top: 40%;
+}
+
+.mainPic
+{
+    position: absolute;
+    top: 35%;
+    display: inline;
+}
+
+.TitleText
+{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.copyRight
+{
+    position: absolute;
+    bottom: 4%;
+    right: 50%;
+    color: #a9a9a9;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.bottomHR
+{
+    width: 60%;
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
 }
