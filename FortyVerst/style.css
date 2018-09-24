@@ -1,0 +1,59 @@
+body
+{
+    font-size: 12pt;
+    color: #ffffff;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    letter-spacing: 0.025em;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/*z-index*/
+
+header
+{
+
+    background-color: transparent;
+    font-weight: bold; /*600*/
+    letter-spacing: 0.25em;
+    line-height: 3.25em;
+    text-transform: uppercase;
+    top: 0;
+    display: flex;
+    width: 100%;
+}
+
+.logoDec
+{
+    border: 0;
+    font-size: 0.8em;
+    padding: 0 1.5em;
+}
+
+.logoDec strong
+{
+   background-color: #ffffff;
+   color: #242943;
+   display: inline-block;
+   line-height: 1.65em;
+   margin-right: 0.325em;
+   padding: 0 0.125em 0 0.375em;
+}
+
+a
+{
+    color: inherit;
+    text-decoration: none;
+}
+
+.banner
+{
+    background-image: url('https://html5up.net/uploads/demos/forty/images/banner.jpg');
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: -3.25em;
+    position: relative;
+    top: -3.25em;
+}
+
