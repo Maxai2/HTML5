@@ -1,6 +1,7 @@
 body
 {    
     margin: 0;
+    overflow: hidden;
 }
 
 h1 
@@ -27,7 +28,7 @@ h1
     text-align: center; /*left right justify*/
 }
 
-.div1
+/* .div1
 {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlA31W25U48VZevnp_scg61PVUzCJeuzfu6HwM6k-TcbmdwkGAjA); 
     background-size: contain;
@@ -201,4 +202,174 @@ h1
 .colorbg:hover
 {
     background-color: rgba(10, 50, 20, 0);
+}
+
+.studs li:first-child
+{
+    color: red;
+}
+
+.studs li:last-child
+{
+    color: red;
+}
+
+.studs li:nth-child(even)
+{
+    text-decoration: underline;
+}
+
+.studs li:nth-child(3n)
+{
+    font-weight: bold;
+}
+
+.studs li:nth-child(3n+2)
+{
+    font-style: italic;
+}
+
+asdf :first-of-type
+{
+    color: blue;
+} */
+
+.div
+{
+    height: 150px;
+    margin: 20px;
+}
+
+.div1
+{
+    background-color: darkcyan;
+}
+
+.div2
+{
+    background-color: darkred;
+    position: absolute;
+    top: 50px;
+    right: 1050px;
+    width: 500px;
+}
+
+.div3
+{
+    background-color: darkorchid;
+}
+
+.top
+{
+    display: inline-block;
+    padding: 20px;
+    background-color: darkblue;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
+
+.modalbg
+{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    display: block; /*none*/
+}
+
+.modal
+{
+    width: 400px;
+    padding: 50px;
+    background-color: white;
+    box-sizing: border-box;
+    margin: 200px auto;
+    position: relative;
+}
+
+.close
+{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.content
+{
+    height: 300px;
+    overflow: auto;
+}
+
+.content h4
+{
+    margin: 0;
+    padding: 20px 0;
+    background-color: white;
+    position: sticky;
+    top: 0;
+}
+
+.menu, .submenu, .submenu2
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu > li
+{
+    float: left;
+}
+
+.menu::after
+{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.menu a
+{
+    display: block;
+    padding: 10px 15px;
+    border: 1px solid gray;
+    width: 100px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu a:hover
+{
+    background-color: gray;
+    color: white;
+}
+
+.submenu, .submenu2
+{
+    display: none;
+}
+
+.submenu li
+{
+    position: relative;
+}
+
+.menu li:hover > ul
+{
+    display: block;
+}
+
+.submenu2
+{
+    position: absolute;
+    top: 0;
+    left: 100%;
 }
