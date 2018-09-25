@@ -222,30 +222,106 @@
             footer
         -->
 
-        <nav>
+        <!-- <nav>
             <ul class="menu">
-                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Home</a>
+                </li>
                 <li>
                     <a href="#">Product</a>
                     <ul class="submenu">
-                        <li><a href="#">Avocado</a></li>
+                        <li>
+                            <a href="#">Avocado</a>
+                        </li>
                         <li>
                             <a href="#">Mango</a>
                             <ul class="submenu2">
-                                <li><a href="#">Red</a></li>
-                                <li><a href="#">Green</a></li>
-                                <li><a href="#">Yellow</a></li>
+                                <li>
+                                    <a href="#">Red</a>
+                                </li>
+                                <li>
+                                    <a href="#">Green</a>
+                                </li>
+                                <li>
+                                    <a href="#">Yellow</a>
+                                </li>
                             </ul>
                         </li>
-                        <li><a href="#">Apple</a></li>
-                        <li><a href="#">Pear</a></li>
-                        <li><a href="#">Coconut</a></li>
+                        <li>
+                            <a href="#">Apple</a>
+                        </li>
+                        <li>
+                            <a href="#">Pear</a>
+                        </li>
+                        <li>
+                            <a href="#">Coconut</a>
+                        </li>
                     </ul>
                 </li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
             </ul>
-        </nav>
+        </nav> -->
+
+        <form method="POST" action="url_to_action_on_server">
+            <div>
+                <label>Name:</label>
+                <input type="text" name="Name" required/>
+            </div>
+            <div>
+                <label>Number:</label>
+                <input type="number" name="age" readonly/>
+            </div>
+            <div>
+                <label for="ma">Email:</label>
+                <input id="ma" type="email" name="mail" />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="pas" />
+            </div>
+            <div>
+                <label>Date:</label>
+                <input type="date" name="date" />
+            </div>
+            <div>
+                <label>Gender:</label>
+                <label>
+                    <input type="radio" name="gender" value="male" checked/> male</label>
+                <label>
+                    <input type="radio" name="gender" value="female" /> female</label>
+            </div>
+            <div>
+                <label>Send mail:</label>
+                <input type="checkbox" name="sendMCh" checked/>
+            </div>
+            <div>
+                <label>Avatar</label>
+                <input type="file" name="avatar" />
+            </div>
+            <div>
+                <label>Language:</label>
+                <select name="lang">
+                    <option value="en">English</option>
+                    <option>ru</option>
+                    <option>fr</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Story:</label>
+                <textarea name="story"></textarea>
+            </div>
+            <div>
+                <input type="reset" value="Reset" />
+                <input type="submit" value="Send" />
+            </div>
+
+        </form>
 
 </body>
 </div>

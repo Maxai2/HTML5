@@ -234,7 +234,7 @@ asdf :first-of-type
     color: blue;
 } */
 
-.div
+/* .div
 {
     height: 150px;
     margin: 20px;
@@ -270,7 +270,7 @@ asdf :first-of-type
     bottom: 15px;
     right: 15px;
 }
-
+*/
 .modalbg
 {
     position: fixed;
@@ -281,7 +281,7 @@ asdf :first-of-type
     left: 0;
     display: block; /*none*/
 }
-
+/*
 .modal
 {
     width: 400px;
@@ -372,4 +372,10 @@ asdf :first-of-type
     position: absolute;
     top: 0;
     left: 100%;
+} */
+
+input[type="text"], input[type="email"]
+{
+    border-color: red;
+    outline: 0;
 }
