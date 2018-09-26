@@ -89,3 +89,25 @@ blockquote p:last-child
 {
     margin-bottom: 0;
 }
+
+blockquote a
+{
+    color: #0088cc;
+    text-decoration: none;
+}
+
+blockquote a:hover
+{
+    text-decoration: underline;
+}
+
+.content_wrap a
+{
+    text-decoration: none;
+    color: #333;
+}
+
+.content_wrap a:hover
+{
+    text-decoration: underline;
+}
