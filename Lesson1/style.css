@@ -1,8 +1,10 @@
+
 body
 {    
     margin: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
+
 
 h1 
 {
@@ -374,8 +376,39 @@ asdf :first-of-type
     left: 100%;
 } */
 
-input[type="text"], input[type="email"]
+/* input[type="text"], input[type="email"]
 {
     border-color: red;
     outline: 0;
+} */
+
+.container
+{
+    display: flex;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+    width: 800px;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+    height: 100vh;
+    align-content: space-around;
+}
+
+.item
+{
+    padding: 50px;
+    background-color: cyan;
+    margin: 10px;
+    max-width: 100px;
+}
+
+.item1
+{
+    order: -1;
+}
+
+.item2
+{
+    order: -1;
 }
