@@ -3,41 +3,33 @@ body
     font-size: 12pt;
     color: #ffffff;
     font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 300;
     letter-spacing: 0.025em;
     line-height: 1.65;
+    background: #242943;
     margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
 }
-
-/*z-index*/
 
 header
 {
-
+    background-image: url("https://html5up.net/uploads/demos/forty/images/banner.jpg");
     background-color: transparent;
-    font-weight: bold; /*600*/
-    letter-spacing: 0.25em;
-    line-height: 3.25em;
+    box-shadow: none;
+    position: absolute;
+    display: flex;
+    font-weight: 600;
+    left: 0;
+    margin: 0;
     text-transform: uppercase;
     top: 0;
-    display: flex;
     width: 100%;
-}
-
-.logoDec
-{
-    border: 0;
-    font-size: 0.8em;
-    padding: 0 1.5em;
-}
-
-.logoDec strong
-{
-   background-color: #ffffff;
-   color: #242943;
-   display: inline-block;
-   line-height: 1.65em;
-   margin-right: 0.325em;
-   padding: 0 0.125em 0 0.375em;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
 }
 
 a
@@ -46,14 +38,66 @@ a
     text-decoration: none;
 }
 
-.banner
+.logo
 {
-    background-image: url('https://html5up.net/uploads/demos/forty/images/banner.jpg');
-    display: flex;
-    background-position: center;
-    background-size: cover;
-    margin-bottom: -3.25em;
-    position: relative;
-    top: -3.25em;
+    
+    border: 0;
+    display: inline-block;
+    font-size: 0.8em;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 1.5em;
 }
 
+.logo strong
+{
+    background-color: #ffffff;
+    color: #242943;
+    display: inline-block;
+    line-height: 1.65em;
+    margin-right: 0.325em;
+    padding: 0 0.125em 0 0.375em;
+}
+
+strong
+{
+    color: #ffffff;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+span
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+nav
+{
+    justify-content: flex-end;
+    flex-grow: 1;
+    height: inherit;
+    line-height: inherit;
+    display: flex;
+}
+
+nav a
+{
+    border: 0;
+    display: block;
+    font-size: 0.8em;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 0.75em;
+    position: relative;
+    vertical-align: middle;
+}
