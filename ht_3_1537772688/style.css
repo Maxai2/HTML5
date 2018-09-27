@@ -4,7 +4,7 @@ body
     font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
 }
 
-nav
+nav, .content_wrap
 {
     border-bottom: 1px solid #e8e8e8;
 }
@@ -27,6 +27,7 @@ nav
     padding-right: 15px;
     margin-bottom: auto;
     list-style-type: none;
+    margin-top: 0;
 }
 
 .menu::after
@@ -42,7 +43,7 @@ nav
     text-align: center;
     color: #0088cc;
     text-decoration: none;
-    padding: 1px 15px;
+    padding: 15px 15px;
     font-size: 13px;
 }
 
@@ -90,7 +91,7 @@ blockquote p:last-child
     margin-bottom: 0;
 }
 
-blockquote a
+a
 {
     color: #0088cc;
     text-decoration: none;
@@ -99,6 +100,12 @@ blockquote a
 blockquote a:hover
 {
     text-decoration: underline;
+}
+
+.content_wrap ul
+{
+    margin: 0;
+    padding: 0 0 20px;
 }
 
 .content_wrap a
@@ -110,4 +117,41 @@ blockquote a:hover
 .content_wrap a:hover
 {
     text-decoration: underline;
+}
+
+.content_wrap li
+{
+    list-style-type: none;
+}
+
+.content_wrap a
+{
+    color: #0088cc;
+}
+
+.content_wrap
+{
+    border-bottom: 1px solid #e8e8e8;
+}
+
+h3
+{
+    font-size: 20px;
+    margin-top: 32px;
+    margin-bottom: 10px;
+}
+
+h4
+{
+    font-size: 16px;
+    margin-top: 29px;
+    margin-bottom: 7px;
+}
+
+.footer_wrap
+{
+    border-top: 1px solid #e8e8e8;
+    max-width: 925px;
+    margin: 10px auto 0;
+    padding: 28px 0 34px;
 }
