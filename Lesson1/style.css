@@ -394,7 +394,7 @@ asdf :first-of-type
     height: 100vh;
     align-content: space-around;
 }
-
+/* 
 .item
 {
     padding: 50px;
@@ -411,4 +411,109 @@ asdf :first-of-type
 .item2
 {
     order: -1;
+} */
+
+.grad1
+{
+    margin: 10px;
+    background-image: linear-gradient(45deg, red, yellow 75%, blue); /* to left */
+    height: 100px;
+}
+
+.grad2
+{
+    margin: 10px;
+    background-image: radial-gradient(closest-corner at 20px 20px, lightyellow, green); 
+    height: 100px;
+}
+
+.btn1
+{
+    border: 1px solid darkcyan;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: cadetblue;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    transition: color 1s, background-color 0s;
+    width: 150px;
+    transition:  2s ease-in;
+    /*transition-duration: 1s;*/
+}
+
+.btn1:hover
+{
+    background-color: white;
+    color: cadetblue;
+    transition-duration: 1s;
+    width: 300px;
+}
+
+.cont1, .cont2, .cont3
+{
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 10px;
+    position: relative;
+}
+
+@keyframes goround
+{
+    /* 0%  { left: 0; top: 0; }
+    25% { left: 240px; top: 0; }
+    50% { left: 240px; top: 140px; }
+    75% { left: 0; top: 140px; }
+    100% { left: 0; top: 0; } */
+
+    0%  { top: 0; left: 0; }
+    25% { top: 0; left: calc(100% - 70px); }
+    50% { top: calc(100% - 30px); left: calc(100% - 70px); }
+    75% { top: calc(100% - 30px); left: 0; }
+    100% { top: 0; left: 0; }
+}
+
+.cont1 button
+{
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    animation: goround 4s linear infinite alternate;
+}
+
+@keyframes whiteblack
+{
+    0% { background-color: white; color: black; border: 1px solid black; }
+    100% { background-color: black; color: white; border: 1px solid white; }
+}
+
+.cont2 button
+{
+    width: 70px;
+    height: 70px;
+    text-transform: uppercase;
+    animation: whiteblack 2s linear infinite alternate both;
+}
+
+@keyframes goaround
+{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.cont3 button
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: darkcyan;
+    color: white;
+    border: 0;
+    text-transform: uppercase;
+    position: absolute;
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
+    animation: goaround 3s linear 0s infinite normal;
 }
