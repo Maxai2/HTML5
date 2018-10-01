@@ -1,16 +1,25 @@
 body
 {
     font-family: "Source Sans Pro", Helvetica, sans-serif;
-    font-size: 13pt;
+    font-size: 12pt;
     background-color: #242943;
     color: white;
     margin: 0;
+    font-weight: 300;
+    letter-spacing: 0.025em;
+    line-height: 1.65;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.wrap
+{
     padding: 1% 0 0 0;
 }
 
 header
 {
-    letter-spacing: 0.32em;
+    letter-spacing: 0.25em;
     padding: 0 19.2px;
     text-transform: uppercase;
 }
@@ -19,19 +28,24 @@ header
 {
     text-decoration: none;
     float: left;
+    border: 0;
+    font-size: 0.8em;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 1.5em;
 }
 
-.logo:hover:first-child
+.logo:hover :first-child
 {
     background-color: #9bf1ff;
 }
 
-.logo:hover:last-child
+.logo:hover :last-child
 {
     color:#9bf1ff;
 }
 
-.logoName
+.logo strong
 {
     font-size: 0.8em;
     background-color: white;
@@ -41,4 +55,94 @@ header
     display: inline-block;  
     letter-spacing: inherit;
     line-height: 1.65em;
+}
+
+.logo span
+{
+    color: white;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+nav
+{
+    margin-right: 0; 
+    display: flex;  
+    float: right;
+    justify-content: flex-end;
+    flex-grow: 1;
+    height: inherit;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+nav::after
+{
+    background-image: url(menu-button.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px 32px;
+    content: '';
+    height: 100%;
+    right: 1.5em;
+    top: 0;
+    vertical-align: middle;
+}
+
+nav:hover :first-child
+{
+    color: #9bf1ff;
+}
+
+nav:hover :last-child
+{
+    color: #9bf1ff;
+}
+
+.section1
+{
+    background-image: url(https://html5up.net/uploads/demos/forty/images/banner.jpg);
+    background-repeat: 0;
+    background-size: cover;
+    margin: -25px 0
+}
+
+.fgSect1
+{
+    background-color: rgba(36, 41, 67, 0.85);
+    padding: 200px 220px;      
+}
+
+.fgSect1 > hr
+{
+    height: 1px;
+    background-color: white;
+}
+
+.fgSect1 > h1
+{
+    font-size: 50pt;
+    letter-spacing: 2px;
+    margin-top: 0;
+
+}
+
+.fgSect1 > div
+{
+    display: flex;
+    align-items:center;
+    letter-spacing: 0.25em;
+    line-height: 25px;
+    margin-top: 40px;
+}
+
+.fgSect1 > div > a
+{
+    border: 1px solid white;
+    padding: 10px 45px ;
+    margin-left: 30px;
 }
