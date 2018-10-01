@@ -1,0 +1,44 @@
+body
+{
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 13pt;
+    background-color: #242943;
+    color: white;
+    margin: 0;
+    padding: 1% 0 0 0;
+}
+
+header
+{
+    letter-spacing: 0.32em;
+    padding: 0 19.2px;
+    text-transform: uppercase;
+}
+
+.logo
+{
+    text-decoration: none;
+    float: left;
+}
+
+.logo:hover:first-child
+{
+    background-color: #9bf1ff;
+}
+
+.logo:hover:last-child
+{
+    color:#9bf1ff;
+}
+
+.logoName
+{
+    font-size: 0.8em;
+    background-color: white;
+    color: #242943;
+    font-size: 100%;
+    padding: 0 0.125em 0 0.375em;
+    display: inline-block;  
+    letter-spacing: inherit;
+    line-height: 1.65em;
+}
