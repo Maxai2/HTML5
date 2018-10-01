@@ -12,6 +12,24 @@ body
     vertical-align: baseline;
 }
 
+div, li
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h1, ul
+{
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.65;
+    margin: 0 0 1em 0;
+}
+
 .wrap
 {
     padding: 1% 0 0 0;
@@ -80,7 +98,7 @@ nav
     cursor: pointer;
 }
 
-nav::after
+nav span::after
 {
     background-image: url(menu-button.png);
     background-position: center;
@@ -88,9 +106,11 @@ nav::after
     background-size: 24px 32px;
     content: '';
     height: 100%;
-    right: 1.5em;
+    right: 2em;
     top: 0;
     vertical-align: middle;
+    position: absolute;
+    width: 24px;
 }
 
 nav:hover :first-child
@@ -103,46 +123,109 @@ nav:hover :last-child
     color: #9bf1ff;
 }
 
-.section1
+.major
 {
     background-image: url(https://html5up.net/uploads/demos/forty/images/banner.jpg);
     background-repeat: 0;
     background-size: cover;
-    margin: -25px 0
+    background-position: center -27.5px;
+    margin: -25px 0;
+    height: 75vh;
+    min-height: 30em;
+    max-height: 50em;
+    background-attachment: scroll;
+    margin-bottom: -3.25em;
 }
 
-.fgSect1
+.inner
 {
     background-color: rgba(36, 41, 67, 0.85);
-    padding: 200px 220px;      
+    padding: 200px 50px;    
+    margin: 0 auto;
+    width: calc(100% - 6em);
 }
 
-.fgSect1 > hr
+.inner h1
 {
-    height: 1px;
-    background-color: white;
+    margin-bottom: 0;
+    font-size: 3.25em;
 }
 
-.fgSect1 > h1
+.inner h1::after
 {
-    font-size: 50pt;
-    letter-spacing: 2px;
-    margin-top: 0;
-
+    content: '';
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    margin: 0.325em 0 0.5em 0;
+    width: 100%;
 }
 
-.fgSect1 > div
+.content
 {
+    align-items: center;
+    margin: 0 0 2em 0;
     display: flex;
-    align-items:center;
-    letter-spacing: 0.25em;
-    line-height: 25px;
-    margin-top: 40px;
 }
 
-.fgSect1 > div > a
+.content p
 {
-    border: 1px solid white;
-    padding: 10px 45px ;
-    margin-left: 30px;
+    margin-top: -20px;
+    font-size: 0.6em;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.actions
+{
+    margin-right: 0;
+    display: flex;
+    list-style: none;
+    margin-left: -1em;
+    padding-left: 0;
+    margin: 0 0 2em 0;
+}
+
+.actions li
+{
+    padding: 0 0 0 1em;
+    vertical-align: middle;
+}
+
+.but
+{
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: inset 0 0 0 2px #ffffff;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 600;
+    height: 3.5em;
+    letter-spacing: 0.25em;
+    line-height: 3.5em;
+    padding: 0 1.75em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.but::after
+{
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 36px 24px;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: 1.5em;
+    top: 0;
+    width: 36px;
+    background-image: url(right-arrow.png);
+    color: white;
 }
