@@ -100,17 +100,10 @@ nav
 
 nav span::after
 {
-    background-image: url(menu-button.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 24px 32px;
-    content: '';
-    height: 100%;
-    right: 2em;
-    top: 0;
-    vertical-align: middle;
+    content: url(menu-button.png);
+    top: -4px;
     position: absolute;
-    width: 24px;
+    top: 10px;
 }
 
 nav:hover :first-child
@@ -130,7 +123,6 @@ nav:hover :last-child
     background-size: cover;
     background-position: center -27.5px;
     margin: -25px 0;
-    height: 75vh;
     min-height: 30em;
     max-height: 50em;
     background-attachment: scroll;
@@ -158,7 +150,7 @@ nav:hover :last-child
     display: block;
     height: 2px;
     margin: 0.325em 0 0.5em 0;
-    width: 100%;
+    width: 50%;
 }
 
 .content
@@ -212,20 +204,157 @@ nav:hover :last-child
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+    position: relative;
 }
 
 .but::after
 {
-    background-position: center right;
-    background-repeat: no-repeat;
-    background-size: 36px 24px;
-    content: '';
+    content: url(right-arrow.svg);
     display: block;
-    height: 100%;
     position: absolute;
-    right: 1.5em;
-    top: 0;
-    width: 36px;
-    background-image: url(right-arrow.png);
-    color: white;
+    top: 2px;
+    right: 3px;
+}
+
+.clear 
+{
+    clear: both;
+}
+
+.BlockMain .wrap 
+{
+    padding: 150px 80px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.BlockMain h3 
+{
+    font-size: 22pt;
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+.BlockMain p 
+{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-top: 2px solid white;
+    display: inline-block;
+    padding-right: 18px;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.BlockMain article 
+{
+    float: left;
+}
+
+.Aliquam 
+{
+    background-image: url(https://html5up.net/uploads/demos/forty/images/pic01.jpg);
+    background-size: cover;
+    width: 40%
+}
+
+.Aliquam .wrap 
+{
+    background-color: rgba(111, 195, 223, 0.8);
+}
+
+.Aliquam .wrap:hover 
+{
+    background-color: rgba(111, 195, 223, 0);
+}
+
+.Tempus 
+{
+    background-image: url(https://html5up.net/uploads/demos/forty/images/pic02.jpg);
+    background-size: cover;
+    width: 60%
+}
+
+.Tempus .wrap 
+{
+    background-color: rgba(141, 130, 196, 0.8);
+}
+
+.Tempus .wrap:hover 
+{
+    background-color: rgba(141, 130, 196, 0);
+}
+
+.Magna 
+{
+    background-image: url(https://html5up.net/uploads/demos/forty/images/pic03.jpg);
+    background-size: cover;
+    width: 60%
+}
+
+.Magna .wrap 
+{
+    background-color: rgba(236, 141, 129, 0.8);
+}
+
+.Magna .wrap:hover 
+{
+    background-color: rgba(236, 141, 129, 0);
+}
+
+.Ipsum 
+{
+    background-image: url(https://html5up.net/uploads/demos/forty/images/pic04.jpg);
+    background-size: cover;
+    width: 40%
+}
+
+.Ipsum .wrap 
+{
+    background-color: rgba(231, 183, 136, 0.8);
+}
+
+.Ipsum .wrap:hover 
+{
+    background-color: rgba(231, 183, 136, 0);
+}
+
+.Consequat 
+{
+    background-image: url(https://html5up.net/uploads/demos/forty/images/pic05.jpg);
+    background-size: cover;
+    width: 40%
+}
+
+.Consequat .wrap 
+{
+    background-color: rgba(142, 169, 232, 0.8);
+}
+
+.Consequat .wrap:hover 
+{
+    background-color: rgba(142, 169, 232, 0);
+}
+
+.Etiam 
+{
+    background-image: url(https://html5up.net/uploads/demos/forty/images/pic06.jpg);
+    background-size: cover;
+    width: 60%
+}
+
+.Etiam .wrap 
+{
+    background-color: rgba(135, 197, 164, 0.8);
+}
+
+.Etiam .wrap:hover 
+{
+    background-color: rgba(135, 197, 164, 0);
+}
+
+.Massa
+{
+    width: max-content;
+    margin-bottom: 2em;
 }
