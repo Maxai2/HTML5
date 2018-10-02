@@ -12,7 +12,12 @@ body
     vertical-align: baseline;
 }
 
-div, li
+p
+{
+    margin: 0 0 2em 0;
+}
+
+div, li, p
 {
     margin: 0;
     padding: 0;
@@ -28,6 +33,11 @@ h1, ul
     font-weight: 600;
     line-height: 1.65;
     margin: 0 0 1em 0;
+}
+
+h2
+{
+    font-size: 1.75em;
 }
 
 .wrap
@@ -177,6 +187,12 @@ nav:hover :last-child
     margin-left: -1em;
     padding-left: 0;
     margin: 0 0 2em 0;
+
+}
+
+.actions:hover :last-child
+{
+    color: #9bf1ff;
 }
 
 .actions li
@@ -187,20 +203,13 @@ nav:hover :last-child
 
 .but
 {
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
     box-shadow: inset 0 0 0 2px #ffffff;
     color: #ffffff;
-    cursor: pointer;
     display: inline-block;
     font-size: 0.8em;
-    font-weight: 600;
-    height: 3.5em;
     letter-spacing: 0.25em;
     line-height: 3.5em;
-    padding: 0 1.75em;
-    text-align: center;
+    padding: 0 2.75em;
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
@@ -212,8 +221,13 @@ nav:hover :last-child
     content: url(right-arrow.svg);
     display: block;
     position: absolute;
-    top: 2px;
-    right: 3px;
+    top: 5px;
+    right: 10px;
+}
+
+.but:hover::after 
+{
+    color: #9bf1ff;
 }
 
 .clear 
@@ -223,7 +237,7 @@ nav:hover :last-child
 
 .BlockMain .wrap 
 {
-    padding: 150px 80px;
+    padding: 230px 20px;
     transition: 0.5s;
     cursor: pointer;
 }
@@ -261,6 +275,11 @@ nav:hover :last-child
 .Aliquam .wrap 
 {
     background-color: rgba(111, 195, 223, 0.8);
+}
+
+.wrapText
+{
+    margin-left: 80px;
 }
 
 .Aliquam .wrap:hover 
@@ -353,8 +372,216 @@ nav:hover :last-child
     background-color: rgba(135, 197, 164, 0);
 }
 
+.innerM
+{
+    padding: 4em 0 2em 4em;
+    margin: 0 auto;
+    font-size: 20px;
+    background-color: #2a2f4a;
+}
+
 .Massa
 {
     width: max-content;
     margin-bottom: 2em;
+    text-transform: none;
+    padding: 0;
+}
+
+.Massa::after
+{
+    content: '';
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    margin: 0.325em 0 0.5em 0;
+    width: 100%;
+}
+
+.lastBut
+{
+    margin: 30px 0 0 -20px;
+}
+
+.contact 
+{
+    background-color: #242943;
+    border-bottom: 2px solid #2a2f4a;
+    margin: 0 0 2em 0;
+}
+
+.form 
+{
+    padding: 80px 50px 80px 150px;
+    width: 55%;
+    box-sizing: border-box;
+    float: left;
+}
+
+.formgroup 
+{
+    margin: 30px 0px;
+}
+
+.formgroup label 
+{
+    display: block;
+    font-size: 13pt;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.formgroup input, .formgroup textarea 
+{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 13pt;
+    box-sizing: border-box;
+    background-color: #2a2f4a;
+    color: white;
+    border: none;
+}
+
+.formgroup1 
+{
+    width: 48%;
+    margin-right: 2%;
+    float: left;
+}
+
+.formgroup2 
+{
+    width: 48%;
+    margin-right: 2%;
+    float: left;
+}
+
+.formgroup_btn .btn 
+{
+    margin-right: 20px;
+}
+
+.btninvers 
+{
+    background-color: white;
+    color: #242943
+}
+
+.btninvers:hover 
+{
+    background-color: #9bf1ff;
+    color: #242943;
+}
+
+.contacts 
+{
+    width: 45%;
+    box-sizing: border-box;
+    float: left;
+}
+
+.contacts h3 
+{
+    margin: 0;
+    font-size: 22pt;
+}
+
+.contacts a, .contacts p 
+{
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.contacts > div 
+{
+    padding: 50px 150px 50px 50px;
+    border-left: 2px solid #2a2f4a;
+    border-bottom: 2px solid #2a2f4a;
+}
+
+.contacts .Adress 
+{
+    border-bottom: none;
+}
+
+.contacts a 
+{
+    border-bottom: 1px dotted white;
+}
+
+.contacts a:hover 
+{
+    color: #9bf1ff;
+    border-bottom: 1px dotted transparent;
+}
+
+.footer 
+{
+    background-color: #242943;
+}
+
+.inner 
+{
+    background-color: #242943;
+    padding-top: 64px;
+    padding-bottom: 32px;
+    margin: 0px 48px;
+}
+
+.icons 
+{
+    list-style-type: none;
+    margin-bottom: 64px;
+    padding-left: 0;
+}
+
+.fa 
+{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin-right: 16px;
+    background-color: white;
+    color: #242943;
+    border-radius: 100%;
+    text-decoration-line: none;
+    float: left;
+}
+
+.copyright 
+{
+    color: gray;
+    font-size: 12.8px;
+}
+
+.copyright p 
+{
+    display: inline-block;
+}
+
+.copyright .design 
+{
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    padding: 0px 10px;
+}
+
+.copyright a 
+{
+    text-decoration-line: none;
+    color: gray;
+    transition: 0.5s;
+    border-bottom: 1px dotted rgba(244, 244, 255, 0.2);
+}
+
+.copyright a:hover 
+{
+    border-bottom: 1px dotted rgba(244, 244, 255, 0);
+    color: #9bf1ff;
 }
