@@ -1,0 +1,56 @@
+@bodybgcolor: #f5f4f1;
+@whitecolor: white;
+@buttonCol: #bc8e5c;
+
+body
+{
+    background-color: @bodybgcolor;
+    margin: 0;
+}
+
+.wrap
+{
+    align-self: center;
+    width: 400px;
+    height: 270px;
+    background-color: @whitecolor;
+    margin: 0 auto;
+    padding: 10px 50px;
+
+    h1
+    {
+        text-align: center;
+    }
+
+    .inputC
+    {
+        margin: 10px 20px;
+
+        input[type="text"], input[type="password"]
+        {
+            display: block;
+            width: 100%;
+            margin: 20px 0; 
+        }
+    }
+
+    .rememberMeC
+    {
+        text-align: end;
+    }
+
+    .butC
+    {
+        width: 100%;
+
+        button
+        {    
+            width: 100%;
+            background-color: @buttonCol;
+            color: @whitecolor;
+            border: 0;
+            height: 35px;
+            margin: 15px 0;
+        }
+    }
+}

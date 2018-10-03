@@ -1,0 +1,38 @@
+body {
+  background-color: #f5f4f1;
+  margin: 0;
+}
+.wrap {
+  align-self: center;
+  width: 400px;
+  height: 270px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 10px 50px;
+}
+.wrap h1 {
+  text-align: center;
+}
+.wrap .inputC {
+  margin: 10px 20px;
+}
+.wrap .inputC input[type="text"],
+.wrap .inputC input[type="password"] {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+}
+.wrap .rememberMeC {
+  text-align: end;
+}
+.wrap .butC {
+  width: 100%;
+}
+.wrap .butC button {
+  width: 100%;
+  background-color: #bc8e5c;
+  color: white;
+  border: 0;
+  height: 35px;
+  margin: 15px 0;
+}
