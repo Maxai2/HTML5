@@ -1,0 +1,32 @@
+.wrap {
+  background-color: #795548;
+  margin: 5px auto;
+  width: 45%;
+}
+.wrap .content {
+  padding: 15px 46px;
+}
+.wrap .head h1 {
+  color: #d8c03f;
+  text-align: center;
+}
+.wrap .head h1:before {
+  content: '';
+  border-bottom: 1px solid #d8c03f;
+  width: 130px;
+  position: absolute;
+  top: 66px;
+  right: 32%;
+}
+.wrap .head h1:after {
+  content: '';
+  border-bottom: 1px solid #d8c03f;
+  width: 130px;
+  position: absolute;
+  top: 66px;
+  left: 32%;
+}
+.wrap p {
+  color: white;
+  text-align: start;
+}

@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  background-color: #f8f8f8;
+}
+.wrap header {
+  height: 60px;
+  position: sticky;
+  background-color: #333333;
+}
+.wrap header span {
+  color: white;
+  font-size: 23px;
+  position: relative;
+  left: 20%;
+  top: 15%;
+}
+.wrap main p {
+  background-color: white;
+  box-shadow: 0 0 1px gray;
+  width: 29%;
+  padding: 20px 10px;
+}
+.wrap main div {
+  float: left;
+}
+.wrap main div img {
+  display: block;
+  line-height: 20px;
+}

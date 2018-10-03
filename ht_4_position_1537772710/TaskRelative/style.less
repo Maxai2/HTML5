@@ -1,0 +1,50 @@
+@browncol: #795548;
+@yellowcol: #d8c03f;
+@whitecol: #d6cbc7;
+
+.wrap
+{
+    background-color: @browncol; 
+    margin: 5px auto;
+    width: 45%;
+
+    .content
+    {
+        padding: 15px 46px;
+    }
+
+    .head
+    {
+        h1
+        {
+            color: @yellowcol;
+            text-align: center;
+        }
+
+        h1:before
+        {
+            content: '';
+            border-bottom: 1px solid @yellowcol;
+            width: 130px;
+            position: absolute;
+            top: 66px;
+            right: 32%;
+        }
+
+        h1:after
+        {
+            content: '';
+            border-bottom: 1px solid @yellowcol;
+            width: 130px;
+            position: absolute;
+            top: 66px;
+            left: 32%;
+        }
+    }
+
+    p
+    {
+        color: white;
+        text-align: start;
+    }
+}

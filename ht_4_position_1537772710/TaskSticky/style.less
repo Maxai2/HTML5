@@ -1,0 +1,51 @@
+@headerBCol: #333333;
+@whiteCol: white;
+@mainBCol: #f8f8f8;
+@grayCol: gray;
+
+body
+{
+    margin: 0;
+    background-color: @mainBCol;
+}
+
+.wrap
+{
+    header
+    {
+        height: 60px;
+        position: sticky;
+        background-color: @headerBCol;
+
+        span
+        {       
+            color: @whiteCol;
+            font-size: 23px;
+            position: relative;
+            left: 20%;
+            top: 15%;
+        }
+    }
+
+    main
+    {
+        p
+        {
+            background-color: @whiteCol;
+            box-shadow: 0 0 1px @grayCol;
+            width: 29%;
+            padding: 20px 10px;
+        }
+
+        div
+        {
+            float: left;
+
+            img
+            {
+                display: block;
+                line-height: 20px;
+            }
+        }
+    }
+}
