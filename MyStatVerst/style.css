@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'Proxima Nova Rg';
+  src: url('fonts/ProximaNova-Regular.eot'), url('fonts/ProximaNova-Regular.woff') format('woff'), url('fonts/ProximaNova-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   margin: 0;
+  font-family: 'Proxima Nova Rg';
 }
 .wrap {
   display: grid;
@@ -74,4 +81,19 @@ body {
   grid-column: 2 / span 1;
   grid-row: 1 / span 2;
   font-size: 24px;
+}
+@media (max-width: 700px) and (min-width: 400px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    max-height: none;
+  }
+  .raiting {
+    grid-column: 1 / span 1;
+    grid-row: 6 / span 1;
+  }
+  .prizes {
+    grid-column: 1 / span 2;
+    grid-row: 4 / span 2;
+  }
 }
