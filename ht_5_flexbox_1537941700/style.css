@@ -4,37 +4,110 @@ body {
   font-weight: 300;
   line-height: 1.75;
   background: #e9f0f4;
-  position: relative;
-  font-size: 14px;
+  font-size: 18px;
   left: 0;
-  width: 100%;
 }
-.wrap header {
-  height: auto;
-  background-color: #2b2a29;
-  display: flex;
-}
-.wrap .text_logo {
-  display: flex;
-  font-size: 40px;
-  line-height: 36px;
-  white-space: nowrap;
-}
-.wrap .text_logo a {
-  font-family: "Roboto Slab", serif;
+a {
   font-weight: 800;
   color: #fefefe;
   letter-spacing: .5px;
   text-decoration: none;
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.2), 1px 1px 1px rgba(0, 0, 0, 0.7);
+  font-size: 15px;
 }
-.wrap .text_logo a img {
+.wrap header {
+  background-color: #2b2a29;
+  display: flex;
+  margin: 0 auto;
+}
+.wrap header .container {
+  margin: 0 auto;
+  display: flex;
+}
+.wrap header .container .text_logo {
+  display: flex;
+  font-size: 40px;
+  line-height: 36px;
+  white-space: nowrap;
+  padding: 12px;
+}
+.wrap header .container .text_logo img {
   vertical-align: top;
   height: 40px;
   width: auto;
 }
-.wrap .text_logo .brand_name {
+.wrap header .container .text_logo .brand_name {
   vertical-align: top;
   font-size: 28px;
   display: inline-block;
+}
+.wrap .tmenu {
+  display: flex;
+}
+.wrap .tmenu li {
+  display: inline;
+  margin: 0 5px;
+}
+.wrap .tmenu li a:hover {
+  color: #8a8989;
+}
+.wrap .tmenu .tmenu_column {
+  display: inline-block;
+  padding-left: 10px;
+  list-style-type: none;
+}
+.wrap .tmenu ul {
+  margin: 16px 0;
+}
+.selector {
+  display: flex;
+  margin: 20px 0;
+}
+.main {
+  background-color: white;
+  height: 65vh;
+  width: 90vh;
+  margin: 0 0px 0px 100px;
+}
+.main h1 {
+  text-align: left;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 25px 50px;
+  padding: 17px 0;
+}
+.main img {
+  position: relative;
+  width: 100%;
+}
+.main p {
+  font-size: 15px;
+  padding: 0 45px;
+}
+.main p a {
+  color: #04a49c;
+}
+.rightSide {
+  background-color: white;
+  margin: 0 90px 190px 30px;
+}
+.rightSide .rightUp {
+  padding: 18px;
+}
+.rightSide img {
+  border-radius: 180px;
+  max-width: 50px;
+  margin: 5px 10px 0 0;
+  float: left;
+}
+.rightSide span {
+  color: black;
+  font-weight: normal;
+  font-size: 15px;
+}
+.rightSide span:hover {
+  color: #04a49c;
+}
+.bottomRight {
+  background-color: white;
+  padding: 30px;
 }

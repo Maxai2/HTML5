@@ -5,51 +5,160 @@ body
     font-weight: 300;
     line-height: 1.75;
     background: #e9f0f4;
-    position: relative;
-    font-size: 14px;
+    font-size: 18px;
     left: 0;
-    width: 100%;
+}
+
+a
+{
+    font-weight: 800;
+    color: #fefefe;
+    letter-spacing: .5px;
+    text-decoration: none;
+    font-size: 15px;
 }
 
 .wrap
 {
     header
     {
-        height: auto;
         background-color: #2b2a29;
         display: flex;
-        
+        margin: 0 auto;
+     
+        .container
+        {
+            margin: 0 auto;
+            display: flex;
+
+            .text_logo 
+            {
+                display: flex;
+                font-size: 40px;
+                line-height: 36px;
+                white-space: nowrap;
+                padding: 12px;
+                
+                
+                img
+                {
+                    vertical-align: top;
+                    height: 40px;
+                    width: auto;
+                }
+                
+                .brand_name
+                {
+                    vertical-align: top;
+                    font-size: 28px;
+                    display: inline-block;
+                }
+            }
+        }
     }
 
-    .text_logo 
+    .tmenu
     {
         display: flex;
-        font-size: 40px;
-        line-height: 36px;
-        white-space: nowrap;
 
-        a
+        li
         {
-            font-family: "Roboto Slab",serif;
-            font-weight: 800;
-            color: #fefefe;
-            letter-spacing: .5px;
-            text-decoration: none;
-            text-shadow: -1px -1px 1px rgba(255,255,255,.2), 1px 1px 1px rgba(255,255,255,.2), 1px 1px 1px rgba(0,0,0,.7);
+            display: inline;
+            margin: 0 5px;
 
-            img
+            a:hover
             {
-                vertical-align: top;
-                height: 40px;
-                width: auto;
+                color: #8a8989;
             }
         }
 
-        .brand_name
+        .tmenu_column 
         {
-            vertical-align: top;
-            font-size: 28px;
             display: inline-block;
+            padding-left: 10px;
+            list-style-type: none;
+        }
+
+        ul
+        {
+            margin: 16px 0;
         }
     }
+}
+
+.selector
+{
+    display: flex;
+    margin: 20px 0;
+}
+
+.main
+{
+    background-color: white;
+    height: 65vh;
+    width: 90vh;
+    margin: 0 0px 0px 100px;
+
+    h1
+    {
+        text-align: left;
+        font-size: 20px;
+        line-height: 30px;
+        margin: 25px 50px;
+        padding: 17px 0;
+    }
+
+    img
+    {
+        position: relative;
+        width: 100%;
+    }
+
+    p
+    {
+        font-size: 15px;
+        padding: 0 45px;
+
+        a
+        {
+           color: #04a49c; 
+        }
+    }
+}
+
+.rightSide
+{
+    background-color: white;
+    margin: 0 90px 190px 30px;
+
+    .rightUp
+    {
+        padding: 18px;
+    }
+
+    img
+    {
+        border-radius: 180px;
+        max-width: 50px;
+        margin: 5px 10px 0 0;
+        float: left;
+    }
+
+    span
+    {
+        color: black;
+        font-weight: normal;
+        font-size: 15px;
+    }
+
+    span:hover
+    {
+        color: #04a49c;
+    }
+}
+
+.bottomRight
+{
+    background-color: white;
+    padding: 30px;
 }
