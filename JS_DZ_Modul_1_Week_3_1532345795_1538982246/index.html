@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*1. Подсчитать сумму всех чисел в заданном пользователем диапазоне. */
+
+        // let number1 = +prompt("Enter the first number: ");
+        // let number2 = prompt("Enter the second nuber: ");
+
+        // let result = 0;
+
+        // for (var i = number1; i <= number2; i++)
+        // {
+        //     result += i;
+        // }
+
+        // console.log(result);
+
+        /*2. Запросить 2 числа и найти только наибольший общий делитель. */
+
+        /*Чтобы было легче воспринять, проиллюстрируем это примером. Найдем НОД для чисел 13 и 17.
+
+        1 шаг. Сформируем два первых числа последовательности
+        17, 13
+
+        2 шаг. Третье число последовательности — остаток от деления 17 на 13, то есть 4
+        17, 13, 4
+
+        3 шаг. Четвертое число последовательности — остаток от деления 13 на 4, то есть 1
+        17, 13, 4, 1
+
+        4 шаг. Пятое число последовательности — остаток от деления 4 на 1, то есть 0
+        17, 13, 4, 1, 0
+
+        Перед нулем стоит 1 — последний ненулевой член последовательности. Следовательно, это и есть искомый НОД. С учетом того, что и 13 и 17 — простые числа, это действительно так.*/
+
+        // let number1 = +prompt("Enter the first number: ");
+        // let number2 = prompt("Enter the second nuber: ");
+
+        // let temp1 = number1;
+        // let temp2 = number2;
+        // let temp;
+
+        // if (temp1 > temp2) 
+        // {
+        //     while (true) 
+        //     {
+        //         temp = temp1 % temp2;
+                
+        //         if (temp == 0) 
+        //         {
+        //             console.log(temp2);
+        //             break;
+        //         }
+        //         else
+        //         {
+        //             temp1 = temp2;
+        //             temp2 = temp;
+        //         }
+        //     }
+        // }
+        // else 
+        // {
+        //     while (true) 
+        //     {
+        //         temp = temp2 % temp1;
+                
+        //         if (temp == 0) 
+        //         {
+        //             console.log(temp1);
+        //             break;
+        //         }
+        //         else
+        //         {
+        //             temp2 = temp1;
+        //             temp1 = temp;
+        //         }
+        //     }
+        // }
+
+        /*3. Запросить у пользователя число и вывести все делители этого числа. */
+
+        // let num = +prompt("Enter the number: ");
+
+        // let result = '';
+
+        // for (var i = 1; i <= num; i++)
+        // {
+        //     if ((num % i) == 0)
+        //     {
+        //         result += i;
+        //         result += ' ';
+        //     }
+        // }
+
+        // console.log(result);
+
+        /*4. Определить количество цифр в введенном числе.*/
+
+        let num = +prompt("Enter the number: ");
+
+        let result = 0;
+
+        while((num % 10) == 0)
+        {
+            result += 1;
+
+            num = num / 10;
+        }
+
+        console.log(result);
+
+    </script>
+</body>
+
+</html>

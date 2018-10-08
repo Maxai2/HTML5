@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  font-family: Arimo, Helvetica, sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  background: #e9f0f4;
+  position: relative;
+  font-size: 14px;
+  left: 0;
+  width: 100%;
+}
+.wrap header {
+  height: auto;
+  background-color: #2b2a29;
+  display: flex;
+}
+.wrap .text_logo {
+  display: flex;
+  font-size: 40px;
+  line-height: 36px;
+  white-space: nowrap;
+}
+.wrap .text_logo a {
+  font-family: "Roboto Slab", serif;
+  font-weight: 800;
+  color: #fefefe;
+  letter-spacing: .5px;
+  text-decoration: none;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2), 1px 1px 1px rgba(255, 255, 255, 0.2), 1px 1px 1px rgba(0, 0, 0, 0.7);
+}
+.wrap .text_logo a img {
+  vertical-align: top;
+  height: 40px;
+  width: auto;
+}
+.wrap .text_logo .brand_name {
+  vertical-align: top;
+  font-size: 28px;
+  display: inline-block;
+}
