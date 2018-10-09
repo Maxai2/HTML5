@@ -17,12 +17,14 @@
 
         // let result = 0;
 
-        // for (var i = number1; i <= number2; i++)
+        // for (let i = number1; i <= number2; i++)
         // {
         //     result += i;
         // }
 
         // console.log(result);
+
+        //---------------------------------------------------------------
 
         /*2. Запросить 2 числа и найти только наибольший общий делитель. */
 
@@ -86,13 +88,15 @@
         //     }
         // }
 
+        //---------------------------------------------------------------
+
         /*3. Запросить у пользователя число и вывести все делители этого числа. */
 
         // let num = +prompt("Enter the number: ");
 
         // let result = '';
 
-        // for (var i = 1; i <= num; i++)
+        // for (let i = 1; i <= num; i++)
         // {
         //     if ((num % i) == 0)
         //     {
@@ -103,20 +107,54 @@
 
         // console.log(result);
 
+        //---------------------------------------------------------------
+
         /*4. Определить количество цифр в введенном числе.*/
+
+        // let num = +prompt("Enter the number: ");
+
+        // let result = 0;
+
+        // while(num > 0)
+        // {
+        //     result += 1;
+
+        //     num /= 10;
+        //     num = Number.parseInt(num);
+        // }
+
+        // console.log(result);
+
+        //---------------------------------------------------------------
+
+        /*5. Запросить у пользователя 10 чисел и подсчитать, сколько
+        он ввел положительных, отрицательных и нулей. При этом
+        также посчитать, сколько четных и нечетных. Вывести
+        статистику на экран. Учтите, что достаточно одной переменной
+        (не 10) для ввода чисел пользователем.*/
 
         let num = +prompt("Enter the number: ");
 
-        let result = 0;
+        let positiveNum = 0;
+        let negativeNum = 0;
+        let zeroNumber = 0;
+        let oddNum = 0;
+        let evenNum = 0;
 
-        while((num % 10) == 0)
+        for (let i = 0; i < 10; i++)
         {
-            result += 1;
-
-            num = num / 10;
-        }
-
-        console.log(result);
+            if (num > 0) { positiveNum++; }
+            else
+            if (num < 0) { negativeNum++; }
+            else
+            if (num == 0) { zeroNumber++; }
+            else
+            if (num % 2 == 0) { evenNum++; }
+            else
+            { oddNum++; }
+        }    
+        
+        console.log(`Positive number count: ${positiveNum})
 
     </script>
 </body>
