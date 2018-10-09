@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        /*Задание 1
+        Создать объект, описывающий автомобиль (производитель, модель, год выпуска, средняя скорость), и следующие функции для работы с этим объектом. 1. Функция для вывода на экран информации об автомобиле. 2. Функция для подсчета необходимого времени для преодоления 
+        переданного расстояния со средней скоростью. Учтите, что через каждые 4 часа дороги водителю необходимо делать перерыв на 1 час.*/
+
+        // function auto (mark, model, realeseYear, avarageSpeed)
+        // {
+        //     this.mark = mark;
+        //     this.model = model;
+        //     this.realeseYear = realeseYear;
+        //     this.avarageSpeed = avarageSpeed;
+
+        //     print = function()
+        //     {
+        //         console.log(`Mark: ${this.mark} \nModel: ${this.model}             \n Realese year: ${this.realeseYear} \nAvarage speed: $           {this.avarageSpeed}`);
+        //     }
+
+        //     findTimeDuration = function(distance)
+        //     {
+        //         time = distance / this.avarageSpeed;
+
+        //         reserveTime = Number.parseInt(time / 4);
+
+        //         return time + reserveTime;
+        //     }
+        // }
+
+        // class auto 
+        // {
+        //     constructor(mark, model, realeseYear, avarageSpeed) 
+        //     {
+        //         this.mark = mark;
+        //         this.model = model;
+        //         this.realeseYear = realeseYear;
+        //         this.avarageSpeed = avarageSpeed;
+        //     }
+
+        //     print() 
+        //     {
+        //         console.log(`Mark: ${this.mark} \nModel: ${this.model} \nRealese year: ${this.realeseYear} \nAvarage speed: ${this.avarageSpeed}`);
+        //     }
+
+        //     findTimeDuration(distance) 
+        //     {
+        //         let time = distance / this.avarageSpeed;
+        //         console.log(time);
+        //         let reserveTime = Number.parseInt(time / 4);
+        //         console.log(reserveTime);
+        //         return time + reserveTime;
+        //     }
+        // }
+
+        // let hyundai = new auto('Hyundai', 'Elantra', 2005, 40);
+        // hyundai.print();
+        // console.log(hyundai.findTimeDuration(500));
+
+        //-------------------------------------------------------------
+
+        /*Задание 2
+        Создать объект, хранящий в себе отдельно числитель и знаменатель дроби, и следующие функции для работы с этим объектом.
+        1. Функция сложения 2-х объектов-дробей.
+        2. Функция вычитания 2-х объектов-дробей.
+        3. Функция умножения 2-х объектов-дробей.
+        4. Функция деления 2-х объектов-дробей.
+        5. Функция сокращения объекта-дроби.*/
+
+        class fraction
+        {
+            constructor(numerator, denominator)
+            {
+                this.numerator = numerator;
+                this.denominator = denominator;
+            }
+
+            sum (fraction)
+            {
+                let tempF = new fraction(((this.numerator * fraction.denominator) + (this.denominator * fraction.numerator)) / (this.denominator * fraction.denominator));
+
+               return tempF;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
