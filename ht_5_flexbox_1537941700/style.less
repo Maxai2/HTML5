@@ -95,7 +95,7 @@ a
 .main
 {
     background-color: white;
-    height: 65vh;
+    height: 55vh;
     width: 90vh;
     margin: 0 0px 0px 100px;
 
@@ -108,10 +108,22 @@ a
         padding: 17px 0;
     }
 
-    img
+    .imgB
     {
         position: relative;
-        width: 100%;
+        overflow: hidden;
+
+        img
+        {
+            position: static;
+            width: 100%;
+        }
+        
+        img:hover
+        {
+            transition: 0.1s;
+            transform: scale(1.02);
+        }
     }
 
     p
@@ -128,12 +140,30 @@ a
 
 .rightSide
 {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
     margin: 0 90px 190px 30px;
 
     .rightUp
     {
         padding: 18px;
+        margin-bottom: 20px;
+        background-color: white;
+
+        span
+        {
+            padding: 15px 0 0 0;
+        }
+
+        div
+        {
+            margin: 10px;
+        }
+
+        a
+        {
+            display: flex;
+        }
     }
 
     img
@@ -141,7 +171,7 @@ a
         border-radius: 180px;
         max-width: 50px;
         margin: 5px 10px 0 0;
-        float: left;
+        align-self: center;
     }
 
     span
@@ -155,10 +185,11 @@ a
     {
         color: #04a49c;
     }
-}
 
-.bottomRight
-{
-    background-color: white;
-    padding: 30px;
+    .bottomRight
+    {
+        background-color: white;
+        padding: 20px;
+        cursor: pointer;
+    }
 }

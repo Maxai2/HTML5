@@ -64,7 +64,7 @@ a {
 }
 .main {
   background-color: white;
-  height: 65vh;
+  height: 55vh;
   width: 90vh;
   margin: 0 0px 0px 100px;
 }
@@ -75,9 +75,17 @@ a {
   margin: 25px 50px;
   padding: 17px 0;
 }
-.main img {
+.main .imgB {
   position: relative;
+  overflow: hidden;
+}
+.main .imgB img {
+  position: static;
   width: 100%;
+}
+.main .imgB img:hover {
+  transition: 0.1s;
+  transform: scale(1.02);
 }
 .main p {
   font-size: 15px;
@@ -87,17 +95,29 @@ a {
   color: #04a49c;
 }
 .rightSide {
-  background-color: white;
+  display: flex;
+  flex-direction: column;
   margin: 0 90px 190px 30px;
 }
 .rightSide .rightUp {
   padding: 18px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+.rightSide .rightUp span {
+  padding: 15px 0 0 0;
+}
+.rightSide .rightUp div {
+  margin: 10px;
+}
+.rightSide .rightUp a {
+  display: flex;
 }
 .rightSide img {
   border-radius: 180px;
   max-width: 50px;
   margin: 5px 10px 0 0;
-  float: left;
+  align-self: center;
 }
 .rightSide span {
   color: black;
@@ -107,7 +127,8 @@ a {
 .rightSide span:hover {
   color: #04a49c;
 }
-.bottomRight {
+.rightSide .bottomRight {
   background-color: white;
-  padding: 30px;
+  padding: 20px;
+  cursor: pointer;
 }
