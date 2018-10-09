@@ -50,13 +50,103 @@
         // isNaN(res);
         // parseInt("123");
 
-        let res = +prompt("Enter");
-        console.log(res + 1);
-        console.log(typeof(res));
+        // let res = +prompt("Enter");
+        // console.log(res + 1);
+        // console.log(typeof(res));
 
-        let isSure =  confirm("R u?");
+        // let isSure =  confirm("R u?");
 
-        console.log(isSure);
+        // console.log(isSure);
+
+        // function add(num1, num2, num3 = 0)
+        // {
+        //     return num1 + num2 + num3;
+        // }
+        
+        // function mult()
+        // {
+        //     if (arguments.length == 0)
+        //     {
+        //         return 0;
+        //     }
+
+        //     let res = 1;
+
+        //     for (let i = 0; i < arguments.length; ++i)
+        //     {
+        //         res *= arguments[i];
+        //     }
+
+        //     return res;
+        // }
+
+        // console.log(mult(1, 2, 3, 4, 5));
+        // console.log(mult(1, 2, 3));
+        // console.log(mult());
+
+        // let res = add(12, 123);
+        // console.log(res);
+        // console.log(add('1', 2, "asd"));
+
+        // let stud = new Object();
+        // stud.name = "Name";
+        // stud.surname = "Surname";
+        // stud.age = 85;
+
+        // let stud2 = {};
+        // stud2.name = "Qwerty";
+        // stud2.age = 45;
+        // stud2.height = 1.8;
+
+        // let stud3 = 
+        // {
+        //     name: "zxcv",
+        //     age: 46,
+        //     weight: 90
+        // }
+
+        // console.log(stud);
+        // document.write(stud.name);
+        // delete stud.name;
+        // document.write(stud.name);
+
+        // for (let key in stud)
+        // {
+        //     console.log(key + ': ' + stud[key]);
+        // }
+
+        let user = 
+        {
+            name: 'Name',
+            age: 26,
+
+            print: function()
+            {
+                console.log(`Name: ${this.name}, Age: ${this.age}`);
+            }
+        };
+
+        user.print = function()
+        {
+            console.log(`Name: ${this.name}, Age: ${this.age}`);
+        }
+
+        function student(p_id, p_name, p_age)
+        {
+            this.id = p_id;
+            this.name = p_name;
+            this.age = p_age;
+
+            print = function()
+            {
+                console.log(`Id: ${this.id}, Name: ${this.name}, Age: ${this.age}`);
+            }
+        }
+
+        let zaza = new student(1, 'Zaza', 29);
+
+        zaza.print();
+        console.log(zaza);
 
     </script>
 </body>
