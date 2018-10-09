@@ -6,25 +6,29 @@
 .wrap .content {
   padding: 15px 46px;
 }
-.wrap .head h1 {
-  color: #d8c03f;
+.wrap .head .title {
+  position: relative;
   text-align: center;
+  background: #795548;
+  padding: 10px;
 }
-.wrap .head h1:before {
-  content: '';
-  border-bottom: 1px solid #d8c03f;
-  width: 130px;
-  position: absolute;
-  top: 66px;
-  right: 32%;
+.wrap .head .title span {
+  display: inline-block;
+  position: relative;
+  z-index: 100;
+  background-color: #795548;
+  padding: 0 20px;
+  color: #d8c03f;
+  font-size: 20px;
 }
-.wrap .head h1:after {
-  content: '';
-  border-bottom: 1px solid #d8c03f;
-  width: 130px;
+.wrap .head .line {
+  height: 2px;
+  background-color: #d8c03f;
+  width: 100%;
   position: absolute;
-  top: 66px;
-  left: 32%;
+  left: 0;
+  top: calc(49%);
+  z-index: 10;
 }
 .wrap p {
   color: white;

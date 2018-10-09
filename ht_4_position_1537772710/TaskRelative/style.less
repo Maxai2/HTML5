@@ -15,30 +15,34 @@
 
     .head
     {
-        h1
+        .title 
         {
-            color: @yellowcol;
+            position: relative;
             text-align: center;
+            background: @browncol;
+            padding: 10px;
         }
 
-        h1:before
+        .title span 
         {
-            content: '';
-            border-bottom: 1px solid @yellowcol;
-            width: 130px;
-            position: absolute;
-            top: 66px;
-            right: 32%;
+            display: inline-block;
+            position: relative;
+            z-index: 100;
+            background-color: @browncol;
+            padding: 0 20px;
+            color: @yellowcol;
+            font-size: 20px;
         }
 
-        h1:after
+        .line 
         {
-            content: '';
-            border-bottom: 1px solid @yellowcol;
-            width: 130px;
+            height: 2px;
+            background-color: @yellowcol;
+            width: 100%;
             position: absolute;
-            top: 66px;
-            left: 32%;
+            left: 0;
+            top: calc(50% - 1px);
+            z-index: 10;
         }
     }
 
