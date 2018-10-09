@@ -1,6 +1,80 @@
-.circle {
-  width: 50px;
+.wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.container {
+  width: 300px;
+  height: 300px;
+  border: 1px solid gray;
+  margin: 10px;
+  position: relative;
+  display: flex;
+}
+.clock {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  position: relative;
+  border: 4px solid darkcyan;
+  border-radius: 50%;
+}
+.clock .cont_hour,
+.clock .cont_min {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.clock .hour {
+  height: 60px;
+  width: 5px;
+  background-color: darkcyan;
+  position: absolute;
+  top: calc(50% - 60px);
+  left: calc(50% - 3px);
+}
+.clock .min {
+  height: 70px;
+  width: 3px;
+  background-color: darkcyan;
+  position: absolute;
+  top: calc(50% - 70px);
+  left: calc(50% - 3px);
+}
+@keyframes clockAnim {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.clock .cont_hour {
+  animation: clockAnim 72s infinite linear;
+}
+.clock .cont_min {
+  animation: clockAnim 6s infinite linear;
+}
+.rectangle {
+  width: 170px;
   height: 50px;
-  border-radius: 25px;
-  border-color: #229494;
+  border: 2px solid darkcyan;
+  margin: auto;
+}
+.rectangle .square {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  background-color: darkcyan;
+  position: relative;
+  animation: progresBar 2s infinite linear alternate;
+}
+@keyframes progresBar {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  100% {
+    top: 0;
+    left: calc(50%);
+  }
 }
