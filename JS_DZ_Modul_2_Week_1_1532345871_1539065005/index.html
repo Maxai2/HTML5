@@ -24,7 +24,7 @@
 
         //     print = function()
         //     {
-        //         console.log(`Mark: ${this.mark} \nModel: ${this.model}             \n Realese year: ${this.realeseYear} \nAvarage speed: $           {this.avarageSpeed}`);
+        //         console.log(`Mark: ${this.mark}\nModel: ${this.model}\nRealese year: ${this.realeseYear}\nAvarage speed: ${this.avarageSpeed}`);
         //     }
 
         //     findTimeDuration = function(distance)
@@ -76,21 +76,257 @@
         4. Функция деления 2-х объектов-дробей.
         5. Функция сокращения объекта-дроби.*/
 
-        class fraction
+        // class fraction
+        // {
+        //     constructor(numerator, denominator)
+        //     {
+        //         this.numerator = numerator;
+        //         this.denominator = denominator;
+        //     }
+            
+        //     fractionReduction()
+        //     {
+        //         let temp = 0;
+        //         let temp1 = this.numerator;
+        //         let temp2 = this.denominator;
+        //         let num = 0;
+
+        //         if (temp1 > temp2) 
+        //         {
+        //             while (true) 
+        //             {
+        //                 temp = temp1 % temp2;
+        //                 if (temp == 0) 
+        //                 {
+        //                     num = temp2;
+        //                     break;
+        //                 }
+        //                 else
+        //                 {
+        //                     temp1 = temp2;
+        //                     temp2 = temp;
+        //                 }
+        //             }
+        //         }
+        //         else 
+        //         {
+        //             while (true) 
+        //             {
+        //                 temp = temp2 % temp1;
+        //                 if (temp == 0) 
+        //                 {
+        //                     num = temp1;
+        //                     break;
+        //                 }
+        //                 else
+        //                 {
+        //                     temp2 = temp1;
+        //                     temp1 = temp;
+        //                 }
+        //             }
+        //         }
+
+        //         this.numerator /= num;
+        //         this.denominator /= num;
+        //     }
+
+        //     sum (fract)
+        //     {
+        //         let tempF = new fraction(((this.numerator * fract.denominator) + (this.denominator * fract.numerator)), (this.denominator * fract.denominator));
+        //         tempF.fractionReduction();
+
+        //         return tempF;
+        //     }
+            
+        //     subtraction (fract)
+        //     {
+        //         let tempF = new fraction(((this.numerator * fract.denominator) - (this.denominator * fract.numerator)), (this.denominator * fract.denominator));
+        //         tempF.fractionReduction();
+
+        //         return tempF;
+        //     }          
+
+        //     multiplication (fract)
+        //     {
+        //         let tempF = new fraction((this.numerator * fract.numerator), (this.denominator * fract.denominator));
+        //         tempF.fractionReduction();
+
+        //         return tempF;
+        //     }
+
+        //     division (fract)
+        //     {
+        //         let tempF = new fraction((this.numerator * fract.denominator), (this.denominator * fract.numerator));
+        //         tempF.fractionReduction();
+
+        //         return tempF;
+        //     }
+
+        //     print()
+        //     {
+        //         console.log(`${this.numerator}/${this.denominator}`);
+        //     }
+        // }
+
+        // // let frac = new fraction(14, 20);
+        // // frac.fractionReduction();
+        // // frac.print();
+
+        // let frac1 = new fraction(5, 8);
+        // let frac2 = new fraction(3, 5);
+        // console.log(frac1.sum(frac2));
+
+        // let frac1 = new fraction(5, 8);
+        // let frac2 = new fraction(3, 5);
+        // console.log(frac1.subtraction(frac2));
+
+        // let frac1 = new fraction(5, 8);
+        // let frac2 = new fraction(3, 5);
+        // console.log(frac1.multiplication(frac2));
+
+        // let frac1 = new fraction(5, 8);
+        // let frac2 = new fraction(3, 5);
+        // console.log(frac1.division(frac2));
+
+        //-------------------------------------------------------------
+
+        /*Задание 3
+        Создать объект, описывающий время (часы, минуты, секунды), и следующие функции для работы с этим объектом. 
+        1. Функция вывода времени на экран. 
+        2. Функция изменения времени на переданное количество секунд.
+        3. Функция изменения времени на переданное количество минут.
+        4. Функция изменения времени на переданное количество часов.
+        Учтите, что в последних 3-х функциях, при изменении одной части времени, может измениться и другая. Например: если ко времени «20:30:45» добавить 30 секунд, то должно получиться «20:31:15», а не «20:30:75»*/
+
+        class Mtime
         {
-            constructor(numerator, denominator)
+            constructor (hours, minutes, seconds)
             {
-                this.numerator = numerator;
-                this.denominator = denominator;
+                this.hours = hours;
+                this.minutes = minutes;
+                this.seconds = seconds;
             }
 
-            sum (fraction)
+            print ()
             {
-                let tempF = new fraction(((this.numerator * fraction.denominator) + (this.denominator * fraction.numerator)) / (this.denominator * fraction.denominator));
+                console.log(`${this.hours < 10 ? '0' + this.hours : this.hours}:${this.minutes < 10 ? '0' + this.minutes : this.minutes}:${this.seconds < 10 ? '0' + this.seconds : this.seconds}`);
+            }
 
-               return tempF;
+            addSec (sec)
+            {
+                console.log(sec);
+
+                let hourCount = Number.parseInt(sec / 3600);
+                
+                console.log(hourCount);
+
+                let minCount = sec - Number.parseInt(sec / 3600);
+                
+                console.log(minCount);
+
+                let secCount = sec - (60 * minCount);
+
+                console.log(secCount);
+
+                this.seconds += secCount;
+
+                if (this.seconds >= 60 || minCount > 0)
+                {
+                    this.minutes += minCount;
+
+                    if (this.minutes >= 60)
+                    {
+                        this.hours += 1;
+                        this.minutes = 0;
+
+                        if (this.hours == 24)
+                        {
+                            this.hours = 0;
+                            this.minutes = 0;
+                            this.seconds = 0;
+                        }
+                    }
+                }
+
+                if (this.seconds < 0)
+                {
+                    this.minutes -= minCount;
+                    this.seconds = 60 + this.seconds;
+
+                    if (this.minutes < 0)
+                    {
+                        this.hours -= 1;
+                        this.minutes = 60 - 1;
+
+                        if (this.hours < 0)
+                        {
+                            this.hours = 23;
+                            this.minutes = 59;
+                            this.seconds = 59;
+                        }
+                    }
+                }
+            }
+
+            addMin (min)
+            {
+                this.minutes += min;
+
+                if (this.minutes >= 60)
+                {
+                    this.hours += 1;
+                    this.minutes = 0;
+
+                    if (this.hours == 24)
+                    {
+                        this.hours = 0;
+                        this.minutes = 0;
+                        this.seconds = 0;
+                    }
+                }
+
+                if (this.minutes < 0)
+                {
+                    this.hours -= 1;
+                    this.minutes = 60 - 1;
+
+                    if (this.hours < 0)
+                    {
+                        this.hours = 23;
+                        this.minutes = 59;
+                        this.seconds = 59;
+                    }
+                }
+            }
+
+            addHour (hour)
+            {
+                this.hours += hour;
+
+                if (this.hours == 24)
+                {
+                    this.hours = 0;
+                    this.minutes = 0;
+                    this.seconds = 0;
+                }   
+
+                if (this.hours < 0)
+                {
+                    this.hours = 23;
+                    this.minutes = 59;
+                    this.seconds = 59;
+                }             
             }
         }
+
+        let myTime = new Mtime(2, 10, 4);
+        myTime.print();
+        myTime.addSec(10000);
+        myTime.print();
+        // myTime.addMin(-20);
+        // myTime.print();
+        // myTime.addHour(1);
+        // myTime.print();
 
     </script>
 </body>
