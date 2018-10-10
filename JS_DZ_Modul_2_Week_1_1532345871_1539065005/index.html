@@ -220,49 +220,57 @@
                 
                 console.log(hourCount);
 
-                let minCount = sec - Number.parseInt(sec / 3600);
+                let minCount = Number.parseInt((sec - (3600 * hourCount)) / 60);
                 
                 console.log(minCount);
 
-                let secCount = sec - (60 * minCount);
+                let secCount = Number.parseInt(sec - (3600 * hourCount) - (60 * minCount));
 
                 console.log(secCount);
 
-                this.seconds += secCount;
-
-                if (this.seconds >= 60 || minCount > 0)
+                if (sec > 0)
                 {
+                    this.seconds += secCount;
                     this.minutes += minCount;
+                    this.hours += hourCount;
 
-                    if (this.minutes >= 60)
+                    if (this.seconds >= 60)
                     {
-                        this.hours += 1;
-                        this.minutes = 0;
+                        this.seconds = this.seconds - 60;
+                        this.minutes += 1;
 
-                        if (this.hours == 24)
+                        if (this.minutes >= 60)
                         {
-                            this.hours = 0;
-                            this.minutes = 0;
-                            this.seconds = 0;
+                            this.minutes = this.minutes - 60;
+                            this.hours += 1;
+
+                            if (this.hours >= 24)
+                            {
+                                this.hours = this.hours - 25;
+                            }
                         }
                     }
                 }
-
-                if (this.seconds < 0)
+                else
                 {
-                    this.minutes -= minCount;
-                    this.seconds = 60 + this.seconds;
+                    this.seconds += secCount;
 
-                    if (this.minutes < 0)
+                    if (this.seconds < 0 || minCount < 0)
                     {
-                        this.hours -= 1;
-                        this.minutes = 60 - 1;
+                        this.minutes += minCount;
 
-                        if (this.hours < 0)
+                        if (this.minutes < 0)
                         {
-                            this.hours = 23;
-                            this.minutes = 59;
-                            this.seconds = 59;
+                            this.hours += hourCount;
+                            this.minutes = 60 + this.minutes;
+                            this.hours -= 1;
+
+                            if (this.hours < 0)
+                            {
+                                this.hours = 23;
+                                this.minutes = 59;
+                                this.seconds = 59;
+                            }
                         }
                     }
                 }
@@ -270,63 +278,84 @@
 
             addMin (min)
             {
-                this.minutes += min;
+                console.log(min);
 
-                if (this.minutes >= 60)
+                let hourCount = Number.parseInt(min / 60);
+
+                console.log(hourCount);
+
+                let minCount = Number.parseInt(min - (60 * hourCount));
+
+                console.log(minCount);
+
+                this.minutes += minCount;
+
+                if (min > 0)
                 {
-                    this.hours += 1;
-                    this.minutes = 0;
+                    this.hours += hourCount;
 
-                    if (this.hours == 24)
+                    if (this.minutes >= 60)
                     {
-                        this.hours = 0;
-                        this.minutes = 0;
-                        this.seconds = 0;
+                        this.minutes = this.minutes - 60;
+                        this.hours += 1;
+
+                        if (this.hours >= 24)
+                        {
+                            this.hours = this.hours - 24;
+                        }
                     }
                 }
-
-                if (this.minutes < 0)
+                else
                 {
-                    this.hours -= 1;
-                    this.minutes = 60 - 1;
-
-                    if (this.hours < 0)
+                    if (this.minutes < 0 || hourCount < 0)
                     {
-                        this.hours = 23;
-                        this.minutes = 59;
-                        this.seconds = 59;
+                        this.hours += hourCount;
+                        this.minutes = 60 + this.minutes;
+                        this.hours -= 1;
+
+                        if (this.hours < 0)
+                        {
+                            this.hours = this.hours + 24;
+                        }
                     }
                 }
             }
 
             addHour (hour)
             {
-                this.hours += hour;
+                console.log(hour);
 
-                if (this.hours == 24)
-                {
-                    this.hours = 0;
-                    this.minutes = 0;
-                    this.seconds = 0;
-                }   
+                let hourCount = Number.parseInt(hour / 60);
 
-                if (this.hours < 0)
+                console.log(hourCount);
+
+                this.hours += hourCount;
+
+                if (hour > 0)
                 {
-                    this.hours = 23;
-                    this.minutes = 59;
-                    this.seconds = 59;
-                }             
+                    if (this.hours >= 24)
+                    {
+                        this.hours = this.hours - 24;
+                    }
+                }
+                else
+                {
+                    if (this.hours < 0)
+                    {
+                        this.hours = this.hours + 24;
+                    }
+                }           
             }
         }
 
-        let myTime = new Mtime(2, 10, 4);
-        myTime.print();
-        myTime.addSec(10000);
-        myTime.print();
-        // myTime.addMin(-20);
+        let myTime = new Mtime(8, 30, 45);
         // myTime.print();
-        // myTime.addHour(1);
+        // myTime.addSec(-10000); // 0 5 60 100 1000 10000 | -5 -60 -100 -1000 -10000
         // myTime.print();
+        // myTime.addMin(-1000); // 0 5 60 100 1000 | -5 -60 -100 -1000
+        myTime.print();
+        myTime.addHour(5);
+        myTime.print();
 
     </script>
 </body>
