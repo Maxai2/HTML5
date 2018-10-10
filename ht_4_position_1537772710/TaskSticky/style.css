@@ -11,14 +11,17 @@ body {
   color: white;
   font-size: 23px;
   position: relative;
-  left: 20%;
+  left: 28%;
   top: 15%;
 }
 .wrap main p {
+  position: sticky;
   background-color: white;
-  box-shadow: 0 0 1px gray;
-  width: 29%;
-  padding: 20px 10px;
+  box-shadow: 0 0 10px grey;
+  width: 40%;
+  padding: 20px 20px;
+  margin: 10px auto;
+  height: 100vh;
 }
 .wrap main div {
   float: left;
@@ -26,4 +29,5 @@ body {
 .wrap main div img {
   display: block;
   line-height: 20px;
+  margin: 5px 11px;
 }
