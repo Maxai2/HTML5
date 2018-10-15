@@ -216,7 +216,124 @@
         //     }
         // }, 1000);
 
-        
+        // ООП в прототипном стиле
+
+        // function User(name, phone)
+        // {
+        //     this.name = name;
+        //     this.phone = phone;
+
+        //     // fullInfo = function()
+        //     // {
+        //     //     return `${this.name} (${this.phone})`;
+        //     // }
+        // }
+
+        // User.prototype.fullInfo = function()
+        // {
+        //     return `${this.name} (${this.phone})`;
+        // }
+
+        // function Student(name, phone, byear)
+        // {
+        //     User.call(this, name, phone);
+
+        //     this.byear = byear;
+        // }
+
+        // Student.prototype = Object.create(User.prototype);
+        // Student.prototype.fullInfo = function()
+        // {
+        //     return User.prototype.fullInfo.apply(this) + " " + this.byear;
+        // }
+
+        // function Group(name) // agragation
+        // {
+        //     this.name = name;
+        //     this.students = new Array();
+        // }
+
+        // Group.prototype.addStudent = function(stud)
+        // {
+        //     this.students.push(stud);
+        // }
+
+        // Group.prototype.printGroup = function()
+        // {
+        //     console.log('Group: ' + this.name);
+        //     this.students.forEach((el, index) => console.log(index + 1 + ')' + el.fullInfo()));
+        // }
+
+        // let qwerty = new User("qwerty", '0506511232');
+        // console.log(qwerty.fullInfo());
+        // let asdf = new Student('asdf', '0553216598', 2000);
+        // console.log(asdf.fullInfo());
+        // let group = new Group('FSDM-1711');
+        // group.addStudent(qwerty);
+        // group.addStudent(asdf);
+        // group.printGroup();
+
+        // ООП с помощью классов
+
+        class User
+        {
+            constructor(name, phone)
+            {
+                this.name = name;
+                this.phone = phone;
+                //this._privField = 123; //private
+            }
+
+            get fullInfo() // свойство
+            {
+                return `${this.name} (${this.phone})`;
+            }
+        }
+
+        class Student extends User
+        {
+            constructor(name, phone, byear)
+            {
+                super(name, phone);
+                this.byear = byear;
+            }
+
+            get fullInfo()
+            {
+                return `${super.fullInfo} ${this.byear}`;
+            }
+        }
+
+        class Group
+        {
+            constructor(name)
+            {
+                this.name = name;
+                this.students = [];
+            }
+
+            addStudent(stud)
+            {
+                this.students.push(stud);
+            }
+
+            printGroup()
+            {
+                this.students.forEach((el, index) => 
+                {
+                    console.log(index + 1 + ')' + el.fullInfo);
+                });
+            }
+        }
+
+        //let user1 = new User('qwerty', '07012345678');
+        let stud1 = new Student('qwerty', '05012345678', 1999);
+        let stud2 = new Student('qwerty1', '05045645678', 1998);
+        let group = new Group('Fsdm-1711');
+        group.addStudent(stud1);
+        group.addStudent(stud2);
+        group.printGroup();
 
     </script>
 </body>
+</html>
