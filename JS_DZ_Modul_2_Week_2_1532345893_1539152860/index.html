@@ -12,10 +12,7 @@
     <script type="text/javascript">
         /*Задание 1
         Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необходимое количество и куплен или нет. 
-        Написать несколько функций для работы с таким массивом:
-        1. Вывод всего списка на экран таким образом, чтобы сначала шли некупленные продукты, а потом – купленные.
-        2. Добавление покупки в список. Учтите, что при добавлении покупки с уже существующим в списке продуктом, необходимо увеличивать количество в существующей покупке, а не добавлять новую.
-        3. Покупка продукта. Функция принимает название продукта и отмечает его как купленный.*/
+        Написать несколько функций для работы с таким массивом:*/
 
         // function product(nameOfProduct, requiredAmount, isPurchased) 
         // {
@@ -26,6 +23,7 @@
 
         // let ProductList = [new product("Tomat", 2, true), new product("Potato", 3, false), new product("Carrot", 4, false)];
 
+        /*1. Вывод всего списка на экран таким образом, чтобы сначала шли некупленные продукты, а потом – купленные.*/
         // ProductList.printList = function() 
         // {
         //     for (let prod of ProductList.sort(function(a)
@@ -39,7 +37,8 @@
         //         console.log(prod);
         //     }
         // }
-
+            
+        /*2. Добавление покупки в список. Учтите, что при добавлении покупки с уже существующим в списке продуктом, необходимо увеличивать количество в существующей покупке, а не добавлять новую.*/
         // ProductList.addProduct = function(prod)
         // {
         //     let tempProd = ProductList.find(p => prod.nameOfProduct == p.nameOfProduct);
@@ -50,6 +49,7 @@
         //         tempProd.requiredAmount += prod.requiredAmount;
         // }
 
+        /*3. Покупка продукта. Функция принимает название продукта и отмечает его как купленный.*/
         // ProductList.purschase = function(prod)
         // {
         //     let tempProd = ProductList.find(p => prod.nameOfProduct == p.nameOfProduct);
@@ -75,11 +75,7 @@
 
         /*Задание 2
         Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, количества и цены за единицу товара. 
-        Написать следующие функции:
-        1. Распечатка чека на экран.
-        2. Подсчет общей суммы покупки.
-        3. Получение самой дорогой покупки в чеке.
-        4. Подсчет средней стоимости одного товара в чеке. */
+        Написать следующие функции:*/
 
         // function goods(nameOfGoods, count, price)
         // {
@@ -91,6 +87,7 @@
 
         // let goodsList = [new goods("burger", 2, 7), new goods("pizza", 1, 15), new goods("fanta", 3, 3)];
 
+        /*1. Распечатка чека на экран.*/
         // goodsList.checkPrint = function()
         // {
         //     let total = 0;
@@ -104,6 +101,7 @@
         //     console.log(`\t\t\t\t\t\t\t\t\t\t\t${total}$`);
         // }
         
+        /*2. Подсчет общей суммы покупки.*/
         // goodsList.totalSum = function()
         // {
         //     let total = 0;
@@ -116,6 +114,7 @@
         //     return total;
         // }
 
+        /*3. Получение самой дорогой покупки в чеке.*/
         // goodsList.expenciveSum = function()
         // {
         //     let tempList = goodsList.sort(function(a, b) 
@@ -126,6 +125,7 @@
         //     return tempList[0].sum;
         // }
 
+        /*4. Подсчет средней стоимости одного товара в чеке.*/
         // goodsList.avgSum = function()
         // {
         //     return Number.parseInt(goodsList.totalSum() / goodsList.length);
@@ -146,20 +146,121 @@
         Написать функцию, которая принимает массив стилей и текст, и выводит этот текст с помощью document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми стилями,
         перечисленными в массиве. */
 
-        function styleObj(nameOfStyle, valueOfStyle)
+        // function styleObj(nameOfStyle, valueOfStyle)
+        // {
+        //     this.nameOfStyle = nameOfStyle;
+        //     this.valueOfStyle = valueOfStyle;
+        // }
+
+        // function pTagPrintWithStyle(arrayOfStyle, text)
+        // {
+        //     let documentTextWithStyle = "<p style=\"";
+        //     arrayOfStyle.forEach(item => 
+        //     {
+        //         documentTextWithStyle += (`${item.nameOfStyle}: ${item.valueOfStyle};`); // document.body.append
+        //     });
+
+        //     documentTextWithStyle += `\"><br/>${text}<br/></p>`;
+        //     return documentTextWithStyle;
+        // }
+
+        // let styleArr = [new styleObj("color", "green"), new styleObj("font-size", "46px"), new styleObj("text-decoration", "underline")];
+
+        // document.write(pTagPrintWithStyle(styleArr, "Hello World!"));
+
+        // //document.body.append
+
+        //----------------------------------------------------------------------------------------------------------------------------
+
+        /*Задание 4
+        Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и названия факультета, для которого она предназначена.
+        Написать несколько функций для работы с ним.*/
+
+        function lectureHall(lectureHallName, seatCount, facultyName)
         {
-            this.nameOfStyle = nameOfStyle;
-            this.valueOfStyle = valueOfStyle;
+            this.lectureHallName = lectureHallName;
+
+            if (10 <= seatCount && seatCount <= 20)
+                this.seatCount = seatCount;
+            else
+                this.seatCount = 0;
+
+            this.facultyName = facultyName;
+
+            this.fullInfo = function()
+            {
+                return `Hall name: ${this.lectureHallName}, Seat count: ${this.seatCount}, Faculty name: ${this.facultyName}`;
+            }
+        }
+        
+        let lectureHallArray = [new lectureHall('2E', 16, 'Programming'), new lectureHall('2D', 12, 'Design'), new lectureHall('2A', 13, 'Programming')];
+        
+        /*1. Вывод на экран всех аудиторий.*/
+        lectureHallArray.hallPrint = function()
+        {
+            lectureHallArray.forEach((item, index) =>
+            {
+                console.log(`${index + 1}) ${item.fullInfo()}`);
+            });
         }
 
-        function pTagPrintWithStyle(arrayOfStyle, text)
+        /*2. Вывод на экран аудиторий для указанного факультета.*/
+        lectureHallArray.selectedFacultyShowHalls = function(tempFacultyName)
         {
-            arrayOfStyle.forEach(item => 
+            let selectedFaculty = [];
+
+            lectureHallArray.forEach(elem => 
             {
-                document.write(`<p ${}`) // document.body.append
-            })
+                if (elem.facultyName == tempFacultyName)
+                    selectedFaculty.push(elem);
+            });
+
+            selectedFaculty.forEach((item, index) =>
+            {
+                console.log(`${index + 1}) ${item.fullInfo()}`);
+            });
         }
+
+        /*3. Вывод на экран только тех аудиторий, которые подходят для переданной группы. Объект-группа состоит из названия, количества студентов и названия факультета.*/
+        //lectureHallArray.sortBySeatCount
+
+
+        /*4. Функция сортировки аудиторий по количеству мест.*/
+        lectureHallArray.sortBySeatCount = function()
+        {
+            return lectureHallArray.sort(function(a, b)
+            {
+                return b.seatCount - a.seatCount;
+            });
+        }
+
+        /*5. Функция сортировки аудиторий по названию (по алфавиту).*/
+        lectureHallArray.sortByHallName = function()
+        {
+            return lectureHallArray.sort(function(a, b)
+            {
+                for (let i = 0; i < array.length; i++) 
+                {
+                    const element = array[i];
+                }
+            });
+        }
+
+        lectureHallArray.hallPrint();
+        console.log("----------------------------------------------------------------");
+        lectureHallArray.selectedFacultyShowHalls('Programming');
+        console.log("----------------------------------------------------------------");
+        lectureHallArray.sortBySeatCount().forEach((item, index) =>
+        {
+            console.log(`${index + 1}) ${item.fullInfo()}`);
+        });
+        console.log("----------------------------------------------------------------");
+        lectureHallArray.sortByHallName().forEach((item, index) =>
+        {
+            console.log(`${index + 1}) ${item.fullInfo()}`);
+        });
 
     </script>
+
 </body>
 </html>
