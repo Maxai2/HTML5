@@ -192,6 +192,13 @@
                 return `Hall name: ${this.lectureHallName}, Seat count: ${this.seatCount}, Faculty name: ${this.facultyName}`;
             }
         }
+
+        function group(groupName, studentCount, groupFacultyName)
+        {
+            this.groupName = groupName;
+            this.studentCount = studentCount;
+            this.groupFacultyName = groupFacultyName;
+        }
         
         let lectureHallArray = [new lectureHall('2E', 16, 'Programming'), new lectureHall('2D', 12, 'Design'), new lectureHall('2A', 13, 'Programming')];
         
@@ -222,8 +229,20 @@
         }
 
         /*3. Вывод на экран только тех аудиторий, которые подходят для переданной группы. Объект-группа состоит из названия, количества студентов и названия факультета.*/
-        //lectureHallArray.sortBySeatCount
+        lectureHallArray.printHallByGroup = function(selGroup)
+        {
+            let tempHall = [];
 
+            lectureHallArray.forEach(item => 
+            {
+                if (selGroup.groupFacultyName == item.facultyName && selGroup.studentCount <= item.seatCount)
+                {
+                    tempHall.push(item);
+                }
+            });
+
+            return tempHall;
+        }
 
         /*4. Функция сортировки аудиторий по количеству мест.*/
         lectureHallArray.sortBySeatCount = function()
@@ -239,9 +258,13 @@
         {
             return lectureHallArray.sort(function(a, b)
             {
-                for (let i = 0; i < array.length; i++) 
+                for (let i = 0; ; i++) 
                 {
-                    const element = array[i];
+                    if(a.lectureHallName[i] > b.lectureHallName[i])
+                        return 1;
+                    else
+                    if (a.lectureHallName[i] < b.lectureHallName[i])
+                        return -1;
                 }
             });
         }
@@ -259,8 +282,12 @@
         {
             console.log(`${index + 1}) ${item.fullInfo()}`);
         });
+        console.log("----------------------------------------------------------------");
+        lectureHallArray.printHallByGroup(new group('FSDM-1711', 14, "Programming")).forEach((item, index) =>
+        {
+            console.log(`${index + 1}) ${item.fullInfo()}`);
+        });
 
     </script>
-
 </body>
 </html>
