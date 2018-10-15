@@ -1,0 +1,3 @@
+https://vane4ka.github.io/kadmin/
+
+сделать точно такую же страницу, используя grid css 
