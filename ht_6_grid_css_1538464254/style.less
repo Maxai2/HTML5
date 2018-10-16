@@ -1,10 +1,13 @@
 @backGroundCol: #f0f2f5;
 @fontCol: #999999;
 @headerCol: #1e1e1e;
-@headerFontCol: #ffffff;
+@whiteCol: #ffffff;
 @leftPaddleBackgroundCol: #3C3C3C;
 @listACol: #d9d9d9;
 @borderCol: #484848;
+@liHoverCol: #303030;
+@ExtrasBCol: #3e77ab;
+@buttonBCol: #488c6c;
 
 body
 {
@@ -28,15 +31,14 @@ body
 {
     border: 0;
     background: @headerCol;
-    width: 100%;
     display: flex;
     align-items: center;
-    padding: 0 50px;
+    padding: 0 70px;
 
     .kadminStyle
     {
         text-decoration: none;
-        color: @headerFontCol;
+        color: @whiteCol;
         font-size: 30px;
     }
 }
@@ -50,7 +52,6 @@ body
     .leftPaddle
     {
         display: grid;
-        grid-template-rows: 2fr 1fr;
         background-color: @leftPaddleBackgroundCol;
 
         ul
@@ -70,6 +71,81 @@ body
                 color: @listACol;
                 padding: 15px 30px;
                 display: block;
+            }
+        }
+
+        li:hover
+        {
+            background-color: @liHoverCol;
+            transition-duration: 0.5s;
+        }
+
+        .ExtrassLiStyle
+        {
+            background-color: @ExtrasBCol;
+        }
+    }
+
+    .mainContent
+    {
+        display: grid;
+
+        .content
+        {
+            padding: 20px 20px 70px 20px;
+            
+            h2
+            {
+                font-weight: 300;
+                font-size: 30px;
+            }
+
+            .profileEdit
+            {
+                display: grid;
+                grid-template-columns: 275px auto;
+
+                .profileDate
+                {
+                    display: grid;
+
+                    .imgBut
+                    {
+                        display: grid;
+                        grid-template-rows: 1fr 1fr;
+                        
+                        img
+                        {
+                            width: 280px;
+                        }
+                        
+                        a
+                        {
+                            text-decoration: none;
+                            color: @whiteCol;
+                            background-color: @buttonBCol;
+                            display: inline-block;
+                            padding: 6px 12px;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                table
+                {
+                    margin-bottom: 20px;
+
+                    tr
+                    {
+                        box-sizing: border-box;
+                    }
+
+                    td
+                    {
+                        border-top: 1px solid #efefef;
+                    }
+
+                }
             }
         }
     }

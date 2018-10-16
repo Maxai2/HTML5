@@ -15,10 +15,9 @@ body {
 .header {
   border: 0;
   background: #1e1e1e;
-  width: 100%;
   display: flex;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 70px;
 }
 .header .kadminStyle {
   text-decoration: none;
@@ -32,7 +31,6 @@ body {
 }
 .main .leftPaddle {
   display: grid;
-  grid-template-rows: 2fr 1fr;
   background-color: #3C3C3C;
 }
 .main .leftPaddle ul {
@@ -48,4 +46,52 @@ body {
   color: #d9d9d9;
   padding: 15px 30px;
   display: block;
+}
+.main .leftPaddle li:hover {
+  background-color: #303030;
+  transition-duration: 0.5s;
+}
+.main .leftPaddle .ExtrassLiStyle {
+  background-color: #3e77ab;
+}
+.main .mainContent {
+  display: grid;
+}
+.main .mainContent .content {
+  padding: 20px 20px 70px 20px;
+}
+.main .mainContent .content h2 {
+  font-weight: 300;
+  font-size: 30px;
+}
+.main .mainContent .content .profileEdit {
+  display: grid;
+  grid-template-columns: 275px auto;
+}
+.main .mainContent .content .profileEdit .profileDate {
+  display: grid;
+}
+.main .mainContent .content .profileEdit .profileDate .imgBut {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.main .mainContent .content .profileEdit .profileDate .imgBut img {
+  width: 280px;
+}
+.main .mainContent .content .profileEdit .profileDate .imgBut a {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #488c6c;
+  display: inline-block;
+  padding: 6px 12px;
+  text-align: center;
+}
+.main .mainContent .content .profileEdit table {
+  margin-bottom: 20px;
+}
+.main .mainContent .content .profileEdit table tr {
+  box-sizing: border-box;
+}
+.main .mainContent .content .profileEdit table td {
+  border-top: 1px solid #efefef;
 }
