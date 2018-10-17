@@ -67,13 +67,14 @@ body {
 .main .mainContent .content .profileEdit {
   display: grid;
   grid-template-columns: 275px auto;
+  align-items: start;
 }
 .main .mainContent .content .profileEdit .profileDate {
   display: grid;
 }
 .main .mainContent .content .profileEdit .profileDate .imgBut {
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr auto;
 }
 .main .mainContent .content .profileEdit .profileDate .imgBut img {
   width: 280px;
@@ -85,13 +86,29 @@ body {
   display: inline-block;
   padding: 6px 12px;
   text-align: center;
+  margin-top: 15px;
 }
-.main .mainContent .content .profileEdit table {
+.main .mainContent .content .profileEdit .profileDate table {
   margin-bottom: 20px;
 }
-.main .mainContent .content .profileEdit table tr {
+.main .mainContent .content .profileEdit .profileDate table tr {
   box-sizing: border-box;
 }
-.main .mainContent .content .profileEdit table td {
+.main .mainContent .content .profileEdit .profileDate table tr:nth-child(odd) > td {
+  background-color: #f9f9f9;
+}
+.main .mainContent .content .profileEdit .profileDate table td {
   border-top: 1px solid #efefef;
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+.main .mainContent .content .profileEdit .rightSide {
+  background-color: #ffffff;
+  margin: 0 40px;
+  padding: 5px 10px;
+}
+.main .mainContent .content .profileEdit .rightSide h3 {
+  font-weight: 300;
+  font-size: 24px;
 }

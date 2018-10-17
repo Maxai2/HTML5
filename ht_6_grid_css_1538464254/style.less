@@ -8,6 +8,7 @@
 @liHoverCol: #303030;
 @ExtrasBCol: #3e77ab;
 @buttonBCol: #488c6c;
+@trCol: #f9f9f9;
 
 body
 {
@@ -104,7 +105,8 @@ body
             {
                 display: grid;
                 grid-template-columns: 275px auto;
-
+                align-items: start;
+                
                 .profileDate
                 {
                     display: grid;
@@ -112,7 +114,7 @@ body
                     .imgBut
                     {
                         display: grid;
-                        grid-template-rows: 1fr 1fr;
+                        grid-template-rows: 1fr auto;
                         
                         img
                         {
@@ -127,24 +129,45 @@ body
                             display: inline-block;
                             padding: 6px 12px;
                             text-align: center;
+                            margin-top: 15px;
+                        }
+                    }
+
+                    table
+                    {
+                        margin-bottom: 20px;
+    
+                        tr
+                        {
+                            box-sizing: border-box;
+                        }
+    
+                        tr:nth-child(odd)>td
+                        {
+                            background-color: @trCol;
+                        }
+
+                        td
+                        {
+                            border-top: 1px solid #efefef;
+                            padding: 8px;
+                            line-height: 1.42857143;
+                            vertical-align: top;
                         }
                     }
                 }
 
-                table
+                .rightSide
                 {
-                    margin-bottom: 20px;
+                    background-color: @whiteCol;
+                    margin: 0 40px;
+                    padding: 5px 10px;
 
-                    tr
+                    h3
                     {
-                        box-sizing: border-box;
+                        font-weight: 300;
+                        font-size: 24px;
                     }
-
-                    td
-                    {
-                        border-top: 1px solid #efefef;
-                    }
-
                 }
             }
         }
