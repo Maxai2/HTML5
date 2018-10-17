@@ -10,6 +10,8 @@
 </head>
 
 <body>
+        <!-- <input type="text" id="input1"/> -->
+
     <script type="text/javascript">
 
         // var num = 5;
@@ -275,65 +277,261 @@
 
         // ООП с помощью классов
 
-        class User
-        {
-            constructor(name, phone)
-            {
-                this.name = name;
-                this.phone = phone;
-                //this._privField = 123; //private
-            }
+        // class User
+        // {
+        //     constructor(name, phone)
+        //     {
+        //         this.name = name;
+        //         this.phone = phone;
+        //         //this._privField = 123; //private
+        //     }
 
-            get fullInfo() // свойство
+        //     get fullInfo() // свойство
+        //     {
+        //         return `${this.name} (${this.phone})`;
+        //     }
+        // }
+
+        // class Student extends User
+        // {
+        //     constructor(name, phone, byear)
+        //     {
+        //         super(name, phone);
+        //         this.byear = byear;
+        //     }
+
+        //     get fullInfo()
+        //     {
+        //         return `${super.fullInfo} ${this.byear}`;
+        //     }
+        // }
+
+        // class Group
+        // {
+        //     constructor(name)
+        //     {
+        //         this.name = name;
+        //         this.students = [];
+        //     }
+
+        //     addStudent(stud)
+        //     {
+        //         this.students.push(stud);
+        //     }
+
+        //     printGroup()
+        //     {
+        //         this.students.forEach((el, index) => 
+        //         {
+        //             console.log(index + 1 + ')' + el.fullInfo);
+        //         });
+        //     }
+        // }
+
+        // //let user1 = new User('qwerty', '07012345678');
+        // let stud1 = new Student('qwerty', '05012345678', 1999);
+        // let stud2 = new Student('qwerty1', '05045645678', 1998);
+        // let group = new Group('Fsdm-1711');
+        // group.addStudent(stud1);
+        // group.addStudent(stud2);
+        // group.printGroup();
+
+        // События 
+
+    //     function btnClick()
+    //     {
+    //         //alert("Hello World!");
+    //         let div2 = document.getElementById("div2");
+    //         //div2.onmousemove = divmousemove2;
+    //         div2.addEventListener('mousemove', divmousemove2);
+    //     }    
+
+    //     function btnCancelClick()
+    //     {
+    //         let div2 = document.getElementById("div2");
+    //         //div2.onmousemove = null; // уберет все события
+    //         // div2.removeEventListener('mousemove', function()
+    //         // {
+    //         //     alert('qwerty');
+    //         // });
+    //         div2.style.backgroundColor = 'red';
+    //         div2.removeEventListener('mousemove', divmousemove2);
+    //     }
+
+    //     function divMouseMove(elem, event)
+    //     {
+    //         console.log('target: ' + event.target);
+    //         console.log('current target: ' + event.currentTarget);
+
+    //         document.getElementById("div1").innerText = `x = ${event.clientX} y = ${event.clientY}`;
+    //         //elem.innerText = `x = ${event.clientX} y = ${event.clientY}`;
+    //     }
+        
+    //     function linkClient(event)
+    //     {
+    //         let res = confirm("Do u want leave our site?");
+
+    //         if (!res)
+    //         {
+    //             event.preventDefault();
+    //         }
+    //     }
+
+    //     function divmousemove2(event)
+    //     {
+    //         //event.cancelBubble = true;
+    //         event.target.innerText = `x = ${event.clientX} y = ${event.clientY}`;
+    //     }
+
+        // DOM BOM
+
+
+
+        document.addEventListener('DOMContentLoaded', onKeyDown);
+
+        function onKeyDown()
+        {
+            document.getElementById("input1").addEventListener('keydown', function()
             {
-                return `${this.name} (${this.phone})`;
-            }
+                console.log(event.target.value);
+            });
         }
 
-        class Student extends User
+        // function getElems()
+        // {
+        //     let res = document.getElementsByClassName('inp1');
+        //     console.log(res);
+        // }
+
+        // function getElems()
+        // {
+        //     let res = document.getElementsByClassName('div1')[0].getElementsByClassName('p');
+        //     console.log(res);
+        // }
+
+        function getElems()
         {
-            constructor(name, phone, byear)
-            {
-                super(name, phone);
-                this.byear = byear;
-            }
+            let res = [];
+            res = document.querySelectorAll('.div1 .p');
+            console.log(res);
+            res = [];
 
-            get fullInfo()
+            let divs = document.getElementsByClassName('div1');
+            for (let i = 0; i < divs.length; i++) 
             {
-                return `${super.fullInfo} ${this.byear}`;
-            }
-        }
+                let ps = divs[i].getElementsByClassName('p');
 
-        class Group
-        {
-            constructor(name)
-            {
-                this.name = name;
-                this.students = [];
-            }
-
-            addStudent(stud)
-            {
-                this.students.push(stud);
-            }
-
-            printGroup()
-            {
-                this.students.forEach((el, index) => 
+                for (let j = 0; j < ps.length; j++) 
                 {
-                    console.log(index + 1 + ')' + el.fullInfo);
-                });
+                    res.push(divs[i].getElementsByClassName('p'));    
+                }
             }
+
+            console.log(res);
         }
 
-        //let user1 = new User('qwerty', '07012345678');
-        let stud1 = new Student('qwerty', '05012345678', 1999);
-        let stud2 = new Student('qwerty1', '05045645678', 1998);
-        let group = new Group('Fsdm-1711');
-        group.addStudent(stud1);
-        group.addStudent(stud2);
-        group.printGroup();
+        function changeContent()
+        {
+            let elem = document.getElementById('content');
+            console.log(elem.innerHTML);
+            console.log(elem.innerText);
+            elem.append('Hello'); // Добавление в конец текст
+            elem.prepend('Hello'); // Добавление в начало текст
+            
+            // создание нового html элемента
+            let helloH3 = document.createElement('h3');
+            helloH3.innerText = 'hello!!!';
+            elem.prepend(helloH3);
 
-    </script>
+            //elem.innerText = '<h3>Hello</h3>';
+        }
+
+        function changeInput()
+        {
+            let inp = document.getElementById('input1');
+            //inp.type = 'number';
+            //inp.className = 'inp2';
+            inp.classList.add('inp2');
+            inp.classList.remove('inp1');
+            inp.classList.toggle('inp3');
+            
+            inp.style.color = 'darkred';
+        }
+
+        document.addEventListener(
+            'selectstart', function()
+            {
+                event.preventDefault();
+            }
+        )
+
+        function getUrl()
+        {
+            console.log(window.location.href);
+            console.log(window.location.port);
+            console.log(window.location.protocol);
+            console.log(window.location.hostname);
+
+        }
+
+        function getToGoogle()
+        {
+            window.location.href = 'http://google.com';
+        }
+
+     </script>
+
+     <input type="text" class="inp1" id="input1"/><br/>
+     <input type="text" class="inp1" id="input2"/><br/>
+     <input type="text" class="inp1" id="input3"/><br/>
+
+    <p class="p">qwerty</p>
+     <div class="div1">
+        <p class="p">qweqwer</p>
+        <p class="p">qwe</p>
+        <p class="p1">qwe</p>
+     </div>
+     <div id="content" class="div1">
+        <p class="p">qwe</p>
+        <p class="p">qwe</p>
+        <p class="p1">qwe</p>
+     </div>
+
+     <button onclick="getElems()">Get elements</button><br/>
+     <button onclick="changeContent()">Change elements</button><br/>
+     <button onclick="changeInput()">Change input</button><br/>
+     <button onclick="getUrl()">Get Url</button><br/>
+     <button onclick="getToGoogle()">Go to Google</button><br/>
+     
+    <!--<style>
+         .div1
+         {
+             width: 500px;
+             height: 500px;
+             border: 1px solid black;
+             margin: 5px 0;
+         }
+
+         .div2
+         {
+             width: 300px;
+             height: 100px;
+             border: 1px solid black;
+         }
+     </style>
+
+     <button onclick="btnClick()">Click me!</button>
+     <button onclick="btnCancelClick()">Cancel!</button>
+
+     <div onmousemove="divMouseMove(this,event)" class="div1">
+         <span id="div1"></span>
+            <div class="div2" onmousemove="divmousemove2(this, event)"></div>
+            <div class="div2" id="div2"></div>
+     </div>
+
+     <a href="http://google.com" onclick="linkClient(event)">link test</a>-->
+
+
+
 </body>
 </html>
