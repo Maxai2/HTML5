@@ -8,6 +8,7 @@
 @liHoverCol: #303030;
 @ExtrasBCol: #3e77ab;
 @buttonBCol: #488c6c;
+@buttonBHoverCol: #3a7157;
 @trCol: #f9f9f9;
 
 body
@@ -131,6 +132,11 @@ body
                             text-align: center;
                             margin-top: 15px;
                         }
+
+                        a:hover
+                        {
+                            background-color: @buttonBHoverCol;
+                        }
                     }
 
                     table
@@ -167,6 +173,68 @@ body
                     {
                         font-weight: 300;
                         font-size: 24px;
+                    }
+
+                    .groupForm
+                    {
+                        margin-bottom: 15px;
+                        display: grid;
+                        grid-template-columns: 250px 300px;
+
+                        .passwordCl
+                        {
+                            width: 200px;
+                        }
+
+                        label
+                        {
+                            text-align: right;
+                            margin: 5px 30px;
+                        }
+                        
+                        input
+                        {
+                            font-size: 14px;
+                            border: 1px solid #ccc;
+                        }
+                        
+                        input::placeholder
+                        {
+                            padding: 6px 12px;
+                            color: #ccc;
+                        }
+
+                        textarea
+                        {
+                            padding: 6px 12px;
+                            font-size: 14px;
+                            border: 1px solid #ccc;
+                            height: 74px;
+                        }
+                    }
+
+                    .btn
+                    {
+                        display: block;
+                        color: @whiteCol;
+                        background-color: @buttonBCol;
+                        width: 100%;
+                        border: 0;
+                        height: 35px;
+                        cursor: pointer;
+                    }
+
+                    .btn:hover
+                    {
+                        background-color: @buttonBHoverCol;
+                    }
+
+                    hr
+                    {
+                        margin-top: 18px;
+                        margin-bottom: 18px;
+                        border: 0;
+                        border-top: 1px solid #eeeeee;
                     }
                 }
             }

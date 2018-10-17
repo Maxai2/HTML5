@@ -88,6 +88,9 @@ body {
   text-align: center;
   margin-top: 15px;
 }
+.main .mainContent .content .profileEdit .profileDate .imgBut a:hover {
+  background-color: #3a7157;
+}
 .main .mainContent .content .profileEdit .profileDate table {
   margin-bottom: 20px;
 }
@@ -111,4 +114,48 @@ body {
 .main .mainContent .content .profileEdit .rightSide h3 {
   font-weight: 300;
   font-size: 24px;
+}
+.main .mainContent .content .profileEdit .rightSide .groupForm {
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: 250px 300px;
+}
+.main .mainContent .content .profileEdit .rightSide .groupForm .passwordCl {
+  width: 200px;
+}
+.main .mainContent .content .profileEdit .rightSide .groupForm label {
+  text-align: right;
+  margin: 5px 30px;
+}
+.main .mainContent .content .profileEdit .rightSide .groupForm input {
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+.main .mainContent .content .profileEdit .rightSide .groupForm input::placeholder {
+  padding: 6px 12px;
+  color: #ccc;
+}
+.main .mainContent .content .profileEdit .rightSide .groupForm textarea {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  height: 74px;
+}
+.main .mainContent .content .profileEdit .rightSide .btn {
+  display: block;
+  color: #ffffff;
+  background-color: #488c6c;
+  width: 100%;
+  border: 0;
+  height: 35px;
+  cursor: pointer;
+}
+.main .mainContent .content .profileEdit .rightSide .btn:hover {
+  background-color: #3a7157;
+}
+.main .mainContent .content .profileEdit .rightSide hr {
+  margin-top: 18px;
+  margin-bottom: 18px;
+  border: 0;
+  border-top: 1px solid #eeeeee;
 }
