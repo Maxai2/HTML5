@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*Задание 1
+        Реализовать класс, описывающий окружность. В классе должны быть следующие компоненты:
+        ■ поле, хранящее радиус окружности;
+        ■ get-свойство, возвращающее радиус окружности;
+        ■ set-свойство, устанавливающее радиус окружности;
+        ■ get-свойство, возвращающее диаметр окружности;
+        ■ метод, вычисляющий площадь окружности;
+        ■ метод, вычисляющий длину окружности.
+        Продемонстрировать работу свойств и методов.*/
+
+        // class circle
+        // {
+        //     constructor(radius)
+        //     {
+        //         this.radius = radius;
+        //     }
+
+        //     get getRadius()
+        //     {
+        //         return this.radius;
+        //     }
+
+        //     set setRadius(radius)
+        //     {
+        //         this.radius = radius;
+        //     }
+
+        //     get diametr()
+        //     {
+        //         return this.radius * 2;
+        //     }
+
+        //     areaOfCircle()
+        //     {
+        //         return Number.parseInt(3.14 * Math.pow(this.radius, 2));
+        //     }
+
+        //     circumference()
+        //     {
+        //         return Number.parseInt(2 * 3.14 * this.radius);
+        //     }
+        // }
+
+        // let tempCircle = new circle(10);
+        // console.log('Radius: ' + tempCircle.radius);
+        // tempCircle.setRadius = 20;
+        // console.log('Changed radius to 20: ' +  tempCircle.radius);
+        // console.log('Diametr: ' + tempCircle.diametr);
+        // console.log('Area: ' + tempCircle.areaOfCircle());
+        // console.log('Circumference: ' + tempCircle.circumference());
+        
+        /*Задание 2
+        Реализовать класс, описывающий html элемент.
+        Класс HtmlElement должен содержать внутри себя:
+        ■ название тега;
+        ■ самозакрывающийся тег или нет;
+        ■ текстовое содержимое;
+        ■ массив атрибутов;
+        ■ массив стилей;
+        ■ массив вложенных таких же тегов;
+        ■ метод для установки атрибута;
+        ■ метод для установки стиля;
+        ■ метод для добавления вложенного элемента в конец текущего элемента;
+        ■ метод для добавления вложенного элемента в начало текущего элемента;
+        ■ метод getHtml(), который возвращает html код в виде строки, включая html код вложенных элементов.
+        
+        С помощью написанного класса реализовать следующий блок и добавить его на страницу с помощью document.write().*/
+
+        class HtmlElement
+        {
+            constructor(tagName, isSelfCloseTag, text, atrArr, styleArr, tagsElemArr)
+            {
+                this.tagName = tagName;
+                this.isSelfCloseTag = isSelfCloseTag;
+                this.text = text;
+                this.atrArr = atrArr;
+                this.styleArr = styleArr;
+                this.tagsElemArr = tagsElemArr;
+            }
+
+            setAtr(atr)
+            {
+
+            }
+
+            setStyle(style)
+            {
+
+            }
+        }
+
+    </script>
+</body>
+</html>
