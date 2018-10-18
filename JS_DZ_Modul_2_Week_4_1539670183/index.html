@@ -76,6 +76,18 @@
         
         С помощью написанного класса реализовать следующий блок и добавить его на страницу с помощью document.write().*/
 
+        function atrElem(atrName, atrValue)
+        {
+            this.atrName = atrName;
+            this.atrValue = atrValue;
+        }
+
+        function styleElem(styleName, styleValue)
+        {
+            this.styleName = styleName;
+            this.styleValue = styleValue;
+        }
+
         class HtmlElement
         {
             constructor(tagName, isSelfCloseTag, text, atrArr, styleArr, tagsElemArr)
@@ -90,15 +102,69 @@
 
             setAtr(atr)
             {
-
+                this.atrArr.push(atr);
             }
 
             setStyle(style)
             {
+                this.styleArr.push(style);
+            }
 
+            inputHtmlElemBegin(tagElem)
+            {
+                this.tagsElemArr.unshift(tagElem);
+            }
+
+            inputHtmlElemEnd(tagElem)
+            {
+                this.tagsElemArr.push(tagElem);
+            }
+
+            getHtml()
+            {
+                let result = '';
+                result += `<${this.tagName}`;
+                
+                if (atrArr.length != 0)
+                {
+                    atrArr.forEach(element => 
+                    {
+                        result += ` ${element.atrName} = "${element.atrValue}" `;
+                    });
+                }
+
+                if (styleArr.length != 0)
+                {
+                    result += ' style="';
+
+                    styleArr.forEach(element =>
+                    {
+                        result += `${element.styleName}: ${element.styleValue};`;
+                    });
+                }
+                
+                if (this.isSelfCloseTag)
+                {
+                    result += '"/>\n';
+                }
+                else
+                {
+                    result += '">\n';
+                    result += this.text;
+                    result += '</' + this.tagName + '>\n';
+                }
+
+                return result;
             }
         }
 
+        let atrArr = [new atrElem('id', 'wrapper')];
+        let styleArr = [new styleElem('color', 'red')];
+
+        let html = new HtmlElement('div', false, 'hello', atrArr, styleArr);
+        // document.body.append(html.getHtml());
+        document.write(html.getHtml());
     </script>
+
 </body>
 </html>
