@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+}
+.inputContainer {
+  width: 290px;
+  height: 50px;
+  background-color: #fbf2e9;
+  padding: 30px;
+  margin: 0 auto;
+}
+.inputContainer .content {
+  margin-top: auto;
+}
+.inputContainer .content label {
+  display: flex;
+  justify-content: center;
+}
+.inputContainer .content input {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 15px 0;
+}
+.buttonContainer {
+  margin: 10px auto;
+  width: 0;
+}
+.buttonContainer button {
+  width: 100px;
+}
+.modalWindow {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  display: none;
+  /*block*/
+}
+.modalWindow .content {
+  background-color: #e3ffff;
+  width: 320px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  margin: 200px auto;
+  position: relative;
+}
+.modalWindow .content label {
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+}
+.modalWindow .content button {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 15px 0;
+}
+.footbalImg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+.ballPos {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-left: 660px;
+  margin-top: 450px;
+}

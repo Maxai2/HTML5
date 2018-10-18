@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--Задание 1
+    Создать html-страницу для ввода имени пользователя.
+    Необходимо проверять каждый символ, который вводит пользователь.
+    Если он ввел цифру, то не отображать ее в input.-->
+
+    <!-- <script type="text/javascript">
+
+        function onlyLetter()
+        {
+            if('0' <= event.key && event.key <= '9')
+                event.preventDefault();
+        }
+
+    </script>
+
+    <div class="inputContainer">
+        <div class="content">
+            <label>Enter your name (name can't contain digits):</label>
+            <input type="text" onkeydown="onlyLetter()">
+        </div>
+    </div> -->
+
+<!-------------------------------------------------------------------------------------->
+
+    <!--Задание 2
+    Создать html-страницу с кнопкой Открыть и модальным окном. На модальном окне должен быть текст и кнопка Закрыть. Изначально модальное окно не отображается. При клике на кнопку Открыть появляется модальное окно, на кнопку Закрыть – исчезает. -->
+
+    <!-- <script type="text/javascript">
+
+        function openModalWindow()
+        {
+            let elem = document.getElementById("modalW");
+            elem.style.display = "block";
+        }
+
+        function closeModalWindow()
+        {
+            let elem = document.getElementById("modalW");
+            elem.style.display = "none";
+        }
+
+    </script>
+
+    <div class="buttonContainer">
+        <button onclick="openModalWindow()">Open modal</button>
+    </div>
+
+    <div class="modalWindow" id="modalW">
+        <div class="content">
+            <label>Hello from Modal Window!</label>
+            <button onclick="closeModalWindow()">Close</button>
+        </div>
+    </div> -->
+
+<!-------------------------------------------------------------------------------------->
+
+    <!--Задание 3
+    Создать html-страницу с футбольным полем, которое занимает всю ширину и высоту экрана, и мячом размером 100 на 100 пикселей.
+    Сделать так, чтобы при клике мышкой по полю, мяч плавно перемещался на место клика. Учтите: необходимо, чтобы центр мяча останавливался именно там, где был совершен клик мышкой. Также предусмотрите, чтобы мяч не выходил за границы поля.-->
+
+    <script type="text/javascript">
+    </script>
+
+    <img src="https://static.vecteezy.com/system/resources/previews/000/104/368/original/free-soccer-field-vector.jpg" class="footbalImg">
+
+    <img src="http://www.i2clipart.com/cliparts/e/b/1/b/128045eb1b259252f6f4113c77b416b9e63e72.png" class="ballPos">
+
+</body>
+</html>
