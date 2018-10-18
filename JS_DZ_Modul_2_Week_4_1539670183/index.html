@@ -58,7 +58,9 @@
         // console.log('Diametr: ' + tempCircle.diametr);
         // console.log('Area: ' + tempCircle.areaOfCircle());
         // console.log('Circumference: ' + tempCircle.circumference());
-        
+
+        //----------------------------------------------------------------------------
+
         /*Задание 2
         Реализовать класс, описывающий html элемент.
         Класс HtmlElement должен содержать внутри себя:
@@ -76,95 +78,466 @@
         
         С помощью написанного класса реализовать следующий блок и добавить его на страницу с помощью document.write().*/
 
-        function atrElem(atrName, atrValue)
-        {
-            this.atrName = atrName;
-            this.atrValue = atrValue;
-        }
+//         function atrElem(atrName, atrValue)
+//         {
+//             this.atrName = atrName;
+//             this.atrValue = atrValue;
+//         }
 
-        function styleElem(styleName, styleValue)
-        {
-            this.styleName = styleName;
-            this.styleValue = styleValue;
-        }
+//         function styleElem(styleName, styleValue)
+//         {
+//             this.styleName = styleName;
+//             this.styleValue = styleValue;
+//         }
 
-        class HtmlElement
-        {
-            constructor(tagName, isSelfCloseTag, text, atrArr, styleArr, tagsElemArr)
-            {
-                this.tagName = tagName;
-                this.isSelfCloseTag = isSelfCloseTag;
-                this.text = text;
-                this.atrArr = atrArr;
-                this.styleArr = styleArr;
-                this.tagsElemArr = tagsElemArr;
-            }
+//         class HtmlElement
+//         {
+//             constructor(tagName, isSelfCloseTag, text)
+//             {
+//                 this.tagName = tagName;
+//                 this.isSelfCloseTag = isSelfCloseTag;
+//                 this.text = text;
+//                 this.atrArr = [];
+//                 this.styleArr = [];
+//                 this.tagsElemArr = [];
+//                 this.result = '';
+//             }
 
-            setAtr(atr)
-            {
-                this.atrArr.push(atr);
-            }
+//             setAtr(atr)
+//             {
+//                 this.atrArr.push(atr);
+//             }
 
-            setStyle(style)
-            {
-                this.styleArr.push(style);
-            }
+//             setStyle(style)
+//             {
+//                 this.styleArr.push(style);
+//             }
 
-            inputHtmlElemBegin(tagElem)
-            {
-                this.tagsElemArr.unshift(tagElem);
-            }
+//             inputHtmlElemBegin(tagElem)
+//             {
+//                 this.tagsElemArr.unshift(tagElem);
+//             }
 
-            inputHtmlElemEnd(tagElem)
-            {
-                this.tagsElemArr.push(tagElem);
-            }
+//             inputHtmlElemEnd(tagElem)
+//             {
+//                 this.tagsElemArr.push(tagElem);
+//             }
 
-            getHtml()
-            {
-                let result = '';
-                result += `<${this.tagName}`;
+//             getHtml()
+//             {
+//                 this.result += `<${this.tagName}`;
+
+//                 if (this.styleArr.length != 0)
+//                 {
+//                     this.result += ' style="';
+
+//                     this.styleArr.forEach(element =>
+//                     {
+//                         this.result += `${element.styleName}: ${element.styleValue};`;
+//                     });
+
+//                     this.result += '\"';
+//                 }
                 
-                if (atrArr.length != 0)
-                {
-                    atrArr.forEach(element => 
-                    {
-                        result += ` ${element.atrName} = "${element.atrValue}" `;
-                    });
-                }
-
-                if (styleArr.length != 0)
-                {
-                    result += ' style="';
-
-                    styleArr.forEach(element =>
-                    {
-                        result += `${element.styleName}: ${element.styleValue};`;
-                    });
-                }
+//                 if (this.atrArr.length != 0)
+//                 {
+//                     this.atrArr.forEach(element => 
+//                     {
+//                         this.result += ` ${element.atrName} = "${element.atrValue}"`;
+//                     });
+//                 }
                 
-                if (this.isSelfCloseTag)
-                {
-                    result += '"/>\n';
-                }
-                else
-                {
-                    result += '">\n';
-                    result += this.text;
-                    result += '</' + this.tagName + '>\n';
-                }
+//                 if (this.isSelfCloseTag)
+//                     this.result += '\/>';
+//                 else
+//                     this.result += '>';
 
-                return result;
+//                 this.result += this.text;
+
+//                 if(this.tagsElemArr.length != 0)
+//                 {
+//                     this.tagsElemArr.forEach(element => 
+//                     {
+//                         console.log(element);
+
+//                         this.result += element.getHtml();
+//                     });
+//                 }
+
+//                 this.result += '</' + this.tagName + '>';
+
+//                 return this.result;
+//             }
+//         }
+
+//         let div = new HtmlElement('div', false, '');
+//         div.setAtr(new atrElem('id', 'wrapper'));
+//         div.setStyle(new styleElem('display', 'flex'));
+
+//         let div2 = new HtmlElement('div', false, '');
+//         div2.setStyle(new styleElem('width', '300px'));
+//         div2.setStyle(new styleElem('margin', '10px'));
+//         div.inputHtmlElemBegin(div2);
+        
+//         let h3 = new HtmlElement('h3', false, 'What is Lorem Ipsum?');
+//         div2.inputHtmlElemBegin(h3);
+
+//         let img = new HtmlElement('img', true, '');
+//         img.setStyle(new styleElem('width', '100%'));
+//         img.setAtr(new atrElem('src', 'lipsum.jpg'));
+//         img.setAtr(new atrElem('alt', 'Lorem Ipsum'));
+//         div2.inputHtmlElemEnd(img);
+
+//         let p = new HtmlElement('p', false, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknow printer took a galley of type and scrambled it to make a type specimen book.');
+//         p.setStyle(new styleElem('text-align', 'justify'));
+//         div2.inputHtmlElemEnd(p);
+
+//         let a = new HtmlElement('a', false, 'More...');
+//         a.setAtr(new atrElem('href', 'https://www.lipsum.com/'));
+//         a.setAtr(new atrElem('target', '_blank'));
+//         p.inputHtmlElemBegin(a);
+
+// //---------------------------------------------------------------------------------------
+
+//         let div3 = new HtmlElement('div', false, '');
+//         div3.setStyle(new styleElem('width', '300px'));
+//         div3.setStyle(new styleElem('margin', '10px'));
+//         div.inputHtmlElemEnd(div3);
+
+//         let h32 = new HtmlElement('h3', false, 'What is Lorem Ipsum?');
+//         div3.inputHtmlElemBegin(h32);
+
+//         let img2 = new HtmlElement('img', true, '');
+//         img2.setStyle(new styleElem('width', '100%'));
+//         img2.setAtr(new atrElem('src', 'lipsum.jpg'));
+//         img2.setAtr(new atrElem('alt', 'Lorem Ipsum'));
+//         div3.inputHtmlElemEnd(img2);
+
+//         let p2 = new HtmlElement('p', false, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknow printer took a galley of type and scrambled it to make a type specimen book.');
+//         p2.setStyle(new styleElem('text-align', 'justify'));
+//         div3.inputHtmlElemEnd(p2);
+
+//         let a2 = new HtmlElement('a', false, 'More...');
+//         a2.setAtr(new atrElem('href', 'https://www.lipsum.com/'));
+//         a2.setAtr(new atrElem('target', '_blank'));
+//         p2.inputHtmlElemBegin(a2);
+
+        // document.body.append(div.getHtml());
+        // // document.write(div.getHtml());
+
+    //------------------------------------------------------------
+
+    /*Задание 3
+    Реализовать класс, который описывает css класс.
+    Класс CssClass должен содержать внутри себя:
+    ■ название css класса;
+    ■ массив стилей;
+    ■ метод для установки стиля;
+    ■ метод для удаления стиля;
+    ■ метод getCss(), который возвращает css код в виде строки.*/
+
+    // function styleElem(styleName, sytleValue)
+    // {
+    //     this.styleName = styleName;
+    //     this.sytleValue = sytleValue;
+    // }
+
+    // class CssClass
+    // {
+    //     constructor(className)
+    //     {
+    //         this.className = className;
+    //         this.styleArr = [];
+    //     }
+
+    //     setStyle(style)
+    //     {
+    //         this.styleArr.push(style);
+    //     }
+
+    //     removeStyle(style)
+    //     {
+    //         let tempStyleIndex = this.styleArr.indexOf(style);
+
+    //         if (tempStyleIndex > -1)
+    //         {
+    //             this.styleArr.splice(tempStyleIndex, 1);
+    //         }
+    //     }
+
+    //     getCss()
+    //     {
+    //         let result = '';
+            
+    //         result += `.${this.className}\n{\n`;
+
+    //         this.styleArr.forEach(element =>
+    //         {
+    //             // result += '\t' + element.styleName + ': ' + element.sytleValue + ';' + '\n';
+    //             result += `\t${element.styleName}: ${element.styleValue};\n`;
+    //         });
+
+    //         result += '}';
+
+    //         return result;
+    //     }
+
+    // }
+
+    // let classTemp = new CssClass('wrap');
+    // let marginZero = new styleElem('margin', '0');
+    // let colorGreen = new styleElem('color', 'green');
+
+    // classTemp.setStyle(marginZero);
+    // classTemp.setStyle(colorGreen);
+    // console.log(classTemp.getCss());
+    // console.log('-------------------------------------------');
+    // classTemp.removeStyle(colorGreen);
+    // console.log(classTemp.getCss());
+
+    //------------------------------------------------------------
+
+    /*Задание 4
+    Реализовать класс, описывающий блок html документ.
+    Класс HtmlBlock должен содержать внутри себя:
+    ■ коллекцию стилей, описанных с помощью класса CssClass;
+    ■ корневой элемент, описанный с помощью класса HtmlElement;
+    ■ метод getCode(), который возвращает строку с html кодом (сначала теги style с описанием всех классов, а потом все html содержимое из корневого тега и его вложенных элементов).
+    С помощью написанных классов реализовать следующий блок (см. рис. 2) и добавить его на страницу с помощью document.write().*/
+
+    function atrElem(atrName, atrValue)
+    {
+        this.atrName = atrName;
+        this.atrValue = atrValue;
+    }
+
+    function styleElem(styleName, styleValue)
+    {
+        this.styleName = styleName;
+        this.styleValue = styleValue;
+    }
+
+    class HtmlElement
+    {
+        constructor(tagName, isSelfCloseTag, text)
+        {
+            this.tagName = tagName;
+            this.isSelfCloseTag = isSelfCloseTag;
+            this.text = text;
+            this.atrArr = [];
+            this.styleArr = [];
+            this.tagsElemArr = [];
+            this.result = '';
+        }
+
+        setAtr(atr)
+        {
+            this.atrArr.push(atr);
+        }
+
+        setStyle(style)
+        {
+            this.styleArr.push(style);
+        }
+
+        inputHtmlElemBegin(tagElem)
+        {
+            this.tagsElemArr.unshift(tagElem);
+        }
+
+        inputHtmlElemEnd(tagElem)
+        {
+            this.tagsElemArr.push(tagElem);
+        }
+
+        getHtml()
+        {
+            this.result += `<${this.tagName}`;
+
+            if (this.styleArr.length != 0)
+            {
+                this.result += ' style="';
+
+                this.styleArr.forEach(element =>
+                {
+                    this.result += `${element.styleName}: ${element.styleValue};`;
+                });
+
+                this.result += '\"';
+            }
+            
+            if (this.atrArr.length != 0)
+            {
+                this.atrArr.forEach(element => 
+                {
+                    this.result += ` ${element.atrName} = "${element.atrValue}"`;
+                });
+            }
+            
+            if (this.isSelfCloseTag)
+                this.result += '\/>';
+            else
+                this.result += '>';
+
+            this.result += this.text;
+
+            if(this.tagsElemArr.length != 0)
+            {
+                this.tagsElemArr.forEach(element => 
+                {
+                    this.result += element.getHtml();
+                });
+            }
+
+            this.result += '</' + this.tagName + '>';
+
+            return this.result;
+        }
+    }
+
+    //*************************************************************
+
+    class CssClass
+    {
+        constructor(className)
+        {
+            this.className = className;
+            this.styleArr = [];
+        }
+
+        setStyle(style)
+        {
+            this.styleArr.push(style);
+        }
+
+        removeStyle(style)
+        {
+            let tempStyleIndex = this.styleArr.indexOf(style);
+
+            if (tempStyleIndex > -1)
+            {
+                this.styleArr.splice(tempStyleIndex, 1);
             }
         }
 
-        let atrArr = [new atrElem('id', 'wrapper')];
-        let styleArr = [new styleElem('color', 'red')];
+        getCss()
+        {
+            let result = '';
 
-        let html = new HtmlElement('div', false, 'hello', atrArr, styleArr);
-        // document.body.append(html.getHtml());
-        document.write(html.getHtml());
+            result += `.${this.className}\n{\n`;
+
+            this.styleArr.forEach(element =>
+            {
+                // result += '\t' + element.styleName + ': ' + element.sytleValue + ';' + '\n';
+                result += `\t${element.styleName}: ${element.styleValue};\n`;
+            });
+
+            result += '}\n';
+
+            return result;
+        }
+    }
+
+    //*****************************************************
+
+    class HtmlBlock
+    {
+        constructor(htmlElement, styleClassArr)
+        {
+            this.styleClassArr = styleClassArr;
+            this.htmlElement = htmlElement;
+        }
+
+        getCode()
+        {
+            let result = '';
+
+            result += '<style>';
+
+            styleClassArr.forEach(element =>
+            {
+                result += element.getCss();
+            });
+
+            result += '</style>';
+
+            result += this.htmlElement.getHtml();
+
+            return result;
+        }
+    }
+
+    let div = new HtmlElement('div', false, '');
+    div.setAtr(new atrElem('id', 'wrapper'));
+    div.setAtr(new atrElem('class', 'wrap'));
+
+    let div2 = new HtmlElement('div', false, '');
+    div2.setAtr(new atrElem('class', 'block'));
+    div.inputHtmlElemBegin(div2);
+    
+    let h3 = new HtmlElement('h3', false, 'What is Lorem Ipsum?');
+    div2.inputHtmlElemBegin(h3);
+
+    let img = new HtmlElement('img', true, '');
+    img.setAtr(new atrElem('class', 'img'));
+    img.setAtr(new atrElem('src', 'lipsum.jpg'));
+    img.setAtr(new atrElem('alt', 'Lorem Ipsum'));
+    div2.inputHtmlElemEnd(img);
+
+    let p = new HtmlElement('p', false, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknow printer took a galley of type and scrambled it to make a type specimen book.');
+    p.setAtr(new atrElem('class', 'text'));
+    div2.inputHtmlElemEnd(p);
+
+    let a = new HtmlElement('a', false, 'More...');
+    a.setAtr(new atrElem('href', 'https://www.lipsum.com/'));
+    a.setAtr(new atrElem('target', '_blank'));
+    p.inputHtmlElemBegin(a);
+
+//---------------------------------------------------------------------------------------
+
+    let div3 = new HtmlElement('div', false, '');
+    div3.setAtr(new atrElem('class', 'block'));
+    div.inputHtmlElemEnd(div3);
+
+    let h32 = new HtmlElement('h3', false, 'What is Lorem Ipsum?');
+    div3.inputHtmlElemBegin(h32);
+
+    let img2 = new HtmlElement('img', true, '');
+    img2.setAtr(new atrElem('class', 'img'));
+    img2.setAtr(new atrElem('src', 'lipsum.jpg'));
+    img2.setAtr(new atrElem('alt', 'Lorem Ipsum'));
+    div3.inputHtmlElemEnd(img2);
+
+    let p2 = new HtmlElement('p', false, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknow printer took a galley of type and scrambled it to make a type specimen book.');
+    p2.setAtr(new atrElem('class', 'text'));
+    div3.inputHtmlElemEnd(p2);
+
+    let a2 = new HtmlElement('a', false, 'More...');
+    a2.setAtr(new atrElem('href', 'https://www.lipsum.com/'));
+    a2.setAtr(new atrElem('target', '_blank'));
+    p2.inputHtmlElemBegin(a2);
+
+//---------------------------------------------------------------------------------------
+
+    let wrap = new CssClass('wrap');
+    wrap.setStyle(new styleElem('display', 'flex'));
+
+    let blockW = new CssClass('block');
+    blockW.setStyle(new styleElem('width', '300px'));
+    blockW.setStyle(new styleElem('margin', '10px'));
+
+    let imgW = new CssClass('img');
+    imgW.setStyle(new styleElem('width', '100%'));
+
+    let text = new CssClass('text');
+    text.setStyle(new styleElem('text-align', 'justify'));
+
+    let styleClassArr = [wrap, blockW, imgW, text];
+
+    let block = new HtmlBlock(div, styleClassArr);
+
+    document.write(block.getCode());
+
     </script>
-
 </body>
 </html>
