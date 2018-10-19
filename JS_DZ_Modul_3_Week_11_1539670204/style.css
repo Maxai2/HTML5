@@ -64,6 +64,50 @@ body {
   position: absolute;
   width: 100px;
   height: 100px;
-  left: 10px;
-  top: 10px;
+  left: 500px;
+  top: 500px;
+  transition: 1s;
+}
+.trafficLightContainer {
+  width: 290px;
+  height: 100px;
+  background-color: #fbf2e9;
+  margin: 10px auto;
+  padding: 20px;
+}
+.trafficLightContainer .threeLightButton {
+  display: grid;
+  grid-template-columns: auto 60px;
+}
+.trafficLightContainer .threeLightButton .trafficLight {
+  border: 1.5px solid #b3b0ac;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.trafficLightContainer .threeLightButton .trafficLight #red {
+  background-color: #b3b0ac;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  margin: 25px auto;
+}
+.trafficLightContainer .threeLightButton .trafficLight #yellow {
+  background-color: #ff9600;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  margin: 25px auto;
+}
+.trafficLightContainer .threeLightButton .trafficLight #green {
+  background-color: #b3b0ac;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  margin: 25px auto;
+}
+.trafficLightContainer .threeLightButton button {
+  border-radius: 10px;
+  margin-left: 5px;
+  font-weight: bold;
 }

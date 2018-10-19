@@ -69,56 +69,65 @@
     Создать html-страницу с футбольным полем, которое занимает всю ширину и высоту экрана, и мячом размером 100 на 100 пикселей.
     Сделать так, чтобы при клике мышкой по полю, мяч плавно перемещался на место клика. Учтите: необходимо, чтобы центр мяча останавливался именно там, где был совершен клик мышкой. Также предусмотрите, чтобы мяч не выходил за границы поля.-->
 
-    <!-- <div id="field">
-        <div id="ball"></div>
-    </div> -->
-
-    <img id="field" src="https://static.vecteezy.com/system/resources/previews/000/104/368/original/free-soccer-field-vector.jpg" class="footbalImg">
+    <!-- <img id="field" src="https://static.vecteezy.com/system/resources/previews/000/104/368/original/free-soccer-field-vector.jpg" class="footbalImg">
 
     <img id="ball" src="http://www.i2clipart.com/cliparts/e/b/1/b/128045eb1b259252f6f4113c77b416b9e63e72.png" class="ballPos">
 
     <script type="text/javascript">
 
-        //document.addEventListener('DOMContentLoaded', moveBall);
         var ballElem = document.querySelector("#ball");
         var fieldCont = document.querySelector("#field");
+
+        var fieldWidth = document.getElementById('field').clientWidth - 100;
+        var fieldHeight = document.getElementById('field').clientHeight - 100;
 
         fieldCont.addEventListener("click", moveBall, false);
 
         function moveBall()
         {
-            let parentPosition = getPosition(fieldCont);
+            var xPosition = event.clientX - (ballElem.offsetWidth / 2);
+            var yPosition = event.clientY - (ballElem.offsetHeight / 2);
 
-            var xPosition = event.clientX - (ballElem.offsetWidth / 2) - parentPosition.x;
-            var yPosition = event.clientY - (ballElem.offsetHeight / 2) - parentPosition.y;
+            if (xPosition < 0) xPosition = 0;
 
-            // var xPosition = event.clientX - (ballElem.offsetWidth / 2) - parentPosition.x;
-            // var yPosition = event.clientY - (ballElem.offsetHeight / 2) - parentPosition.y;
+            if (xPosition > fieldWidth) xPosition = fieldWidth;
 
-            var transformValue = "translate3d(" + xPosition + "px," + yPosition + "px, 0)";
+            if (yPosition < 0) yPosition = 0;
 
-            ballElem.style.transform = transformValue;
+            if (yPosition > fieldHeight) yPosition = fieldHeight;
+
+            ballElem.style.left = xPosition + "px";
+            ballElem.style.top = yPosition + "px";
         }
 
-        function getPosition(element)
+    </script> -->
+
+<!-------------------------------------------------------------------------------------->
+
+    <!--Задание 4
+    Создать html-страницу со светофором и кнопкой, которая переключает светофор на следующий цвет.-->
+    
+    <div class="trafficLightContainer">
+        <div class="threeLightButton">
+            <div class="trafficLight">
+                <div id="red"></div>
+                <div id="yellow"></div>
+                <div id="green"></div>
+            </div>
+            
+            <button onclick="changeCol()">NEXT</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let redTraf = document.getElementById("red");
+        let yellowTraf = document.getElementById("yellow");
+        let greenTraf = document.getElementById("green");
+
+        function changeCol()
         {
-            let xPosition = 0;
-            let yPosition = 0;
-
-            while (element)
-            {
-                xPosition += (element.offsetLeft - element.srollLeft + element.clientLeft);
-                yPosition += (element.offsetTop - element.srollTop + element.clientTop);
-                element = element.offsetParent;
-            }
-
-            return new 
-            {
-                x: xPosition, 
-                y: yPosition
-            };
+            yellowTraf.style.backgroundColor = '#b3b0ac';
         }
-
     </script>
 
 </body>

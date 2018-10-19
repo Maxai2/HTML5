@@ -100,26 +100,72 @@ body
     position: absolute;
     width: 100px;
     height: 100px;
-    left: 10px;
-    top: 10px;
+    left: 500px;
+    top: 500px;
+    transition: 1s;
 }
 
-// #field
-// {
-//     background-image: url(https://static.vecteezy.com/system/resources/previews/000/104/368/original/free-soccer-field-vector.jpg);
-//     position: fixed;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }
+//------------------------------------------------------------------------------------
 
-// #ball
-// {
-//     background-image: url(http://www.i2clipart.com/cliparts/e/b/1/b/128045eb1b259252f6f4113c77b416b9e63e72.png);
-//     position: relative;
-//     width: 130px;
-//     height: 130px;
-//     background-repeat: no-repeat;
-//     margin-left: 500px;
-//     margin-top: 500px;
-//     transition: 1s;
-// }
+//4
+
+@defaultCol: #b3b0ac;
+@yellowCol: #ff9600;
+
+.trafficLightContainer
+{
+    width: 290px;
+    height: 100px;
+    background-color: @inputBColor;
+    margin: 10px auto;
+    padding: 20px;
+    
+    .threeLightButton
+    {
+        display: grid;
+        grid-template-columns: 
+        auto 60px;
+        
+        .trafficLight
+        {
+            border: 1.5px solid @defaultCol;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            
+            #red
+            {
+                background-color: @defaultCol;
+                width: 50px;
+                height: 50px;
+                border-radius: 30px;
+                margin: 25px auto;
+            }
+            
+            #yellow
+            {
+                background-color: @yellowCol;
+                width: 50px;
+                height: 50px;
+                border-radius: 30px;
+                margin: 25px auto;
+            }
+            
+            #green
+            {
+                background-color: @defaultCol;
+                width: 50px;
+                height: 50px;
+                border-radius: 30px;
+                margin: 25px auto;
+            }
+        }
+        
+        button
+        {
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: bold;
+        }
+    }
+}
