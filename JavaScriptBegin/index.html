@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
     <title>Title</title>
 </head>
 
@@ -387,15 +386,15 @@
 
 
 
-        document.addEventListener('DOMContentLoaded', onKeyDown);
+        // document.addEventListener('DOMContentLoaded', onKeyDown);
 
-        function onKeyDown()
-        {
-            document.getElementById("input1").addEventListener('keydown', function()
-            {
-                console.log(event.target.value);
-            });
-        }
+        // function onKeyDown()
+        // {
+        //     document.getElementById("input1").addEventListener('keydown', function()
+        //     {
+        //         console.log(event.target.value);
+        //     });
+        // }
 
         // function getElems()
         // {
@@ -409,79 +408,135 @@
         //     console.log(res);
         // }
 
-        function getElems()
+        // function getElems()
+        // {
+        //     let res = [];
+        //     res = document.querySelectorAll('.div1 .p');
+        //     console.log(res);
+        //     res = [];
+
+        //     let divs = document.getElementsByClassName('div1');
+        //     for (let i = 0; i < divs.length; i++) 
+        //     {
+        //         let ps = divs[i].getElementsByClassName('p');
+
+        //         for (let j = 0; j < ps.length; j++) 
+        //         {
+        //             res.push(divs[i].getElementsByClassName('p'));    
+        //         }
+        //     }
+
+        //     console.log(res);
+        // }
+
+        // function changeContent()
+        // {
+        //     let elem = document.getElementById('content');
+        //     console.log(elem.innerHTML);
+        //     console.log(elem.innerText);
+        //     elem.append('Hello'); // Добавление в конец текст
+        //     elem.prepend('Hello'); // Добавление в начало текст
+            
+        //     // создание нового html элемента
+        //     let helloH3 = document.createElement('h3');
+        //     helloH3.innerText = 'hello!!!';
+        //     elem.prepend(helloH3);
+
+        //     //elem.innerText = '<h3>Hello</h3>';
+        // }
+
+        // function changeInput()
+        // {
+        //     let inp = document.getElementById('input1');
+        //     //inp.type = 'number';
+        //     //inp.className = 'inp2';
+        //     inp.classList.add('inp2');
+        //     inp.classList.remove('inp1');
+        //     inp.classList.toggle('inp3');
+            
+        //     inp.style.color = 'darkred';
+        // }
+
+        // document.addEventListener(
+        //     'selectstart', function()
+        //     {
+        //         event.preventDefault();
+        //     }
+        // )
+
+        // function getUrl()
+        // {
+        //     console.log(window.location.href);
+        //     console.log(window.location.port);
+        //     console.log(window.location.protocol);
+        //     console.log(window.location.hostname);
+
+        // }
+
+        // function getToGoogle()
+        // {
+        //     window.location.href = 'http://google.com';
+        // }
+
+        // Forms ----------------------------------------------------------
+
+        function submitFunc()
         {
-            let res = [];
-            res = document.querySelectorAll('.div1 .p');
-            console.log(res);
-            res = [];
+            event.preventDefault(); // отменяет стандартное значение
+            let form = document.getElementById("userForm");
+            
+            let age = form.elements['age'].value;
 
-            let divs = document.getElementsByClassName('div1');
-            for (let i = 0; i < divs.length; i++) 
+            let name = form.elements['name'].value;
+
+            if (new RegExp(/^[a-zA-Z]+$/).test(name) == false) // регулярные выражения
             {
-                let ps = divs[i].getElementsByClassName('p');
-
-                for (let j = 0; j < ps.length; j++) 
-                {
-                    res.push(divs[i].getElementsByClassName('p'));    
-                }
+                form.elements['name'].nextElementSibling.innerText = "name is incorrect (only letters)";
             }
 
-            console.log(res);
-        }
-
-        function changeContent()
-        {
-            let elem = document.getElementById('content');
-            console.log(elem.innerHTML);
-            console.log(elem.innerText);
-            elem.append('Hello'); // Добавление в конец текст
-            elem.prepend('Hello'); // Добавление в начало текст
-            
-            // создание нового html элемента
-            let helloH3 = document.createElement('h3');
-            helloH3.innerText = 'hello!!!';
-            elem.prepend(helloH3);
-
-            //elem.innerText = '<h3>Hello</h3>';
-        }
-
-        function changeInput()
-        {
-            let inp = document.getElementById('input1');
-            //inp.type = 'number';
-            //inp.className = 'inp2';
-            inp.classList.add('inp2');
-            inp.classList.remove('inp1');
-            inp.classList.toggle('inp3');
-            
-            inp.style.color = 'darkred';
-        }
-
-        document.addEventListener(
-            'selectstart', function()
+            if (age < 18 || age > 55)
             {
-                event.preventDefault();
+                form.elements['age'].nextElementSibling.innerText = "age is incorrect (18 >= age <= 55)";
             }
-        )
-
-        function getUrl()
-        {
-            console.log(window.location.href);
-            console.log(window.location.port);
-            console.log(window.location.protocol);
-            console.log(window.location.hostname);
-
-        }
-
-        function getToGoogle()
-        {
-            window.location.href = 'http://google.com';
         }
 
      </script>
 
-     <input type="text" class="inp1" id="input1"/><br/>
+     <style>
+         .error
+         {
+             color: darkred;
+         }
+     </style>
+
+     <form id="userForm" method="GET" onsubmit="submitFunc()"> <!--для отправки на сервер есть методы и события для работы, method post для отправки тела, action url куда отправляем-->
+        <input type="hidden" name="id"/>        
+        <div>
+             <label>Name: </label>
+             <input type="text" name="name" required/>
+             <span class="error"></span>
+         </div>
+         <div>
+             <label>Age: </label>
+             <input type="number" name="age" required/>
+             <span class="error"></span>
+         </div>
+         <div>
+             <label>Gender: </label>
+             <input id="female" type="radio" name="gender" value="female" checked/>
+             <label for="female">female</label>
+             <input id="male" type="radio" name="gender" value="male"/>
+             <label for="male">male</label>
+        </div>
+        <div>
+            <label>Subscribe: </label>
+            <input type="checkbox" name="subscribe"/>
+        </div>
+
+            <input type="submit"/>
+     </form>
+
+     <!-- <input type="text" class="inp1" id="input1"/><br/>
      <input type="text" class="inp1" id="input2"/><br/>
      <input type="text" class="inp1" id="input3"/><br/>
 
@@ -501,7 +556,7 @@
      <button onclick="changeContent()">Change elements</button><br/>
      <button onclick="changeInput()">Change input</button><br/>
      <button onclick="getUrl()">Get Url</button><br/>
-     <button onclick="getToGoogle()">Go to Google</button><br/>
+     <button onclick="getToGoogle()">Go to Google</button><br/> -->
      
     <!--<style>
          .div1
