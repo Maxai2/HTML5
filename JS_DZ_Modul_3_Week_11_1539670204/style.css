@@ -55,21 +55,15 @@ body {
   box-sizing: border-box;
   margin: 15px 0;
 }
-#field {
-  background-image: url(https://static.vecteezy.com/system/resources/previews/000/104/368/original/free-soccer-field-vector.jpg);
+.footbalImg {
   width: 100%;
   height: 100%;
   position: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
-#ball {
-  background-image: url(http://www.i2clipart.com/cliparts/e/b/1/b/128045eb1b259252f6f4113c77b416b9e63e72.png);
-  position: relative;
-  width: 130px;
-  height: 130px;
-  background-repeat: no-repeat;
-  margin-left: 500px;
-  margin-top: 500px;
-  transition: 1s;
+.ballPos {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 10px;
+  top: 10px;
 }

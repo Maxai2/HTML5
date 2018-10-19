@@ -69,13 +69,13 @@
     Создать html-страницу с футбольным полем, которое занимает всю ширину и высоту экрана, и мячом размером 100 на 100 пикселей.
     Сделать так, чтобы при клике мышкой по полю, мяч плавно перемещался на место клика. Учтите: необходимо, чтобы центр мяча останавливался именно там, где был совершен клик мышкой. Также предусмотрите, чтобы мяч не выходил за границы поля.-->
 
-    <div id="field">
+    <!-- <div id="field">
         <div id="ball"></div>
-    </div>
+    </div> -->
 
-    <!-- <img id="field" src="https://static.vecteezy.com/system/resources/previews/000/104/368/original/free-soccer-field-vector.jpg" class="footbalImg" onclick="moveBall()">
+    <img id="field" src="https://static.vecteezy.com/system/resources/previews/000/104/368/original/free-soccer-field-vector.jpg" class="footbalImg">
 
-    <img id="ball" src="http://www.i2clipart.com/cliparts/e/b/1/b/128045eb1b259252f6f4113c77b416b9e63e72.png" class="ballPos"> -->
+    <img id="ball" src="http://www.i2clipart.com/cliparts/e/b/1/b/128045eb1b259252f6f4113c77b416b9e63e72.png" class="ballPos">
 
     <script type="text/javascript">
 
@@ -87,10 +87,10 @@
 
         function moveBall()
         {
-            // let parentPosition = getPosition(fieldCont);
+            let parentPosition = getPosition(fieldCont);
 
-            var xPosition = event.clientX - (ballElem.offsetWidth / 2) - 500;
-            var yPosition = event.clientY - (ballElem.offsetHeight / 2) - 500;
+            var xPosition = event.clientX - (ballElem.offsetWidth / 2) - parentPosition.x;
+            var yPosition = event.clientY - (ballElem.offsetHeight / 2) - parentPosition.y;
 
             // var xPosition = event.clientX - (ballElem.offsetWidth / 2) - parentPosition.x;
             // var yPosition = event.clientY - (ballElem.offsetHeight / 2) - parentPosition.y;
@@ -100,24 +100,24 @@
             ballElem.style.transform = transformValue;
         }
 
-        // function getPosition(element)
-        // {
-        //     let xPosition = 0;
-        //     let yPosition = 0;
+        function getPosition(element)
+        {
+            let xPosition = 0;
+            let yPosition = 0;
 
-        //     while (element)
-        //     {
-        //         xPosition += (element.offsetLeft - element.srollLeft + element.clientLeft);
-        //         yPosition += (element.offsetTop - element.srollTop + element.clientTop);
-        //         element = element.offsetParent;
-        //     }
+            while (element)
+            {
+                xPosition += (element.offsetLeft - element.srollLeft + element.clientLeft);
+                yPosition += (element.offsetTop - element.srollTop + element.clientTop);
+                element = element.offsetParent;
+            }
 
-        //     return
-        //     {
-        //         x: xPosition, 
-        //         y: yPosition
-        //     };
-        // }
+            return new 
+            {
+                x: xPosition, 
+                y: yPosition
+            };
+        }
 
     </script>
 
