@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+.ListBg {
+  width: 200px;
+  background-color: #fbf2e9;
+  margin: 0 auto;
+  padding: 0 50px;
+  box-sizing: border-box;
+}
+.ListBg ul {
+  font-size: 8px;
+  display: initial;
+  list-style: circle;
+  list-style-position: inside;
+}
+.ListBg ul a {
+  color: #7a489f;
+}
+.ListBg ul a:hover {
+  color: #919edb;
+  cursor: default;
+}
+.TreeBg {
+  width: 200px;
+  background-color: #fbf2e9;
+  margin: 0 auto;
+  padding: 0 50px;
+  box-sizing: border-box;
+}

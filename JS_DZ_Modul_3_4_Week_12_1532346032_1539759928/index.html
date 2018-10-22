@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--Задание 1
+    Создать html-страницу со списком ссылок. Ссылки на внешние источники (которые начинаются с http://) необходимо подчеркнуть пунктиром. Искать такие ссылки в списке и устанавливать им дополнительные стили необходимо с помощью JS.-->
+
+    <!-- <div class="ListBg">
+        <ul id="linkList"></ul>
+    </div>
+
+    <script type="text/javascript">
+        let links = ['index.html', 'http://google.com', 'https://itstep.org', 'https://mystat.itstep.org', '/images/cat.jpg', '/local/path'];
+
+        let linkArr = document.getElementById("linkList");
+        
+        links.forEach(element =>
+        {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+
+            if ((element.search('http://') != -1) || element.search('https://') != -1)
+            {
+                a.style.borderBottom = '0.5px dotted #7a489f';
+            }
+            a.appendChild(document.createTextNode(element));
+            li.appendChild(a);
+
+            linkArr.appendChild(li);
+        });
+
+    </script> -->
+
+<!-------------------------------------------------------------------->     <!--Задание 2
+     Создать html-страницу с деревом вложенных директорий.
+     При клике на элемент списка, он должен сворачиваться или разворачиваться. При наведении на элемент, шрифт должен становится жирным (с помощью CSS). -->
+
+    
+    <div class="TreeBg">
+        <ul id="treeList"></ul>
+    </div>
+
+    <script type="text/javascript">
+        let computerTree = [];
+        let thisPc = '' 
+    </script>
+
+</body>
+</html>

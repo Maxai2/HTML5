@@ -1,0 +1,53 @@
+body
+{
+    margin: 0;
+}
+
+//1
+
+@BGColor: #fbf2e9;
+@aCol: #7a489f;
+@aColHover: #919edb;
+
+.ListBg
+{
+    width: 200px;
+    background-color: @BGColor;
+    margin: 0 auto;
+    padding: 0 50px;
+    box-sizing: border-box;
+
+    ul
+    {
+        font-size: 8px;
+        display: initial;
+        list-style: circle;
+        list-style-position: inside;
+
+        a
+        {
+            color: @aCol;
+        }
+
+        a:hover
+        {
+            color: @aColHover;
+            cursor: default;
+        }
+    }
+}
+
+//-------------------------------
+
+//2
+
+.TreeBg
+{
+    width: 200px;
+    background-color: @BGColor;
+    margin: 0 auto;
+    padding: 0 50px;
+    box-sizing: border-box;
+
+    
+}
