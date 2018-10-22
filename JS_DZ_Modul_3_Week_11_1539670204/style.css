@@ -130,15 +130,45 @@ body {
   height: 50px;
   background-color: #fbf2e9;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
-.twoButtonContainer button {
-  margin: 10px;
+.twoButtonContainer .FirstBut {
+  position: absolute;
+  top: 0;
+}
+.twoButtonContainer .SecondBut {
+  margin-left: 100px;
+  margin-top: 20px;
 }
 .toolTip {
+  display: inline;
   position: fixed;
-  padding: 10px 20px;
-  border: 1px solid #b3c9ce;
   text-align: center;
   background: #8a53a9;
+  padding: 5px;
+  font: italic 10px arial, sans-serif;
+}
+.triangle-up::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 2.5px solid transparent;
+  border-right: 2.5px solid transparent;
+  top: -5px;
+  border-bottom: 5px solid #8a53a9;
+  left: calc(47.5%);
+}
+.triangle-down::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 2.5px solid transparent;
+  border-right: 2.5px solid transparent;
+  border-top: 5px solid #8a53a9;
+  left: calc(47.5%);
+  top: 21px;
 }

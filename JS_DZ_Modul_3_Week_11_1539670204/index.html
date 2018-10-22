@@ -162,27 +162,27 @@
             </div>
             <div class="bookContainer">
                 <label>2.</label>
-                <span id="MarijinHaverbeke">"Eloquent JavaScript: A Modern Introduction to Programming" by Marijin Haverbeke</span>
+                <span>"Eloquent JavaScript: A Modern Introduction to Programming" by Marijin Haverbeke</span>
             </div>
             <div class="bookContainer">
                 <label>3.</label>
-                <span id="DouglasCrockford">"JavaScript: The Good Parts" by Douglas Crockford</span>
+                <span>"JavaScript: The Good Parts" by Douglas Crockford</span>
             </div>
             <div class="bookContainer">
                 <label>4.</label>
-                <span id="EricElliot">"Programming JavaScript Applications: Robust Web Architecture with Node, HTML5 and Moderns JS Libraries" by Eric Elliott</span>
+                <span>"Programming JavaScript Applications: Robust Web Architecture with Node, HTML5 and Moderns JS Libraries" by Eric Elliott</span>
             </div>
             <div class="bookContainer">
                 <label>5.</label>
-                <span id="DavidHerman">"Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript" by David Herman</span>
+                <span>"Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript" by David Herman</span>
             </div>
             <div class="bookContainer">
                 <label>6.</label>
-                <span id="DavidFlanagan">"JavaScript: The Definitive Guide" by David Flanagan</span>
+                <span>"JavaScript: The Definitive Guide" by David Flanagan</span>
             </div>
             <div class="bookContainer">
                 <label>7.</label>
-                <span id="KyleSimpson">"You Don't know JS" by Kyle Simpson</span>
+                <span>"You Don't know JS" by Kyle Simpson</span>
             </div>
         </div>
     </div>
@@ -190,16 +190,6 @@
     <script type="text/javascript">
         let selectedCol = '#ffa984';
         let BgCol = '#fbf2e9';
-
-        // let NickMorganBook = document.getElementById("NickMorgan");
-        // let MarijinHaverbekeBook = document.getElementById("MarijinHaverbeke");
-        // let DouglasCrockfordBook = document.getElementById("DouglasCrockford");
-        // let EricElliotBook = document.getElementById("EricElliot");
-        // let DavidHermanBook = document.getElementById("DavidHerman");
-        // let DavidFlanaganBook = document.getElementById("DavidFlanagan");
-        // let KyleSimpsonBook = document.getElementById("KyleSimpson");
-
-        // let booksArr = [NickMorganBook, MarijinHaverbekeBook, DouglasCrockfordBook, EricElliotBook, DavidHermanBook, DavidFlanaganBook, KyleSimpsonBook];
 
         var booksArr = document.querySelectorAll(".sevenBooks span");
 
@@ -215,19 +205,10 @@
             booksArr[lastIndex].style.backgroundColor = BgCol;
 
             event.target.style.background = selectedCol;
-            // console.log(booksArr.indexOf(event.target));
-
-            for (let i = 0; i <= booksArr.length; ++i)
-            {
-                if (booksArr[i] == event.target)
-                {
-                    lastIndex = i;
-                    break;
-                }
-            }
+            lastIndex = Array.from(booksArr).indexOf(event.target);
         }
 
-    </script> -->
+    </script>  -->
 
 <!-------------------------------------------------------------------------------------->
 
@@ -236,45 +217,73 @@
     По умолчанию – подсказка появляется сверху от кнопки. Но если она не помещается сверху от кнопки, тогда отображается снизу.-->
 
     <div class="twoButtonContainer">
-        <div class="twoButton">
-            <button data-toogle="Tool Tip 1">Button 1</button>
-            <button data-toogle="Tool Tip 2">Button 2</button>
-        </div>
+        <button class="FirstBut" data-tooltip="Tool Tip 1">Button 1</button>
+        <button class="SecondBut" data-tooltip="Tool Tip 2">Button 2</button>
     </div>
 
     <script tabindex="text/javascript">
-        let butArr = document.querySelectorAll(".twoButton button");
 
-        butArr.forEach(elem =>
+        document.addEventListener("DOMContentLoaded", function()
         {
-            elem.addEventListener('mouseover', toolTip);
+            let butArr = document.querySelectorAll(".twoButtonContainer button");
+            console.log(butArr);
+            butArr.forEach(elem => 
+            {
+                elem.addEventListener('mouseover', function() 
+                {
+                    toolTipOver(elem);
+                });
+
+                elem.addEventListener('mouseout', function() 
+                {
+                    toolTipOut(elem);
+                });
+            });
         });
 
-        let showingTooltip;
+        let showingToolTip;
 
-        function toolTip()
+        function toolTipOver(btn)
         {
             var toolTipElem = document.createElement('div');
             toolTipElem.className = 'toolTip';
+            toolTipElem.innerText = btn.getAttribute('data-tooltip');
+            btn.parentNode.insertBefore(toolTipElem, btn.nextElementSibling);
 
             var coords = event.target.getBoundingClientRect();
 
             var left = coords.left + (event.target.offsetWidth - toolTipElem.offsetWidth) / 2;
 
-            if (left < 0) 
+            if (left < 0)
+            {
                 left = 0;
-
+            } 
+                
             var top = coords.top - toolTipElem.offsetHeight - 5;
 
             if (top < 0) 
             {
                 top = coords.top + event.target.offsetHeight + 5;
+                toolTipElem.classList.add('triangle-up');
+            }
+            else
+            {
+                toolTipElem.classList.add('triangle-down');
             }
 
             toolTipElem.style.left = left + 'px';
             toolTipElem.style.top = top + 'px';
 
-            showingTooltip = toolTipElem;
+            showingToolTip = toolTipElem;
+        }
+
+        function toolTipOut(btn)
+        {
+            if (showingToolTip)
+            {
+                btn.parentNode.removeChild(showingToolTip);
+                showingToolTip = null;
+            }
         }
 
     </script>
