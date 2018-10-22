@@ -107,7 +107,7 @@
     <!--Задание 4
     Создать html-страницу со светофором и кнопкой, которая переключает светофор на следующий цвет.-->
     
-    <div class="trafficLightContainer">
+    <!-- <div class="trafficLightContainer">
         <div class="threeLightButton">
             <div class="trafficLight">
                 <div id="red"></div>
@@ -123,11 +123,160 @@
         let redTraf = document.getElementById("red");
         let yellowTraf = document.getElementById("yellow");
         let greenTraf = document.getElementById("green");
+        
+        let trafficArr = [redTraf, yellowTraf, greenTraf];
+
+        let defaultCol = '#b3b0ac';
+        let redCol = 'red';
+        let yellowCol = '#ff9600';
+        let greenCol = 'green';
+
+        let colArr = [redCol, yellowCol, greenCol];    
+
+        let index = 1;
 
         function changeCol()
         {
-            yellowTraf.style.backgroundColor = '#b3b0ac';
+            trafficArr[index].style.backgroundColor = defaultCol;
+            console.log(index);
+
+            index == 2 ? index = 0 : index++;
+                
+            trafficArr[index].style.backgroundColor = colArr[index];
         }
+    </script> -->
+
+<!-------------------------------------------------------------------------------------->
+
+    <!--Задание 5
+    Создать html-страницу со списком книг.
+    При щелчке на книгу, цвет фона должен меняться на оранжевый.
+    Учтите, что при повторном щелчке на другую книгу, предыдущей –
+    необходимо возвращать прежний цвет.-->
+
+    <!-- <div class="booksContainer">
+        <div class="sevenBooks">
+            <div class="bookContainer">
+                <label>1.</label>
+                <span>"JavaScript for Kids: A Playful Introduction on Programming" by Nick Morgan</span>
+            </div>
+            <div class="bookContainer">
+                <label>2.</label>
+                <span id="MarijinHaverbeke">"Eloquent JavaScript: A Modern Introduction to Programming" by Marijin Haverbeke</span>
+            </div>
+            <div class="bookContainer">
+                <label>3.</label>
+                <span id="DouglasCrockford">"JavaScript: The Good Parts" by Douglas Crockford</span>
+            </div>
+            <div class="bookContainer">
+                <label>4.</label>
+                <span id="EricElliot">"Programming JavaScript Applications: Robust Web Architecture with Node, HTML5 and Moderns JS Libraries" by Eric Elliott</span>
+            </div>
+            <div class="bookContainer">
+                <label>5.</label>
+                <span id="DavidHerman">"Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript" by David Herman</span>
+            </div>
+            <div class="bookContainer">
+                <label>6.</label>
+                <span id="DavidFlanagan">"JavaScript: The Definitive Guide" by David Flanagan</span>
+            </div>
+            <div class="bookContainer">
+                <label>7.</label>
+                <span id="KyleSimpson">"You Don't know JS" by Kyle Simpson</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        let selectedCol = '#ffa984';
+        let BgCol = '#fbf2e9';
+
+        // let NickMorganBook = document.getElementById("NickMorgan");
+        // let MarijinHaverbekeBook = document.getElementById("MarijinHaverbeke");
+        // let DouglasCrockfordBook = document.getElementById("DouglasCrockford");
+        // let EricElliotBook = document.getElementById("EricElliot");
+        // let DavidHermanBook = document.getElementById("DavidHerman");
+        // let DavidFlanaganBook = document.getElementById("DavidFlanagan");
+        // let KyleSimpsonBook = document.getElementById("KyleSimpson");
+
+        // let booksArr = [NickMorganBook, MarijinHaverbekeBook, DouglasCrockfordBook, EricElliotBook, DavidHermanBook, DavidFlanaganBook, KyleSimpsonBook];
+
+        var booksArr = document.querySelectorAll(".sevenBooks span");
+
+        booksArr.forEach(element =>
+        {
+            element.addEventListener('click', bookClick);
+        });
+
+        let lastIndex = 0;
+
+        function bookClick()
+        {
+            booksArr[lastIndex].style.backgroundColor = BgCol;
+
+            event.target.style.background = selectedCol;
+            // console.log(booksArr.indexOf(event.target));
+
+            for (let i = 0; i <= booksArr.length; ++i)
+            {
+                if (booksArr[i] == event.target)
+                {
+                    lastIndex = i;
+                    break;
+                }
+            }
+        }
+
+    </script> -->
+
+<!-------------------------------------------------------------------------------------->
+
+    <!--Создать html-страницу с несколькими кнопками.
+    При наведении на кнопку, должна появляться подсказка с текстом.
+    По умолчанию – подсказка появляется сверху от кнопки. Но если она не помещается сверху от кнопки, тогда отображается снизу.-->
+
+    <div class="twoButtonContainer">
+        <div class="twoButton">
+            <button data-toogle="Tool Tip 1">Button 1</button>
+            <button data-toogle="Tool Tip 2">Button 2</button>
+        </div>
+    </div>
+
+    <script tabindex="text/javascript">
+        let butArr = document.querySelectorAll(".twoButton button");
+
+        butArr.forEach(elem =>
+        {
+            elem.addEventListener('mouseover', toolTip);
+        });
+
+        let showingTooltip;
+
+        function toolTip()
+        {
+            var toolTipElem = document.createElement('div');
+            toolTipElem.className = 'toolTip';
+
+            var coords = event.target.getBoundingClientRect();
+
+            var left = coords.left + (event.target.offsetWidth - toolTipElem.offsetWidth) / 2;
+
+            if (left < 0) 
+                left = 0;
+
+            var top = coords.top - toolTipElem.offsetHeight - 5;
+
+            if (top < 0) 
+            {
+                top = coords.top + event.target.offsetHeight + 5;
+            }
+
+            toolTipElem.style.left = left + 'px';
+            toolTipElem.style.top = top + 'px';
+
+            showingTooltip = toolTipElem;
+        }
+
     </script>
 
 </body>
