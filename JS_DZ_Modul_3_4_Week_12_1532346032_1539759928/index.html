@@ -37,7 +37,8 @@
 
     </script> -->
 
-<!-------------------------------------------------------------------->     <!--Задание 2
+<!-------------------------------------------------------------------->     
+    <!--Задание 2
      Создать html-страницу с деревом вложенных директорий.
      При клике на элемент списка, он должен сворачиваться или разворачиваться. При наведении на элемент, шрифт должен становится жирным (с помощью CSS). -->
 
@@ -47,8 +48,45 @@
     </div>
 
     <script type="text/javascript">
-        let computerTree = [];
-        let thisPc = '' 
+
+        function ulNodeLi(name, nodeArr)
+        {
+            this.name = name;
+            if (nodeArr == undefined || nodeArr == null)
+                this.nodeArr = [];
+            else
+                this.nodeArr = nodeArr;
+        }
+
+        let LocalDiscC = new ulNodeLi('Local Disc (C:)', ['Program Files', 'Users', 'Windows']);
+        let LocalDiscD = new ulNodeLi('Local Disc (D:)', ['New Folder 1', 'New Folder 2', 'New Folder 3']);
+        let LocalDiscE = new ulNodeLi('Local Disc (E:)');
+
+        let thisPc = new ulNodeLi('This PC', [LocalDiscC, LocalDiscD, LocalDiscE]);
+
+        let treeListArr = document.getElementById("treeList");
+
+        let liRoot = document.createElement('li');
+        liRoot.appendChild(document.createTextNode(thisPc.name));
+
+        treeListArr.appendChild(liRoot);
+
+        thisPc.nodeArr.forEach(element => 
+        {
+            let ul = document.createElement('ul');
+            ul.appendChild(document.createTextNode(element.name));
+
+            element.nodeArr.forEach(elem =>
+            {
+                let li = document.createElement('li');
+                li.appendChild(document.createTextNode(elem));
+
+                ul.appendChild(li);
+            });
+
+            liRoot.appendChild(ul);
+        });
+
     </script>
 
 </body>
