@@ -480,29 +480,77 @@
 
         // Forms ----------------------------------------------------------
 
-        function submitFunc()
-        {
-            event.preventDefault(); // отменяет стандартное значение
-            let form = document.getElementById("userForm");
+        // function submitFunc()
+        // {
+        //     event.preventDefault(); // отменяет стандартное значение
+        //     let form = document.getElementById("userForm");
             
-            let age = form.elements['age'].value;
+        //     let age = form.elements['age'].value;
 
-            let name = form.elements['name'].value;
+        //     let name = form.elements['name'].value;
 
-            if (new RegExp(/^[a-zA-Z]+$/).test(name) == false) // регулярные выражения
-            {
-                form.elements['name'].nextElementSibling.innerText = "name is incorrect (only letters)";
-            }
+        //     if (new RegExp(/^[a-zA-Z]+$/).test(name) == false) // регулярные выражения
+        //     {
+        //         form.elements['name'].nextElementSibling.innerText = "name is incorrect (only letters)";
+        //     }
 
-            if (age < 18 || age > 55)
-            {
-                form.elements['age'].nextElementSibling.innerText = "age is incorrect (18 >= age <= 55)";
-            }
+        //     if (age < 18 || age > 55)
+        //     {
+        //         form.elements['age'].nextElementSibling.innerText = "age is incorrect (18 >= age <= 55)";
+        //     }
+        // }
+
+        // cookies ---------------------------------------------------------
+
+        //name=value; expires=date; domain=domain; secure || document.cookie;
+            
+        function addCookieUserId()
+        {
+            let date = new Date(Date.now());
+            date = new Date(date.setDate(date.getDate() + 1));
+            document.cookie = 'userId=123;expires=' + date.toUTCString();
+        }
+
+        function addCookieUserName()
+        {
+            let date = new Date(Date.now());
+            date = new Date(date.setDate(date.getDate() + 1));
+            document.cookie = 'userName=qwerty;expires=' + date.toUTCString();
+        }
+        
+        function removeCookieUserId()
+        {
+            let date = new Date(Date.now());
+            date = new Date(date.setDate(date.getDate() - 1));
+            document.cookie = 'userId=;expires=' + date.toUTCString();
+        }
+
+        function removeCookieUserName()
+        {
+            let date = new Date(Date.now());
+            date = new Date(date.setDate(date.getDate() - 1));
+            document.cookie = 'userName=;expires=' + date.toUTCString();
+        }
+
+        function getAllCookie()
+        {
+            document.getElementById("cookie").innerText = getCookie('userId'); //document.cookie;
         }
 
      </script>
 
-     <style>
+     <script src="https://learn.javascript.ru/article/cookie/cookie.js"></script>
+
+     <button onclick="addCookieUserId()">Add cookie UserId</button>
+     <button onclick="addCookieUserName()">Add cookie UserName</button>
+     <button onclick="removeCookieUserId()">Remove cookie UserId</button>
+     <button onclick="removeCookieUserName()">Remove cookie UserName</button>
+     <button onclick="getAllCookie()">Get all cookie</button>
+     <div id="cookie"></div>
+
+
+
+     <!-- <style>
          .error
          {
              color: darkred;
@@ -510,7 +558,7 @@
      </style>
 
      <form id="userForm" method="GET" onsubmit="submitFunc()"> <!--для отправки на сервер есть методы и события для работы, method post для отправки тела, action url куда отправляем-->
-        <input type="hidden" name="id"/>        
+        <!--<input type="hidden" name="id"/>        
         <div>
              <label>Name: </label>
              <input type="text" name="name" required/>
@@ -534,7 +582,7 @@
         </div>
 
             <input type="submit"/>
-     </form>
+     </form> -->
 
      <!-- <input type="text" class="inp1" id="input1"/><br/>
      <input type="text" class="inp1" id="input2"/><br/>

@@ -43,15 +43,26 @@ body
 
 .TreeBg
 {
-    width: 300px;
+    width: 500px;
     background-color: @BGColor;
     margin: 0 auto;
-    padding: 10px 50px;
+    padding: 10px 20px;
     box-sizing: border-box;
 
     ul
     {
-        font-size: 12px;
+        font-size: 24px;
         list-style-position: inside;
+        box-sizing: border-box;
+    }
+
+    li
+    {
+        box-sizing: border-box;
+    }
+
+    li:hover
+    {
+        cursor: default;
     }
 }

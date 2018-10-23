@@ -22,13 +22,20 @@ body {
   cursor: default;
 }
 .TreeBg {
-  width: 300px;
+  width: 500px;
   background-color: #fbf2e9;
   margin: 0 auto;
-  padding: 10px 50px;
+  padding: 10px 20px;
   box-sizing: border-box;
 }
 .TreeBg ul {
-  font-size: 12px;
+  font-size: 24px;
   list-style-position: inside;
+  box-sizing: border-box;
+}
+.TreeBg li {
+  box-sizing: border-box;
+}
+.TreeBg li:hover {
+  cursor: default;
 }

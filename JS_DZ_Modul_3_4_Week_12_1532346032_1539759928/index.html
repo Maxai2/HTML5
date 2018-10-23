@@ -52,10 +52,20 @@
         function ulNodeLi(name, nodeArr)
         {
             this.name = name;
-            if (nodeArr == undefined || nodeArr == null)
-                this.nodeArr = [];
-            else
-                this.nodeArr = nodeArr;
+
+            this.nodeArr = nodeArr || [];
+
+            // if (nodeArr == undefined || nodeArr == null)
+            //     this.nodeArr = [];
+            // else
+            //     this.nodeArr = nodeArr;
+        }
+
+        function spanCreater(text)
+        {
+            let span = document.createElement('span');
+            span.innerText = text;
+            return span;
         }
 
         let LocalDiscC = new ulNodeLi('Local Disc (C:)', ['Program Files', 'Users', 'Windows']);
@@ -67,25 +77,60 @@
         let treeListArr = document.getElementById("treeList");
 
         let liRoot = document.createElement('li');
-        liRoot.appendChild(document.createTextNode(thisPc.name));
-
-        treeListArr.appendChild(liRoot);
+        liRoot.appendChild(spanCreater(thisPc.name));
+        
+        let ulRoot = document.createElement('ul');
 
         thisPc.nodeArr.forEach(element => 
         {
-            let ul = document.createElement('ul');
-            ul.appendChild(document.createTextNode(element.name));
+            let liChild = document.createElement('li');
+            liChild.appendChild(spanCreater(element.name));
 
+            let ul = document.createElement('ul');
+            
             element.nodeArr.forEach(elem =>
             {
                 let li = document.createElement('li');
-                li.appendChild(document.createTextNode(elem));
+                li.appendChild(spanCreater(elem));
 
                 ul.appendChild(li);
             });
 
-            liRoot.appendChild(ul);
+            liChild.appendChild(ul);
+            ulRoot.appendChild(liChild);
         });
+
+        liRoot.appendChild(ulRoot);
+        treeListArr.appendChild(liRoot);
+
+        treeListArr.addEventListener('click', showHideTree, false);
+        treeListArr.addEventListener('mouseover', BoldTextOver, false);treeListArr.addEventListener('mouseout', BoldTextOut, false);
+
+        function showHideTree()
+        {
+            if(event.target.nodeName == 'SPAN')
+            {
+                if(event.target.nextElementSibling.nodeName == 'UL')
+                {
+                    if(event.target.nextElementSibling.style.display == "block")
+                        event.target.nextElementSibling.style.display = "none";
+                    else
+                        event.target.nextElementSibling.style.display = "block";
+                }
+            }
+        }
+
+        function BoldTextOver()
+        {
+            if(event.target.nodeName == 'SPAN')
+                event.target.style.fontWeight = 'bold';
+        }
+
+        function BoldTextOut()
+        {
+            if(event.target.nodeName == 'SPAN')
+                event.target.style.fontWeight = 'normal';
+        }
 
     </script>
 
