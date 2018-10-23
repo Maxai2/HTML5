@@ -39,3 +39,16 @@ body {
 .TreeBg li:hover {
   cursor: default;
 }
+.booksContainer {
+  width: 955px;
+  background-color: #fbf2e9;
+  margin: 10px auto;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.booksContainer .sevenBooks {
+  list-style: decimal;
+}
+.booksContainer .sevenBooks span {
+  cursor: default;
+}

@@ -43,7 +43,7 @@
      При клике на элемент списка, он должен сворачиваться или разворачиваться. При наведении на элемент, шрифт должен становится жирным (с помощью CSS). -->
 
     
-    <div class="TreeBg">
+    <!-- <div class="TreeBg">
         <ul id="treeList"></ul>
     </div>
 
@@ -132,7 +132,116 @@
                 event.target.style.fontWeight = 'normal';
         }
 
-    </script>
+    </script> -->
+
+<!-------------------------------------------------------------------->
+
+    <!--Задание 3
+    Создать html-страницу со списком книг.
+    При щелчке на элемент, цвет текста должен меняться на оранжевый.
+    При повторном щелчке на другую книгу, предыдущей необходимо возвращать прежний цвет.
+    Если при клике мышкой была зажата клавиша Ctrl, то элемент добавляется/удаляется из выделенных. Если при клике мышкой была зажата клавиша Shift, то к выделению добавляются все элементы в промежутке от предыдущего кликнутого до текущего.-->
+
+    <!-- <div class="booksContainer">
+        <ul class="sevenBooks">
+           <li>
+                <span>"JavaScript for Kids: A Playful Introduction on Programming" by Nick Morgan</span>
+           </li>
+           <li>
+                <span>"Eloquent JavaScript: A Modern Introduction to Programming" by Marijin Haverbeke</span>
+            </li>
+            <li>
+                <span>"JavaScript: The Good Parts" by Douglas Crockford</span>
+            </li>
+            <li>
+                <span>"You Don't know JS" by Kyle Simpson</span>
+            </li>
+            <li>
+                <span>"Programming JavaScript Applications: Robust Web Architecture with Node, HTML5 and Moderns JS Libraries" by Eric Elliott</span>
+            </li>
+            <li>
+                <span>"Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript" by David Herman</span>
+            </li>
+            <li>
+                <span>"JavaScript: The Definitive Guide" by David Flanagan</span>
+            </li>
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+        let selectedCol = 'rgb(255, 169, 132)';
+        let BgCol = 'rgb(251, 242, 233)';
+
+        var booksArr = document.querySelectorAll(".sevenBooks span");
+        booksArr = Array.from(booksArr);
+
+        booksArr.forEach(element =>
+        {
+            element.addEventListener('click', bookClick);
+        });
+
+        let lastIndex = 0;
+
+        function bookClick()
+        {
+            if (event.ctrlKey)
+            {
+                if (event.target.style.backgroundColor == selectedCol)
+                    booksArr[booksArr.indexOf(event.target)].style.backgroundColor = BgCol;
+                else
+                    event.target.style.backgroundColor = selectedCol;
+            }
+            else
+            if (event.shiftKey)
+            {
+                let selectedIndex = booksArr.indexOf(event.target);
+
+                if (lastIndex < selectedIndex)
+                {
+                    for(let i = lastIndex + 1; i <= selectedIndex; ++i)
+                    {
+                        booksArr[i].style.backgroundColor = selectedCol;
+                    }
+                }
+                else
+                {
+                    for(let i = lastIndex; i >= selectedIndex; --i)
+                    {
+                        booksArr[i].style.backgroundColor = selectedCol;
+                    }
+                }
+            }
+            else
+            {
+                booksArr.forEach(elem =>
+                {
+                    elem.style.backgroundColor = BgCol;
+                });
+
+                //booksArr[lastIndex].style.backgroundColor = BgCol;
+                event.target.style.backgroundColor = selectedCol;
+                lastIndex = booksArr.indexOf(event.target);
+            }
+        }
+
+        document.addEventListener
+        (
+            'selectstart', function()
+            {
+                event.preventDefault();
+            }
+        ) 
+    </script> -->
+
+<!-------------------------------------------------------------------->
+    <!--Задание 4
+    Создать html-страницу для отображения/редактирования текста.
+    При открытии страницы текст отображается с помощью тега div. При нажатии Ctrl+E, вместо div появляется textarea с тем же текстом, который теперь можно редактировать. При нажатии Ctrl+S, вместо textarea появляет div с уже измененным текстом. Не забудьте выключить поведение по умолчанию для этих сочетаний клавиш-->
+
+    <div class="">
+
+    </div>
+
 
 </body>
 </html>
