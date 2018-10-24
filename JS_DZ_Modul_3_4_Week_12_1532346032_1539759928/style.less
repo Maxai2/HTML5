@@ -94,3 +94,68 @@ body
 
 //4
 
+.editBox
+{
+    width: 440px;
+    background-color: @BGColor;
+    margin: 10px auto;
+    padding: 10px 20px;
+    box-sizing: border-box;
+
+    span
+    {
+        display: block;
+    }
+
+    textarea
+    {
+        width: 100%;
+    }
+}
+
+//-------------------------------
+
+//5
+
+@borderCol: #8a8a8a;
+
+.tableBg
+{
+    width: 440px;
+    background-color: @BGColor;
+    margin: 10px auto;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    font-size: 18px;
+    cursor: default;
+
+    table
+    {
+        width: 100%;
+        border: 1px solid @borderCol;
+        border-collapse: collapse;
+        
+        .tableHeader
+        {
+            th
+            {
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+
+        tr
+        {
+            border: 1px solid @borderCol;
+        }
+        
+        th
+        {
+            border: 1px solid @borderCol;
+            margin: 0;
+            text-align: start;
+            font-weight: normal;
+            padding: 5px 10px;
+        }
+    }
+}

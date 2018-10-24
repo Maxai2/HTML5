@@ -52,3 +52,44 @@ body {
 .booksContainer .sevenBooks span {
   cursor: default;
 }
+.editBox {
+  width: 440px;
+  background-color: #fbf2e9;
+  margin: 10px auto;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.editBox span {
+  display: block;
+}
+.editBox textarea {
+  width: 100%;
+}
+.tableBg {
+  width: 440px;
+  background-color: #fbf2e9;
+  margin: 10px auto;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  cursor: default;
+}
+.tableBg table {
+  width: 100%;
+  border: 1px solid #8a8a8a;
+  border-collapse: collapse;
+}
+.tableBg table .tableHeader th {
+  font-weight: bold;
+  cursor: pointer;
+}
+.tableBg table tr {
+  border: 1px solid #8a8a8a;
+}
+.tableBg table th {
+  border: 1px solid #8a8a8a;
+  margin: 0;
+  text-align: start;
+  font-weight: normal;
+  padding: 5px 10px;
+}

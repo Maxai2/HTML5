@@ -236,12 +236,159 @@
 <!-------------------------------------------------------------------->
     <!--Задание 4
     Создать html-страницу для отображения/редактирования текста.
-    При открытии страницы текст отображается с помощью тега div. При нажатии Ctrl+E, вместо div появляется textarea с тем же текстом, который теперь можно редактировать. При нажатии Ctrl+S, вместо textarea появляет div с уже измененным текстом. Не забудьте выключить поведение по умолчанию для этих сочетаний клавиш-->
+    При открытии страницы текст отображается с помощью тега div. При нажатии Ctrl+E, вместо div появляется textarea с тем же текстом, который теперь можно редактировать. При нажатии Ctrl+S, вместо textarea появляет div с уже измененным текстом. Не забудьте выключить поведение по умолчанию для этих сочетаний клавиш.-->
 
-    <div class="">
+    <!-- <div class="editBox">
+        <span>Press Ctrl+E for edit text.</span>
+        <span>Press Ctrl+S for save text.</span>
+        <hr>
+        <div id="divEditBox" style="display: block;">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        </div>
+        <textarea id="textareaEditBox">
 
+        </textarea>
     </div>
 
+    <script type="text/javascript">
+        let divEditBox = document.getElementById('divEditBox');
+        let textareaBox = document.getElementById('textareaEditBox');
+        
+        textareaBox.value = divEditBox.innerText;
+        textareaBox.style.height = divEditBox.clientHeight + 'px';
+        textareaBox.style.display = 'none';
+
+        document.onkeydown = function(e)
+        {
+            //e = e || window.event;
+
+            if (e.ctrlKey && e.keyCode == 69) // Ctrl+E
+            {
+                event.preventDefault();
+
+                if (textareaBox.style.display == 'none')
+                {
+                    console.log('E');
+                    console.log(divEditBox.innerText);
+                    textareaBox.style.height = divEditBox.clientHeight + 'px';
+
+                    textareaBox.style.display = 'block';
+                    divEditBox.style.display = 'none';
+                }
+            }
+
+            if (e.ctrlKey && e.keyCode == 83) // Ctrl+S
+            {
+                event.preventDefault();
+
+                if (divEditBox.style.display == 'none')
+                {
+                    console.log('S');
+                    console.log(textareaBox.value);
+                    divEditBox.innerText = textareaBox.value;
+
+                    divEditBox.style.display = 'block';
+                    textareaBox.style.display = 'none';
+                }
+            }
+        }
+
+    </script> -->
+
+<!-------------------------------------------------------------------->
+    <!--Задание 5
+    Создать html-страницу с большой таблицей.
+    При клике по заголовку колонки, необходимо отсортировать
+    данные по этой колонке. Например: на скриншоте люди отсортированы
+    по возрасту. Учтите, что числовые значения должны
+    сортироваться как числа, а не как строки.-->
+
+    <div class="tableBg">
+        <table id="tableContainer">
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        function person(firstname, lastname, age, company)
+        {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.age = age;
+            this.company = company;
+        }
+
+        function fillTable(arr)
+        {
+            arr.forEach(element => 
+            {
+                let tr = document.createElement('tr');
+
+                for(let personElem in element)
+                {
+                    let th = document.createElement('th');
+                    th.innerText = element[personElem];
+                    tr.appendChild(th);
+                }
+
+                table.appendChild(tr);
+            });
+        }
+
+        function clearTable(num)
+        {
+            for (let i = num - 1; i >= 1; --i)
+            {
+                table.deleteRow(i);
+            }
+        }
+
+        let table = document.getElementById('tableContainer');
+
+        let headerName = ['Firstname', 'Lastname', 'Age', 'Company'];
+
+        let trHeader = document.createElement('tr');
+        trHeader.className = 'tableHeader';
+        headerName.forEach(elem => 
+        {
+            let thHeader = document.createElement('th');
+            thHeader.innerText = elem;
+            thHeader.addEventListener('click', sortTable);
+            trHeader.appendChild(thHeader);
+        });
+
+        table.appendChild(trHeader);
+
+        let mark = new person('Mark', 'Zuckerberg', 34, 'Facebook');
+        let larry = new person('Larry', 'Page', 45, 'Google');
+        let timothy = new person('Timothy', 'Cook', 57, 'Apple');
+        let bill = new person('Bill', 'Gates', 62, 'Microsoft');
+
+        let personArr = [mark, larry, timothy, bill];
+
+        fillTable(personArr);
+
+        function sortTable()
+        {
+            clearTable(table.rows.length);
+
+            let newArr = [];
+
+            switch(event.target.innerText)
+            {
+                case 'Firstname':
+                break;
+                case 'Lastname':
+                break;
+                case 'Age':
+                break;
+                case 'Company':
+                break;
+            }
+
+            //fillTable(newArr);
+        }
+
+    </script>
 
 </body>
 </html>
