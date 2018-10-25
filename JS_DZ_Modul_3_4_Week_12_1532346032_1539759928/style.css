@@ -96,19 +96,22 @@ body {
 .textBg {
   width: 470px;
   background-color: #fbf2e9;
-  margin: 10px auto;
-  padding: 10px 20px;
+  padding: 20px 20px;
   box-sizing: border-box;
   font-size: 18px;
 }
 .textBg .textContainer {
   border: 1px solid gray;
   padding: 5px;
+  height: 100%;
+  position: relative;
 }
 .textBg .triangle-corner {
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-bottom: 20px solid #555;
-  margin-left: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

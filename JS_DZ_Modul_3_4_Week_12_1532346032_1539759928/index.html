@@ -370,6 +370,9 @@
 
         let BgCol = 'rgb(251, 242, 233)';
         let lastId = '';
+        
+        let bits = [0, 0, 0, 0];
+        let index = 0;
 
         function sortTable()
         {
@@ -381,44 +384,80 @@
             switch(event.target.innerText)
             {
                 case 'Firstname':
-                    personArr.sort(function(a, b)
+                    index = 0;
+                    if (bits[index])
                     {
-                        if (a.firstname > b.firstname)
-                            return 1;
-                        else
-                        if (a.firstname < b.firstname)
-                            return -1;
-                    });
+                        personArr.sort(function(a, b)
+                        {
+                            return b.firstname.localeCompare(a.firstname);
+                        });
+                        bits[index]--;
+                    }
+                    else
+                    {
+                        personArr.sort(function(a, b)
+                        {
+                            return a.firstname.localeCompare(b.firstname);
+                        });
+                        bits[index]++;
+                    }
                 break;
                 case 'Lastname':
-                    personArr.sort(function(a, b)
+                    index = 1;
+                    if(bits[index])
                     {
-                        if (a.lastname > b.lastname)
-                            return 1;
-                        else
-                        if (a.lastname < b.lastname)
-                            return -1;
-                    });
+                        personArr.sort(function(a, b)
+                        {
+                            return b.lastname.localeCompare(a.lastname);
+                        });
+                        bits[index]--;
+                    }
+                    else
+                    {
+                        personArr.sort(function(a, b)
+                        {
+                            return a.lastname.localeCompare(b.lastname);
+                        });
+                        bits[index]++;
+                    }
                 break;
                 case 'Age':
-                    personArr.sort(function(a, b)
+                    index = 2;
+                    if(bits[index])
                     {
-                        if (a.age > b.age)
-                            return 1;
-                        else
-                        if (a.age < b.age)
-                            return -1;
-                    });
+                        personArr.sort(function(a, b)
+                        {
+                            return b.age - a.age;
+                        });
+                        bits[index]--;
+                    }
+                    else
+                    {
+                        personArr.sort(function(a, b)
+                        {
+                            return a.age - b.age;
+                        });
+                        bits[index]++;
+                    }
                 break;
                 case 'Company':
-                    personArr.sort(function(a, b)
+                    index = 3;
+                    if (bits[index])
                     {
-                        if (a.company > b.company)
-                            return 1;
-                        else
-                        if (a.company < b.company)
-                            return -1;
-                    });
+                        personArr.sort(function(a, b)
+                        {
+                            return b.company.localeCompare(a.company);
+                        });
+                        bits[index]--;
+                    }
+                    else
+                    {
+                        personArr.sort(function(a, b)
+                        {
+                            return a.company.localeCompare(b.company);
+                        });
+                        bits[index]++;
+                    }
                 break;
             }
 
@@ -428,6 +467,14 @@
             fillTable(personArr);
         }
 
+        document.addEventListener
+        (
+            'selectstart', function()
+            {
+                event.preventDefault();
+            }
+        ) 
+
     </script> -->
 
 <!-------------------------------------------------------------------->
@@ -435,7 +482,7 @@
     Создать html-страницу с блоком текста в рамочке.
     Реализовать возможность изменять размер блока, если зажать мышку в правом нижнем углу и тянуть ее дальше.-->
 
-    <div class="textBg">
+    <div class="textBg" id="textBgIdCont"> 
         <div class="textContainer">
             <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
             <div class="triangle-corner" id="corner"></div>
@@ -444,29 +491,39 @@
 
     <script type="text/javascript">
         let cor = document.getElementById('corner');
-        cor.addEventListener('mousedown', resize);
 
         cor.addEventListener("mousedown", function()
         {
-            cor.onmousemove = function() 
+            initDrag();
+
+            document.body.onmousemove = function() 
             {
                 resize();
             }
-        });
+        }, false);
 
         cor.addEventListener("mouseup", function()
         {
-            cor.onmousemove = null
-        });
+            document.body.onmousemove = null
+        }, false);
 
-        let textBgId = document.getElementsByClassName('textBg');
+        let textBgId = document.getElementById('textBgIdCont');
+        let startX, startY, startWidth, startHeight;
+
+        function initDrag() 
+        {
+            startX = event.clientX;
+            startY = event.clientY;
+            startWidth = textBgId.clientWidth;
+            startHeight = textBgId.clientHeight;
+        }
 
         function resize()
         {
-            let x = event.clientX;
-            let y = event.clientY;
-
-            textBgId. += x;
+            console.log((startWidth + event.clientX - startX) + 'px');
+            console.log((startHeight + event.clientY - startY) + 'px');
+            textBgId.style.width = (startWidth + event.clientX - startX) + 'px';
+            textBgId.style.height = (startHeight + event.clientY - startY) + 'px';
         }
 
     </script>

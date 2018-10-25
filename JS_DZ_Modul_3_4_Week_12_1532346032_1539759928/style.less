@@ -168,8 +168,7 @@ body
 {
     width: 470px;
     background-color: @BGColor;
-    margin: 10px auto;
-    padding: 10px 20px;
+    padding: 20px 20px;
     box-sizing: border-box;
     font-size: 18px;
 
@@ -177,6 +176,8 @@ body
     {
         border: 1px solid gray;
         padding: 5px;
+        height: 100%;
+        position: relative;
     }
     
     .triangle-corner
@@ -185,6 +186,8 @@ body
         height: 0;
         border-left: 20px solid transparent;
         border-bottom: 20px solid #555;
-        margin-left: auto;
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
 }
