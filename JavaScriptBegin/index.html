@@ -504,51 +504,159 @@
 
         //name=value; expires=date; domain=domain; secure || document.cookie;
             
-        function addCookieUserId()
-        {
-            let date = new Date(Date.now());
-            date = new Date(date.setDate(date.getDate() + 1));
-            document.cookie = 'userId=123;expires=' + date.toUTCString();
-        }
+        // function addCookieUserId()
+        // {
+        //     let date = new Date(Date.now());
+        //     date = new Date(date.setDate(date.getDate() + 1));
+        //     document.cookie = 'userId=123;expires=' + date.toUTCString();
+        // }
 
-        function addCookieUserName()
-        {
-            let date = new Date(Date.now());
-            date = new Date(date.setDate(date.getDate() + 1));
-            document.cookie = 'userName=qwerty;expires=' + date.toUTCString();
-        }
+        // function addCookieUserName()
+        // {
+        //     let date = new Date(Date.now());
+        //     date = new Date(date.setDate(date.getDate() + 1));
+        //     document.cookie = 'userName=qwerty;expires=' + date.toUTCString();
+        // }
         
-        function removeCookieUserId()
+        // function removeCookieUserId()
+        // {
+        //     let date = new Date(Date.now());
+        //     date = new Date(date.setDate(date.getDate() - 1));
+        //     document.cookie = 'userId=;expires=' + date.toUTCString();
+        // }
+
+        // function removeCookieUserName()
+        // {
+        //     let date = new Date(Date.now());
+        //     date = new Date(date.setDate(date.getDate() - 1));
+        //     document.cookie = 'userName=;expires=' + date.toUTCString();
+        // }
+
+        // function getAllCookie()
+        // {
+        //     document.getElementById("cookie").innerText = getCookie('userId'); //document.cookie;
+        // }
+
+        // JSON ---------------------------------------------------------
+
+        class Employee
         {
-            let date = new Date(Date.now());
-            date = new Date(date.setDate(date.getDate() - 1));
-            document.cookie = 'userId=;expires=' + date.toUTCString();
+            constructor(name, surname, gender, birthday)
+            {
+                this.name = name;
+                this.surname = surname;
+                this.birthday = birthday;
+                this.gender = gender;
+            }
+
+            toString()
+            {
+                return `${this.name} ${this.surname} ${this.birthday} ${this.gender ? 'male' : 'female'}`;
+            }
+
+            toJSON()
+            {
+                return {
+                    name: this.name + ' ' + this.surname,
+                    age: 2018 - this.birthday.getFullYear(),
+                    gender: this.gender
+                }
+            }
         }
 
-        function removeCookieUserName()
+        var employeesJSON_1 = '[' +
+                '{ "firstName": "John", "lastName": "Doe", "age": 34, "gender": true },' +
+                '{ "firstName": "Anna", "lastName": "Smith", "age": 23, "gender": false },' +
+                '{ "firstName": "Peter", "lastName": "Jones", "age": 54, "gender": true }' +
+            ']';
+
+        function JSONToArray1()
         {
-            let date = new Date(Date.now());
-            date = new Date(date.setDate(date.getDate() - 1));
-            document.cookie = 'userName=;expires=' + date.toUTCString();
+            let users = JSON.parse(employeesJSON_1);
+            users.forEach(user =>
+            {
+                let p = document.createElement('p');
+                p.innerText = `${user.firstName} ${user.lastName} ${user.age} ${user.gender ? 'male' : 'feamle'}`;
+                document.getElementById('res1').append(p);
+            });
         }
 
-        function getAllCookie()
+        var employeesJSON_2 = '[' +
+                '{ "firstName": "John", "lastName": "Doe", "birthday":"1984-11-30T12:00:00.000Z", "gender": true },' +
+                '{ "firstName": "Anna", "lastName": "Smith", "birthday":"1995-11-30T12:00:00.000Z", "gender": false },' +
+                '{ "firstName": "Peter", "lastName": "Jones", "birthday":"1964-11-30T12:00:00.000Z", "gender": true }' +
+            ']';
+
+        function JSONToArray2()
         {
-            document.getElementById("cookie").innerText = getCookie('userId'); //document.cookie;
+            let users = JSON.parse(employeesJSON_2, function(key, value)
+            {
+                if (key == 'birthday')
+                    return new Date(value); // return null (for except key value)
+
+                return value;
+            });
+
+            users.forEach(user =>
+            {
+                let p = document.createElement('p');
+                p.innerText = `${user.firstName} ${user.lastName} ${user.birthday.toUTCString()} ${user.gender ? 'male' : 'feamle'}`;
+                document.getElementById('res2').append(p);
+            });
+        }
+
+        var employeesArray_1 = [
+            { firstName: "John", lastName: "Doe", age: 34, gender: true },
+            { firstName: "Anna", lastName: "Smith", age: 23, gender: false },
+            { firstName: "Peter", lastName: "Jones", age: 54, gender: true }
+        ];
+
+        function ArrayToJSON1()
+        {
+            let str = JSON.stringify(employeesArray_1, function(key, value)
+            {
+                if (key == 'age')
+                    return new Date(Date.now()).getFullYear() - value;
+
+                return value;
+            }, 4);
+
+            document.getElementById('res3').innerText = str;
+        }
+
+        var employeesArray_2 = [
+            new Employee("John", "Doe", true, new Date("1984-11-30T12:00:00.000Z")),
+            new Employee("Anna", "Smith", false, new Date("1995-11-30T12:00:00.000Z")),
+            new Employee("Peter", "Jones", true, new Date("1964-11-30T12:00:00.000Z")),
+        ];
+        
+        function ArrayToJSON2()
+        {
+            let str = JSON.stringify(employeesArray_2, null, 4);
+
+            document.getElementById('res4').innerText = str;
         }
 
      </script>
 
-     <script src="https://learn.javascript.ru/article/cookie/cookie.js"></script>
+     <button onclick="JSONToArray1()">from JSON to Array 1</button>
+     <button onclick="JSONToArray2()">from JSON to Array 2</button>
+     <button onclick="ArrayToJSON1()">from Array to JSON 1</button>
+     <button onclick="ArrayToJSON2()">from Array to JSON 2</button>
 
-     <button onclick="addCookieUserId()">Add cookie UserId</button>
+    <div id="res1"></div>
+    <div id="res2"></div>
+    <pre id="res3"></pre>
+    <pre id="res4"></pre>
+
+<!-- <script src="https://learn.javascript.ru/article/cookie/cookie.js"></script> -->
+     
+     <!-- <button onclick="addCookieUserId()">Add cookie UserId</button>
      <button onclick="addCookieUserName()">Add cookie UserName</button>
      <button onclick="removeCookieUserId()">Remove cookie UserId</button>
      <button onclick="removeCookieUserName()">Remove cookie UserName</button>
      <button onclick="getAllCookie()">Get all cookie</button>
-     <div id="cookie"></div>
-
-
+     <div id="cookie"></div> -->
 
      <!-- <style>
          .error
