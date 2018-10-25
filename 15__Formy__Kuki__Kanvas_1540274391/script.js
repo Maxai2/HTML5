@@ -1,4 +1,6 @@
-function alertTest()
+function submitSugnUp()
 {
-    alert('Hello');
+    event.preventDefault();
+    let persForm = document.getElementById('userForm');
+
 }

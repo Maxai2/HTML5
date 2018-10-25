@@ -10,7 +10,29 @@
 <body>
     <script src="script.js"></script>
 
-    <button onclick="alertTest()">Test</button>
+    <form class="registrationForm" id="userForm" method="GET" onsubmit="submitSugnUp()">
+        <input type="hidden" name="id"/>
+        
+        <div class="regContainer">
+            <h2>Registration</h2>
+            <div>
+                <label>Email:</label>
+                <span class="error"></span>
+                <input type="email" name="mail" required/>
+            </div>
+            <div>
+                <label>Password:</label>
+                <span class="error"></span>
+                <input type="password" name="password" required/>
+            </div>
+            <div>
+                <label>Repeat:</label>
+                <span class="error"></span>
+                <input type="password" name="repeat" required/>
+            </div>
+            <button type="submit"/>
+        </div>
+    </form>
 
 </body>
 </html>
