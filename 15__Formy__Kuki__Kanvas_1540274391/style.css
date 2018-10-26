@@ -11,6 +11,7 @@ body {
 .registrationForm .regContainer {
   grid-template-rows: repeat(5, 1fr);
   width: 100%;
+  padding: 10px 0;
 }
 .registrationForm .regContainer h2 {
   text-align: center;
@@ -19,21 +20,33 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  margin: 10px 0;
 }
 .registrationForm .regContainer div label {
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
   font-weight: bold;
+  margin: auto 0;
 }
 .registrationForm .regContainer div span {
   grid-column: 3 / span 1;
   grid-row: 1 / span 1;
-  color: red;
+  color: darkred;
+  font-weight: bold;
+  font-size: small;
+  margin: auto 0;
 }
 .registrationForm .regContainer div input {
   grid-column: 1 / span 3;
   grid-row: 2 / span 1;
+  height: 15px;
 }
 .registrationForm .regContainer button {
-  height: 20px;
+  height: 25px;
+  width: 100%;
+  background-color: #dddddd;
+}
+.registrationForm .regContainer button:hover {
+  background-color: lightgray;
+  border: 1px solid gray;
 }

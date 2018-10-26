@@ -4,6 +4,10 @@ body
 }
 
 @BGColor: #fbf2e9;
+@errorCol: darkred;
+@buttonBGCol: #dddddd;
+@buttonHoverBGCol: lightgray;
+@buttonHoverBorderBGCol: gray;
 
 .registrationForm
 {
@@ -17,6 +21,7 @@ body
     {
         grid-template-rows: repeat(5, 1fr);
         width: 100%;
+        padding: 10px 0;
 
         h2
         {
@@ -28,31 +33,45 @@ body
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(2, 1fr);
+            margin: 10px 0;
 
             label
             {
                 grid-column: 1 / span 1;
                 grid-row: 1 / span 1;
                 font-weight: bold;
+                margin: auto 0;
             }
 
             span
             {
                 grid-column: 3 / span 1;
                 grid-row: 1 / span 1;
-                color: red;
+                color: @errorCol;
+                font-weight: bold;
+                font-size: small;
+                margin: auto 0;
             }
 
             input
             {
                 grid-column: 1 / span 3;
                 grid-row: 2 / span 1;
+                height: 15px;;
             }
         }
 
         button
         {
-            height: 20px;
+            height: 25px;
+            width: 100%;
+            background-color: @buttonBGCol;
+        }
+
+        button:hover
+        {
+            background-color: @buttonHoverBGCol;
+            border: 1px solid @buttonHoverBorderBGCol;
         }
     }
 }
