@@ -539,107 +539,252 @@
 
         // JSON ---------------------------------------------------------
 
-        class Employee
+        // class Employee
+        // {
+        //     constructor(name, surname, gender, birthday)
+        //     {
+        //         this.name = name;
+        //         this.surname = surname;
+        //         this.birthday = birthday;
+        //         this.gender = gender;
+        //     }
+
+        //     toString()
+        //     {
+        //         return `${this.name} ${this.surname} ${this.birthday} ${this.gender ? 'male' : 'female'}`;
+        //     }
+
+        //     toJSON()
+        //     {
+        //         return {
+        //             name: this.name + ' ' + this.surname,
+        //             age: 2018 - this.birthday.getFullYear(),
+        //             gender: this.gender
+        //         }
+        //     }
+        // }
+
+        // var employeesJSON_1 = '[' +
+        //         '{ "firstName": "John", "lastName": "Doe", "age": 34, "gender": true },' +
+        //         '{ "firstName": "Anna", "lastName": "Smith", "age": 23, "gender": false },' +
+        //         '{ "firstName": "Peter", "lastName": "Jones", "age": 54, "gender": true }' +
+        //     ']';
+
+        // function JSONToArray1()
+        // {
+        //     let users = JSON.parse(employeesJSON_1);
+        //     users.forEach(user =>
+        //     {
+        //         let p = document.createElement('p');
+        //         p.innerText = `${user.firstName} ${user.lastName} ${user.age} ${user.gender ? 'male' : 'feamle'}`;
+        //         document.getElementById('res1').append(p);
+        //     });
+        // }
+
+        // var employeesJSON_2 = '[' +
+        //         '{ "firstName": "John", "lastName": "Doe", "birthday":"1984-11-30T12:00:00.000Z", "gender": true },' +
+        //         '{ "firstName": "Anna", "lastName": "Smith", "birthday":"1995-11-30T12:00:00.000Z", "gender": false },' +
+        //         '{ "firstName": "Peter", "lastName": "Jones", "birthday":"1964-11-30T12:00:00.000Z", "gender": true }' +
+        //     ']';
+
+        // function JSONToArray2()
+        // {
+        //     let users = JSON.parse(employeesJSON_2, function(key, value)
+        //     {
+        //         if (key == 'birthday')
+        //             return new Date(value); // return null (for except key value)
+
+        //         return value;
+        //     });
+
+        //     users.forEach(user =>
+        //     {
+        //         let p = document.createElement('p');
+        //         p.innerText = `${user.firstName} ${user.lastName} ${user.birthday.toUTCString()} ${user.gender ? 'male' : 'feamle'}`;
+        //         document.getElementById('res2').append(p);
+        //     });
+        // }
+
+        // var employeesArray_1 = [
+        //     { firstName: "John", lastName: "Doe", age: 34, gender: true },
+        //     { firstName: "Anna", lastName: "Smith", age: 23, gender: false },
+        //     { firstName: "Peter", lastName: "Jones", age: 54, gender: true }
+        // ];
+
+        // function ArrayToJSON1()
+        // {
+        //     let str = JSON.stringify(employeesArray_1, function(key, value)
+        //     {
+        //         if (key == 'age')
+        //             return new Date(Date.now()).getFullYear() - value;
+
+        //         return value;
+        //     }, 4);
+
+        //     document.getElementById('res3').innerText = str;
+        // }
+
+        // var employeesArray_2 = [
+        //     new Employee("John", "Doe", true, new Date("1984-11-30T12:00:00.000Z")),
+        //     new Employee("Anna", "Smith", false, new Date("1995-11-30T12:00:00.000Z")),
+        //     new Employee("Peter", "Jones", true, new Date("1964-11-30T12:00:00.000Z")),
+        // ];
+        
+        // function ArrayToJSON2()
+        // {
+        //     let str = JSON.stringify(employeesArray_2, null, 4);
+
+        //     document.getElementById('res4').innerText = str;
+        // }
+
+        //AJAX---------------------------------------------------
+
+        function getUsers()
         {
-            constructor(name, surname, gender, birthday)
+            let request = new XMLHttpRequest();
+            //0
+            request.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+            //1
+            request.onreadystatechange = function()
             {
-                this.name = name;
-                this.surname = surname;
-                this.birthday = birthday;
-                this.gender = gender;
-            }
+                if (this.readyState == 4)
+                {
+                    if (this.status == 200)
+                    {
+                        let users = JSON.parse(this.response);
+                        
+                        users.forEach(element => 
+                        {
+                            console.log(element.name);    
+                        });
 
-            toString()
-            {
-                return `${this.name} ${this.surname} ${this.birthday} ${this.gender ? 'male' : 'female'}`;
-            }
-
-            toJSON()
-            {
-                return {
-                    name: this.name + ' ' + this.surname,
-                    age: 2018 - this.birthday.getFullYear(),
-                    gender: this.gender
+                        //console.log(this.responseText);
+                    }
+                    else
+                    {
+                        console.log('some error: ' + this.statusText);
+                    }
                 }
             }
+
+            request.send();
         }
 
-        var employeesJSON_1 = '[' +
-                '{ "firstName": "John", "lastName": "Doe", "age": 34, "gender": true },' +
-                '{ "firstName": "Anna", "lastName": "Smith", "age": 23, "gender": false },' +
-                '{ "firstName": "Peter", "lastName": "Jones", "age": 54, "gender": true }' +
-            ']';
-
-        function JSONToArray1()
+        function getUser(userId)
         {
-            let users = JSON.parse(employeesJSON_1);
-            users.forEach(user =>
+            let request = new XMLHttpRequest();
+            //0
+            request.open('GET', 'https://jsonplaceholder.typicode.com/users/' + userId, true);
+            //1
+            request.onreadystatechange = function()
             {
-                let p = document.createElement('p');
-                p.innerText = `${user.firstName} ${user.lastName} ${user.age} ${user.gender ? 'male' : 'feamle'}`;
-                document.getElementById('res1').append(p);
+                if (this.readyState == 4)
+                {
+                    if (this.status == 200)
+                    {
+                        let user = JSON.parse(this.response);
+                        console.log(user);
+                    }
+                    else
+                    {
+                        console.log('some error: ' + this.statusText);
+                    }
+                }
+            }
+
+            request.send();
+        }
+
+        function addUser(name, mail)
+        {
+            let request = new XMLHttpRequest();
+            //0
+            request.open('POST', 'https://jsonplaceholder.typicode.com/users', true);
+            //1
+            request.onreadystatechange = function()
+            {
+                if (this.readyState == 4)
+                {
+                    if (this.status == 201) // 200 everything good | 201 everything good and added user
+                    {
+                        console.log(this.responseText);
+                    }
+                    else
+                    {
+                        console.log('some error: ' + this.status);
+                    }
+                }
+            }
+
+            request.send(  
+            {
+                name: name,
+                email: mail 
             });
         }
 
-        var employeesJSON_2 = '[' +
-                '{ "firstName": "John", "lastName": "Doe", "birthday":"1984-11-30T12:00:00.000Z", "gender": true },' +
-                '{ "firstName": "Anna", "lastName": "Smith", "birthday":"1995-11-30T12:00:00.000Z", "gender": false },' +
-                '{ "firstName": "Peter", "lastName": "Jones", "birthday":"1964-11-30T12:00:00.000Z", "gender": true }' +
-            ']';
-
-        function JSONToArray2()
+        function removeUser(userId)
         {
-            let users = JSON.parse(employeesJSON_2, function(key, value)
+            let request = new XMLHttpRequest();
+            //0
+            request.open('DELETE', 'https://jsonplaceholder.typicode.com/users/' + userId, true);
+            //1
+            request.onreadystatechange = function()
             {
-                if (key == 'birthday')
-                    return new Date(value); // return null (for except key value)
+                if (this.readyState == 4)
+                {
+                    if (this.status == 200) // 200 everything good | 201 everything good and added user
+                    {
+                        console.log(this.responseText);
+                    }
+                    else
+                    {
+                        console.log('some error: ' + this.status);
+                    }
+                }
+            }
 
-                return value;
-            });
-
-            users.forEach(user =>
-            {
-                let p = document.createElement('p');
-                p.innerText = `${user.firstName} ${user.lastName} ${user.birthday.toUTCString()} ${user.gender ? 'male' : 'feamle'}`;
-                document.getElementById('res2').append(p);
-            });
+            request.send();
         }
 
-        var employeesArray_1 = [
-            { firstName: "John", lastName: "Doe", age: 34, gender: true },
-            { firstName: "Anna", lastName: "Smith", age: 23, gender: false },
-            { firstName: "Peter", lastName: "Jones", age: 54, gender: true }
-        ];
-
-        function ArrayToJSON1()
+        function updateUser(userId, mail)
         {
-            let str = JSON.stringify(employeesArray_1, function(key, value)
+            let request = new XMLHttpRequest();
+            //0
+            request.open('PUT', 'https://jsonplaceholder.typicode.com/users/' + userId, true);
+            //1
+            request.onreadystatechange = function()
             {
-                if (key == 'age')
-                    return new Date(Date.now()).getFullYear() - value;
+                if (this.readyState == 4)
+                {
+                    if (this.status == 200) // 200 everything good | 201 everything good and added user
+                    {
+                        console.log(this.responseText);
+                    }
+                    else
+                    {
+                        console.log('some error: ' + this.status);
+                    }
+                }
+            }
 
-                return value;
-            }, 4);
-
-            document.getElementById('res3').innerText = str;
-        }
-
-        var employeesArray_2 = [
-            new Employee("John", "Doe", true, new Date("1984-11-30T12:00:00.000Z")),
-            new Employee("Anna", "Smith", false, new Date("1995-11-30T12:00:00.000Z")),
-            new Employee("Peter", "Jones", true, new Date("1964-11-30T12:00:00.000Z")),
-        ];
-        
-        function ArrayToJSON2()
-        {
-            let str = JSON.stringify(employeesArray_2, null, 4);
-
-            document.getElementById('res4').innerText = str;
+            request.send(
+                {
+                    email: mail
+                }
+            );
         }
 
      </script>
 
-     <button onclick="JSONToArray1()">from JSON to Array 1</button>
+     <button onclick="getUsers()">Get all users!</button>
+     <button onclick="getUser(2)">Get user!</button>
+     <button onclick="addUser('name', 'mail@gmail.com')">Add user!</button>
+     <button onclick="removeUser(2)">Remove user!</button>
+     <button onclick="updateUser(2, 'mail')">Update user!</button>
+
+
+     <!-- <button onclick="JSONToArray1()">from JSON to Array 1</button>
      <button onclick="JSONToArray2()">from JSON to Array 2</button>
      <button onclick="ArrayToJSON1()">from Array to JSON 1</button>
      <button onclick="ArrayToJSON2()">from Array to JSON 2</button>
@@ -647,7 +792,7 @@
     <div id="res1"></div>
     <div id="res2"></div>
     <pre id="res3"></pre>
-    <pre id="res4"></pre>
+    <pre id="res4"></pre> -->
 
 <!-- <script src="https://learn.javascript.ru/article/cookie/cookie.js"></script> -->
      
