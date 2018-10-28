@@ -18,7 +18,7 @@ body {
 }
 .registrationForm .regContainer div {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr auto;
   grid-template-rows: repeat(2, 1fr);
   margin: 10px 0;
 }
@@ -33,13 +33,14 @@ body {
   grid-row: 1 / span 1;
   color: darkred;
   font-weight: bold;
-  font-size: small;
+  font-size: 10px;
   margin: auto 0;
 }
 .registrationForm .regContainer div input {
   grid-column: 1 / span 3;
   grid-row: 2 / span 1;
   height: 15px;
+  autofocus: false;
 }
 .registrationForm .regContainer button {
   height: 25px;
@@ -49,4 +50,69 @@ body {
 .registrationForm .regContainer button:hover {
   background-color: lightgray;
   border: 1px solid gray;
+}
+.editUserForm {
+  width: 700px;
+  padding: 10px 30px;
+}
+.editUserForm .mailContainer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+}
+.editUserForm .mailContainer p {
+  grid-column: 2 / span 1;
+  margin: auto 0;
+  font-weight: bold;
+}
+.editUserForm .mailContainer a {
+  grid-column: 3 / span 1;
+  margin: auto 0;
+}
+.editUserForm .regContainer {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr 20px 1fr;
+}
+.editUserForm .regContainer h2 {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 3;
+  margin: auto 0;
+}
+.editUserForm .regContainer button {
+  grid-row: 5 / span 1;
+  grid-column: 1 / span 3;
+  margin: auto 0;
+  border: 0;
+}
+.editUserForm .regContainer select {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 3;
+  height: auto;
+}
+.editUserForm .regContainer div {
+  margin: 10px 0;
+}
+.editUserForm .regContainer .firstNameCl {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 1;
+}
+.editUserForm .regContainer .lastNameCl {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 1;
+}
+.editUserForm .regContainer .yearOfBirthCl {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 1;
+}
+.editUserForm .regContainer .genderCl {
+  grid-row: 3 / span 1;
+  grid-column: 3 / span 1;
+}
+.editUserForm .regContainer .phoneCl {
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 1;
+}
+.editUserForm .regContainer .skypeCl {
+  grid-row: 4 / span 1;
+  grid-column: 3 / span 1;
 }

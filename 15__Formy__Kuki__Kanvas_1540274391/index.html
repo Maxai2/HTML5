@@ -10,7 +10,7 @@
 <body>
     <script src="script.js"></script>
 
-    <form class="registrationForm" id="userForm" method="GET" onsubmit="submitSugnUp()" style="display: none;">
+    <form class="registrationForm" id="userForm" method="GET" onsubmit="submitSugnUp()">
         <!-- <input type="hidden" name="id"/> -->
         
         <div class="regContainer">
@@ -34,29 +34,31 @@
         </div>
     </form>
 
-    <form class="registrationForm editUserForm" id="editUser" method="GET" onsubmit="submitChange()">
-
-        <p id="userMailWelcome"></p><a href="#">exit</a>
-        <hr/>
+    <form class="registrationForm editUserForm" id="editUser" method="GET" onsubmit="submitChange()" style="display: none;">
+        <div class="mailContainer">
+            <p id="userMailWelcome"></p>
+            <a href="#" onclick="SignOut()">exit</a>
+        </div>
         
+        <hr/>
         <div class="regContainer">
             <h2>User info</h2>
-            <div>
+            <div class="firstNameCl">
                 <label>First name:</label>
                 <input type="text" name="firstName"/>
                 <span></span>
             </div>
-            <div>
+            <div class="lastNameCl">
                 <label>Last name:</label>
                 <input type="text" name="lastName"/>
                 <span></span>
             </div>
-            <div>
+            <div class="yearOfBirthCl">
                 <label>Year of birth:</label>
-                <input type="text" name="yearOfBirth"/>
+                <input type="text" name="yearOfBirth" value="1900"/>
                 <span></span>
             </div>
-            <div>
+            <div class="genderCl">
                 <label>Gender:</label>
                 <select name="gender">
                     <option></option>
@@ -65,12 +67,12 @@
                 </select>
                 <span></span>
             </div>
-            <div>
+            <div class="phoneCl">
                 <label>Phone:</label>
                 <input type="tel" name="phone"/>
                 <span></span>
             </div>
-            <div>
+            <div class="skypeCl">
                 <label>Skype:</label>
                 <input type="text" name="skype"/>
                 <span></span>
