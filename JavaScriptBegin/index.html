@@ -637,152 +637,177 @@
         //     document.getElementById('res4').innerText = str;
         // }
 
-        //AJAX---------------------------------------------------
+        //tryCatch Exception-----------------------------------------------------------
+        
+        //console.log(eval('2+5*8')); // for mathematic calc
 
-        function getUsers()
+        // try
+        // {
+        //     throw new EvalError('Eval error message: ');
+        // }
+        // catch (error)
+        // {
+        //     console.log(error instanceof EvalError);
+        // }
+
+        // let check = (num) =>
+        // {
+        //     if (num < 20 || num > 50)
+        //     {
+        //         throw new RangeError('Number out of range');
+        //     }
+        // }
+
+        // try
+        // {
+        //     check(80);
+        // }
+        // catch (error)
+        // {
+        //     if (error instanceof RangeError)
+        //         console.log(error.stack);
+        // }
+
+        // try
+        // {
+        //     let a = some;
+        // }
+        // catch (error)
+        // {
+        //     if (error instanceof ReferenceError)
+        //         console.log(error);
+        // }
+
+        // try
+        // {
+        //     eval('8 9 hello');
+        // }
+        // catch (error)
+        // {
+        //     if (error instanceof SyntaxError)
+        //         console.log(error);
+        // }
+
+        // class DivisionByZeroError extends Error {}
+
+        // function division(num1, num2)
+        // {
+        //     if (num1 == '' || num2 == '')
+        //     {
+        //         throw new RangeError('Not all Arguments');
+        //     }
+        //     else
+        //     if (num2 == 0)
+        //     {
+        //         throw new DivisionByZeroError('Division by Zero');
+        //     }
+
+        //     return num1 / num2;
+        // }
+
+        // function doDivision()
+        // {
+        //     event.preventDefault();
+            
+        //     let formId = document.getElementById('FormCont');
+        //     formId.result.value = '';
+
+        //     let num1 = formId.num1.value;
+        //     let num2 = formId.num2.value;
+            
+        //     try
+        //     {
+        //         formId.result.value = division(num1, num2);
+        //     }
+        //     catch(error)
+        //     {
+        //         if (error instanceof RangeError)
+        //             alert(error.message);
+        //         else
+        //         if (error instanceof DivisionByZeroError)
+        //             alert(error.message);
+        //         else
+        //             alert(error);
+        //     }
+        //     finally
+        //     {
+        //         formId.num1.value = '';
+        //         formId.num2.value = '';
+        //     }
+        // }
+
+        function EvalDone()
         {
-            let request = new XMLHttpRequest();
-            //0
-            request.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
-            //1
-            request.onreadystatechange = function()
+            event.preventDefault();
+            let evalTest = document.getElementById('evalDiv');
+            evalTest.result.value = '';
+            let refer = evalTest.reference.value;
+
+            try
             {
-                if (this.readyState == 4)
-                {
-                    if (this.status == 200)
-                    {
-                        let users = JSON.parse(this.response);
-                        
-                        users.forEach(element => 
-                        {
-                            console.log(element.name);    
-                        });
-
-                        //console.log(this.responseText);
-                    }
-                    else
-                    {
-                        console.log('some error: ' + this.statusText);
-                    }
-                }
+                evalTest.result.value = eval(refer);
             }
-
-            request.send();
+            catch (error)
+            {
+                if (error instanceof EvalError)
+                    alert(error);
+                else
+                if (error instanceof SyntaxError)
+                    alert(error);
+                // else
+                // if (error instanceof ReferenceError)
+                //     alert(error);
+                // else
+                    // alert(error);
+            }
         }
 
-        function getUser(userId)
-        {
-            let request = new XMLHttpRequest();
-            //0
-            request.open('GET', 'https://jsonplaceholder.typicode.com/users/' + userId, true);
-            //1
-            request.onreadystatechange = function()
-            {
-                if (this.readyState == 4)
-                {
-                    if (this.status == 200)
-                    {
-                        let user = JSON.parse(this.response);
-                        console.log(user);
-                    }
-                    else
-                    {
-                        console.log('some error: ' + this.statusText);
-                    }
-                }
-            }
+        let age = prompt('How old r u?');
 
-            request.send();
+        try 
+        {
+            if (age < 18)
+                throw new RangeError("Only older 18");    
         }
-
-        function addUser(name, mail)
+        catch (error) 
         {
-            let request = new XMLHttpRequest();
-            //0
-            request.open('POST', 'https://jsonplaceholder.typicode.com/users', true);
-            //1
-            request.onreadystatechange = function()
-            {
-                if (this.readyState == 4)
-                {
-                    if (this.status == 201) // 200 everything good | 201 everything good and added user
-                    {
-                        console.log(this.responseText);
-                    }
-                    else
-                    {
-                        console.log('some error: ' + this.status);
-                    }
-                }
-            }
-
-            request.send(  
-            {
-                name: name,
-                email: mail 
-            });
-        }
-
-        function removeUser(userId)
-        {
-            let request = new XMLHttpRequest();
-            //0
-            request.open('DELETE', 'https://jsonplaceholder.typicode.com/users/' + userId, true);
-            //1
-            request.onreadystatechange = function()
-            {
-                if (this.readyState == 4)
-                {
-                    if (this.status == 200) // 200 everything good | 201 everything good and added user
-                    {
-                        console.log(this.responseText);
-                    }
-                    else
-                    {
-                        console.log('some error: ' + this.status);
-                    }
-                }
-            }
-
-            request.send();
-        }
-
-        function updateUser(userId, mail)
-        {
-            let request = new XMLHttpRequest();
-            //0
-            request.open('PUT', 'https://jsonplaceholder.typicode.com/users/' + userId, true);
-            //1
-            request.onreadystatechange = function()
-            {
-                if (this.readyState == 4)
-                {
-                    if (this.status == 200) // 200 everything good | 201 everything good and added user
-                    {
-                        console.log(this.responseText);
-                    }
-                    else
-                    {
-                        console.log('some error: ' + this.status);
-                    }
-                }
-            }
-
-            request.send(
-                {
-                    email: mail
-                }
-            );
+            if (error instanceof RangeError)
+                alert(error);
         }
 
      </script>
 
-     <button onclick="getUsers()">Get all users!</button>
-     <button onclick="getUser(2)">Get user!</button>
-     <button onclick="addUser('name', 'mail@gmail.com')">Add user!</button>
-     <button onclick="removeUser(2)">Remove user!</button>
-     <button onclick="updateUser(2, 'mail')">Update user!</button>
+     <form id="evalDiv" style="width: 170px; background-color: antiquewhite; margin: 0 auto; padding: 10px;" onsubmit="EvalDone()">
+        <label>
+            Reference: 
+            <input type="text" name="reference">
+        </label>
+        <input type="submit" value="Done">
+        <br>
+        <br>
+        <br>
+        <label>
+            Result: 
+            <input type="text" name="result">
+        </label>
+     </form>
 
+     <!-- <form id="FormCont" onsubmit="doDivision()">
+        <label>
+            Number 1: 
+            <input type="number" name="num1">
+        </label>
+        <br>
+        <label>
+            Number 2: 
+            <input type="number" name="num2">
+        </label>
+        <br>
+        <input type="submit" value="Divide">
+        <br>
+
+        <label>Result <input type="text" name="result"></label>
+    </form> -->
 
      <!-- <button onclick="JSONToArray1()">from JSON to Array 1</button>
      <button onclick="JSONToArray2()">from JSON to Array 2</button>

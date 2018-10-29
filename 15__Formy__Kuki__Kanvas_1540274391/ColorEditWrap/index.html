@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="script.js"></script>
+
+    <form id="colorEditor" onsubmit="addColor()" class="colorEditorCl">
+        <div class="editCont">
+            <div>
+                <label>Color:</label>
+                <input type="text" name="color">
+                <span></span>
+            </div>
+            <div>
+                <label>Type:</label>
+                <select name="type">
+                    <option>RGB</option>
+                    <option>RGBA</option>
+                    <option>HEX</option>
+                </select>
+                <span></span>
+            </div>
+            <div>
+                <label>Code:</label>
+                <input type="text" name="code">
+                <span></span>
+            </div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+
+</body>
+</html>

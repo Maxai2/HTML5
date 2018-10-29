@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <script src="script.js"></script>
+
+    <form class="registrationForm" id="userForm" method="GET" onsubmit="submitSugnUp()">
+        <!-- <input type="hidden" name="id"/> -->
+        
+        <div class="regContainer">
+            <h2>Registration</h2>
+            <div>
+                <label>Email:</label>
+                <input type="email" name="mail"/>
+                <span></span>
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" name="password"/>
+                <span></span>
+            </div>
+            <div>
+                <label>Repeat:</label>
+                <input type="password" name="repeat"/>
+                <span></span>
+            </div>
+            <button type="submit">Sign Up</button>
+        </div>
+    </form>
+
+    <form class="registrationForm editUserForm" id="editUser" method="GET" onsubmit="submitChange()" style="display: none;">
+        <div class="mailContainer">
+            <p id="userMailWelcome"> </p>
+            <a href="#" onclick="SignOut()">exit</a>
+        </div>
+        
+        <hr/>
+        <div class="regContainer">
+            <h2>User info</h2>
+            <div class="firstNameCl">
+                <label>First name:</label>
+                <input type="text" name="firstName"/>
+                <span></span>
+            </div>
+            <div class="lastNameCl">
+                <label>Last name:</label>
+                <input type="text" name="lastName"/>
+                <span></span>
+            </div>
+            <div class="yearOfBirthCl">
+                <label>Year of birth:</label>
+                <input type="text" name="yearOfBirth" value="1900"/>
+                <span></span>
+            </div>
+            <div class="genderCl">
+                <label>Gender:</label>
+                <select name="gender">
+                    <option></option>
+                    <option>male</option>
+                    <option>female</option>
+                </select>
+                <span></span>
+            </div>
+            <div class="phoneCl">
+                <label>Phone:</label>
+                <input type="tel" name="phone"/>
+                <span></span>
+            </div>
+            <div class="skypeCl">
+                <label>Skype:</label>
+                <input type="text" name="skype"/>
+                <span></span>
+            </div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+
+</body>
+</html>

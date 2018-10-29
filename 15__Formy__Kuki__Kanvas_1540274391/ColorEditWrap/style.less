@@ -1,0 +1,56 @@
+body
+{
+    margin: 0;
+}
+
+.colorEditorCl
+{
+    margin: 0 auto;
+    background-color: antiquewhite;
+    width: 250px;
+    padding: 10px 300px;
+
+    .editCont
+    {
+        div
+        {   
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            grid-template-rows: repeat(2, 1fr);
+            margin: 10px 0;
+
+            label
+            {
+                font-weight: bold;
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 1;
+            }
+
+            input
+            {
+                grid-row: 2 / span 1;
+                grid-column: 1 / span 3;
+            }
+
+            select
+            {
+                grid-row: 2 / span 1;
+                grid-column: 1 / span 3;
+            }
+
+            span
+            {
+                color: darkred;
+                font-weight: bold;
+                word-wrap: normal;
+                grid-column: 3 / span 1;
+                grid-row: 1 / span 1;
+            }
+        }
+
+        button
+        {
+            width: 100%;
+        }
+    }
+}
