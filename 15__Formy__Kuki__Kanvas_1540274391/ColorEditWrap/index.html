@@ -14,7 +14,7 @@
         <div class="editCont">
             <div>
                 <label>Color:</label>
-                <input type="text" name="color">
+                <input type="text" name="color" onkeydown="colorNameChange()">
                 <span></span>
             </div>
             <div>
@@ -32,6 +32,7 @@
                 <span></span>
             </div>
             <button type="submit">Save</button>
+            <div id="testColView" class="testColCl"></div>
         </div>
     </form>
 
