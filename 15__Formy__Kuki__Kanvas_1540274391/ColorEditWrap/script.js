@@ -1,3 +1,4 @@
+import 'colorArray.js';
 
 function addColor()
 {
@@ -48,11 +49,14 @@ function colorNameChange()
     let colorEditCont = document.getElementById('colorEditor');
     let colorVal = colorEditCont['color'].value;
     
-    console.log(colorVal);
     if (new RegExp(/^[a-z]{3,}$/).test(colorVal) == false)
     {
         colorEditCont.color.nextElementSibling.innerText = 'only letters in low case, min 3 symbol';
+        document.getElementById('testColView').style.backgroundColor = 'antiquewhite';
     }
     else
+    {
         colorEditCont.color.nextElementSibling.innerText = '';
+        document.getElementById('testColView').style.backgroundColor = colorVal;
+    }
 }
