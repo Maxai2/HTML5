@@ -114,11 +114,45 @@ function colorCodeChange()
     // }
 }
 
+function createCol(colName, colType, colCode)
+{
+    let div = document.createElement('div');
+    div.className = 'colorContainer';
+    div.style.backgroundColor = colName;
 
+    let divCont = document.createElement('div');
+    divCont.className = 'colorVal';
+    divCont.style.backgroundColor = 'rgba(' + colArr.find(col => col.name == className).rgbVal + ',0.5)';
+
+    divCont.appendChild(document.createElement('label').innerText = colName);
+    divCont.appendChild(document.createElement('p').innerText = colType);
+    divCont.appendChild(document.createElement('strong').innerText = colCode);
+
+    div.appendChild(divCont);
+    return div;
+}
+
+function colorsForCookie(colName, colRGB, colHEX)
+{
+    this.colName = colName;
+    this.colRGB = colRGB;
+    this.colHEX = colHEX;
+}
+
+let colorCookieArray = [];
 
 function addColor()
 {
-     
-
     event.preventDefault();
+    let colorEditCont = document.getElementById('colorEditor');
+
+    let cookieCol = new colorsForCookie(colorEditCont['color'].value, colorEditCont['type'].value, colorEditCont['code'].value);
+
+    colorCookieArray.push(cookieCol);
+
+    let date = new Date(Date.now());
+    date = new Date(date.setDate() + 1);
+    document.cookie = `colorArray=${colorCookieArray};expires=${date.toUTCString()}`;
+    
+    document.appendChild
 }

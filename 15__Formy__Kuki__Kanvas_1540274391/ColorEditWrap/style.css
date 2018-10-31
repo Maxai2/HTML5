@@ -2,10 +2,18 @@ body {
   margin: 0;
 }
 .colorEditorCl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr auto;
   margin: 0 auto;
-  width: 400px;
-  padding: 10px 300px;
+  width: 910px;
+  padding: 0 20px;
   background-color: antiquewhite;
+}
+.colorEditorCl .editCont {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  padding: 0 10px;
 }
 .colorEditorCl .editCont div {
   display: grid;
@@ -45,12 +53,31 @@ body {
   margin: 10px 0;
   height: 20px;
 }
-.colorContainer {
-  color: yellowgreen;
-  color: rgba(154, 205, 50, 0.5);
-  color: darkcyan;
-  color: rgba(0, 139, 139, 0.5);
-  color: orangered;
-  color: #FF4500;
-  color: rgba(255, 45, 0, 0.5);
+.colorEditorCl .colorWrap {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  display: flex;
+  flex-flow: wrap;
+}
+.colorEditorCl .colorWrap .colorContainer {
+  margin: 10px;
+  padding: 30px;
+}
+.colorEditorCl .colorWrap .colorContainer .colorVal {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  padding: 15px 20px;
+  height: 50px;
+}
+.colorEditorCl .colorWrap .colorContainer .colorVal label {
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+.colorEditorCl .colorWrap .colorContainer .colorVal p {
+  font-size: 12px;
+  margin: 0 auto;
+}
+.colorEditorCl .colorWrap .colorContainer .colorVal strong {
+  font-weight: bold;
+  margin: 0 auto;
 }
