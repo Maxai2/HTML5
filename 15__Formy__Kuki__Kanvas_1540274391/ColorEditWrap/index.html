@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
     <form id="colorEditor" onsubmit="addColor()" class="colorEditorCl">
         <div class="editCont">
             <div>
@@ -19,7 +18,7 @@
             </div>
             <div>
                 <label>Type:</label>
-                <select name="type" onchange="">
+                <select name="type" onchange="codeTypeChang()">
                     <option>RGB</option>
                     <option>RGBA</option>
                     <option>HEX</option>
@@ -28,7 +27,7 @@
             </div>
             <div>
                 <label>Code:</label>
-                <input type="text" name="code" spellcheck="false">
+                <input type="text" name="code" spellcheck="false" oninput="colorCodeChange()">
                 <span></span>
             </div>
             <button type="submit">Save</button>

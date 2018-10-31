@@ -6,13 +6,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
-        <!-- <input type="text" id="input1"/> -->
+
+    <!-- <style>
+        .italic
+        {
+            font-style: italic;
+        }
+
+        img
+        {
+            width: 500px;
+        }
+    </style>
+
+    <!-- <input type="text" id="input1"/> -->
+    <!-- <button onclick="changeText()">Click me!</button>
+    <button onclick="changeAllText()">Change all!</button>
+    <button onclick="changeItalic()">Change italic!</button>
+    <button onclick="changeColor()">Change color!</button>
+    <button onclick="changeImage()">Change image!</button>
+
+    <p id="p1">Default text</p>
+
+    <img src="https://www.google.az/imgres?imgurl=http%3A%2F%2Fs1.iconbird.com%2Fico%2F1012%2FQettoIcons%2Fw256h2561350658940jpg.png&imgrefurl=https%3A%2F%2Ficonbird.com%2Fsearch%2F%3Fq%3Dimage&docid=ENmEwf1PQMMolM&tbnid=qxTkKPzSCT-70M%3A&vet=10ahUKEwiBkZH0wK3eAhUQPewKHY5-Cv0QMwg9KAIwAg..i&w=256&h=256&hl=ru-AZ&bih=969&biw=1920&q=image&ved=0ahUKEwiBkZH0wK3eAhUQPewKHY5-Cv0QMwg9KAIwAg&iact=mrc&uact=8"> --> -->
+
+    <button onclick="autoValue()">Auto value</button>
+    <br>
+    <br>
+    
+    <form id="form1" onsubmit="getUsers()">
+        <input type="number" name="page" placeholder="Count of page">
+        <br>
+        <br>
+        <input type="number" name="per_page" placeholder="Count of users">
+        <br>
+        <br>
+        <button type="submit">Get users!</button>
+    </form>
+
+    <div id="load">Loading...</div>
+    
+    <ul id="data"></ul>
 
     <script type="text/javascript">
+        $(() =>
+        {
+            $('#load').hide();
+        })
 
+        autoValue = () =>
+        {
+            $('input[name="page"]').val(1);
+            $('input[name="per_page"]').val(5);
+        }
+
+        let getUsers = () => 
+        {
+            event.preventDefault();
+
+            $.ajax
+            ({
+                url: 'https://reqres.in/api/users/',
+                type: 'GET', // default get
+                data: $('#form1').serialize(),
+                dataType: 'JSON', // defaut JSON
+
+                beforeSend: (xhr) => 
+                {
+                    console.log($('#form1').serialize());
+                    $('#load').show();
+                },
+
+                success: (result, status, xhr) => 
+                {
+                    console.log(status);
+                    console.log(result);
+                    $('#data').empty();
+
+                    result.data.forEach(user =>
+                    {
+                        $('#data').append('<li>'+ user.first_name + " " + user.last_name + "</li>");
+                    });
+                },
+
+                error: (result, status, xhr) => 
+                {
+                    console.log(status);
+                    console.log(xhr.stat);
+                },
+
+                complete: () => 
+                {
+                    $('#load').hide();
+                }
+            });
+        }
+
+    ////---------------------------------------------------------AJAX JQUERY ^
         // var num = 5;
         // console.log(num);
 
@@ -736,48 +833,114 @@
         //     }
         // }
 
-        function EvalDone()
-        {
-            event.preventDefault();
-            let evalTest = document.getElementById('evalDiv');
-            evalTest.result.value = '';
-            let refer = evalTest.reference.value;
+        // function EvalDone()
+        // {
+        //     event.preventDefault();
+        //     let evalTest = document.getElementById('evalDiv');
+        //     evalTest.result.value = '';
+        //     let refer = evalTest.reference.value;
 
-            try
-            {
-                evalTest.result.value = eval(refer);
-            }
-            catch (error)
-            {
-                if (error instanceof EvalError)
-                    alert(error);
-                else
-                if (error instanceof SyntaxError)
-                    alert(error);
-                // else
-                // if (error instanceof ReferenceError)
-                //     alert(error);
-                // else
-                    // alert(error);
-            }
-        }
+        //     try
+        //     {
+        //         evalTest.result.value = eval(refer);
+        //     }
+        //     catch (error)
+        //     {
+        //         if (error instanceof EvalError)
+        //             alert(error);
+        //         else
+        //         if (error instanceof SyntaxError)
+        //             alert(error);
+        //         // else
+        //         // if (error instanceof ReferenceError)
+        //         //     alert(error);
+        //         // else
+        //             // alert(error);
+        //     }
+        // }
 
-        let age = prompt('How old r u?');
+        // let age = prompt('How old r u?');
 
-        try 
-        {
-            if (age < 18)
-                throw new RangeError("Only older 18");    
-        }
-        catch (error) 
-        {
-            if (error instanceof RangeError)
-                alert(error);
-        }
+        // try 
+        // {
+        //     if (age < 18)
+        //         throw new RangeError("Only older 18");    
+        // }
+        // catch (error) 
+        // {
+        //     if (error instanceof RangeError)
+        //         alert(error);
+        // }
+
+        //Jquery----------------------------------------------------------------------------------
+
+        //let p = document.getElementById('p1');
+        //let p = jQuery('#p1');
+        //let p = $('#p1');
+        //p.innerText('Hello!');
+        //p.text('Hello!');
+
+        //window.onload = function();
+        // $(document).ready(() => 
+        // {
+        //     alert('loaded');
+        // });
+
+        // $(document).ready(() =>
+        // {
+        //     $('#p1').css('font-size', '30px');
+        // });
+
+        // let changeText = () =>
+        // {
+        //     let p1 = $('#p1');
+        //     //p1.before('<p>new p <strong>Strong</strong></p>');
+        //     p1.after('<p>new p <strong>Strong</strong></p>');
+        // }
+
+        // let changeAllText = () =>
+        // {
+        //     let p = $('p');
+        //     p.html('<p><strong>Changed!</strong></p>');
+        // }
+
+        // let changeItalic = () =>
+        // {
+        //     let s = $('strong');
+            
+        //     s.toggleClass('italic');
+
+        //     // if (s.hasClass('italic'))
+        //     //     s.removeClass('italic');
+        //     // else
+        //     //     s.addClass('italic');
+        // }
+
+        // let changeColor = () =>
+        // {
+        //     let p = $('strong');
+
+        //     p.css(
+        //         {
+        //             'color': 'red', 
+        //             'font-size': 'small'
+        //         });
+        // }
+
+        // let changeImage = () =>
+        // {
+        //     let i = $('img');
+
+        //     i.attr('src', 'https://www.google.az/imgres?imgurl=http%3A%2F%2Fimages.math.cnrs.fr%2FIMG%2Fpng%2Fsection8-image.png&imgrefurl=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F42454306%2Fjavascript-next-and-previous-images&docid=kaVoSnLe8J96rM&tbnid=HHyg_4efSYNznM%3A&vet=10ahUKEwiBkZH0wK3eAhUQPewKHY5-Cv0QMwg7KAAwAA..i&w=256&h=256&hl=ru-AZ&bih=969&biw=1920&q=image&ved=0ahUKEwiBkZH0wK3eAhUQPewKHY5-Cv0QMwg7KAAwAA&iact=mrc&uact=8');
+        // }
+
+
+
 
      </script>
 
-     <form id="evalDiv" style="width: 170px; background-color: antiquewhite; margin: 0 auto; padding: 10px;" onsubmit="EvalDone()">
+
+     <!-- <form id="evalDiv" style="width: 170px; background-color: antiquewhite; margin: 0 auto; padding: 10px;" onsubmit="EvalDone()">
         <label>
             Reference: 
             <input type="text" name="reference">
@@ -790,7 +953,7 @@
             Result: 
             <input type="text" name="result">
         </label>
-     </form>
+     </form> -->
 
      <!-- <form id="FormCont" onsubmit="doDivision()">
         <label>
