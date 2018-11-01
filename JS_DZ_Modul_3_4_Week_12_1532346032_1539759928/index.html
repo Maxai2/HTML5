@@ -381,7 +381,7 @@
             if (lastId != '')
                 document.getElementById(lastId).style.backgroundColor = BgCol;
 
-            switch(event.target.innerText)
+            switch(event.target.innerHTML)
             {
                 case 'Firstname':
                     index = 0;
@@ -461,8 +461,8 @@
                 break;
             }
 
-            document.getElementById(event.target.innerText + 'id').style.backgroundColor = 'gray';
-            lastId = event.target.innerText + 'id';
+            document.getElementById(event.target.innerHTML + 'id').style.backgroundColor = 'gray';
+            lastId = event.target.innerHTML + 'id';
 
             fillTable(personArr);
         }
