@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+}
+.filmSearchCont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr auto auto;
+  margin: 0 auto;
+  width: 900px;
+  padding: 0 20px;
+  background-color: antiquewhite;
+}
+.filmSearchCont .container {
+  grid-row: 1;
+  grid-column: 2;
+  margin: 5px 0;
+}
+.filmSearchCont .container h3 {
+  text-align: center;
+  margin: 5px 0;
+}
+.filmSearchCont .container .searchInst {
+  border: 0.5px solid lightgray;
+  border-radius: 3px;
+  padding: 10px;
+  width: 300px;
+}
+.filmSearchCont .container .searchInst div {
+  display: grid;
+  grid-template-columns: 0.5fr 0.1fr 1fr;
+  margin: 20px 0;
+}
+.filmSearchCont .container .searchInst label {
+  font-weight: bold;
+}
+.filmSearchCont .container .searchInst input {
+  grid-column: 3;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.filmSearchCont .container .searchInst select {
+  border-radius: 3px;
+  grid-column: 3;
+}
+.filmSearchCont .container .searchInst button {
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 3px;
+}
+.filmSearchCont .container pre {
+  text-align: center;
+  margin: 0;
+  height: 12px;
+}
+.filmSearchCont .findFilms {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: repeat(3, 1fr);
+}
+.filmSearchCont .findFilms h3 {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+  margin: 5px 0;
+}
+.filmSearchCont .findFilms .filmsArray {
+  grid-row: 2;
+  grid-column: 1 / span 3;
+  display: flex;
+}
+.filmSearchCont .findFilms .filmsArray .filmElement {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 5px;
+  border: 0.5px solid lightgray;
+  border-radius: 3px;
+  width: 300px;
+  margin: 0 5px;
+}
+.filmSearchCont .findFilms .filmsArray .filmElement img {
+  grid-column: 1;
+  width: 95px;
+  margin: auto 5px;
+}
+.filmSearchCont .findFilms .filmsArray .filmElement .baseDetails {
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr auto;
+}
+.filmSearchCont .findFilms .filmsArray .filmElement .baseDetails label {
+  grid-row: 1;
+  margin: auto auto;
+}
+.filmSearchCont .findFilms .filmsArray .filmElement .baseDetails strong {
+  grid-row: 2;
+}
+.filmSearchCont .findFilms .filmsArray .filmElement .baseDetails p {
+  grid-row: 3;
+  margin: auto auto;
+}
+.filmSearchCont .findFilms .filmsArray .filmElement .baseDetails button {
+  grid-row: 4;
+  height: auto;
+  border-radius: 3px;
+}
+.filmSearchCont .findFilms .pageButton {
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  height: 20px;
+  margin: 15px 0;
+}
+.filmSearchCont .findFilms .pageButton button {
+  border-radius: 3px;
+}
+.filmSearchCont .detailsContainer {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+  margin-bottom: 20px;
+}
+.filmSearchCont .detailsContainer h3 {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+  margin: 5px 0;
+}
+.filmSearchCont .detailsContainer .filmDetail {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  box-shadow: 1px 3px 2px 2px lightgray;
+  border-radius: 3px;
+  width: 700px;
+  margin: 0 auto;
+  padding: 5px;
+}
+.filmSearchCont .detailsContainer .filmDetail img {
+  grid-column: 1;
+  height: 300px;
+  margin: auto 10px;
+}
+.filmSearchCont .detailsContainer .filmDetail .detailContainer {
+  grid-column: 2;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+}
+.filmSearchCont .detailsContainer .filmDetail .detailContainer div {
+  display: grid;
+  grid-template-columns: 1fr 10px 2fr;
+  font-size: 12px;
+}
+.filmSearchCont .detailsContainer .filmDetail .detailContainer div strong {
+  grid-column: 1;
+  margin: auto 0;
+}
+.filmSearchCont .detailsContainer .filmDetail .detailContainer div label {
+  grid-column: 3;
+  margin: auto 0;
+}

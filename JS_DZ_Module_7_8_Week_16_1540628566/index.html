@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="filmSearchCont">
+        <div class="container">
+            <h3>Search:</h3>
+            <div class="searchInst">
+                <div>
+                    <label>Title:</label>
+                    <input id="movieName" type="text">
+                </div>
+                <div>
+                    <label>Type:</label>
+                    <select id="movieType">
+                        <option>Movie</option>
+                        <option>Series</option>
+                        <option>Episode</option>
+                    </select>
+                </div>
+                <button onclick="filmSearch()">Search</button>
+            </div>
+            <pre id="notFound"></pre>
+        </div>
+
+        <div class="findFilms" id="findFilmsId">
+            <h3>Films:</h3>
+            <div class="filmsArray">
+                <div class="filmElement">
+                    <img src="http://www.omdbapi.com/src/poster.jpg">
+                    <div class="baseDetails">
+                        <label>movie</label>
+                        <strong>Hello, my Name Is Doris</strong>
+                        <p>2015</p>
+                        <button>Details</button>
+                    </div>
+                </div>
+                <div class="filmElement">
+                    <img src="http://www.omdbapi.com/src/poster.jpg">
+                    <div class="baseDetails">
+                        <label>movie</label>
+                        <strong>Hello, my Name Is Doris</strong>
+                        <p>2015</p>
+                        <button>Details</button>
+                    </div>
+                </div>
+                <div class="filmElement">
+                    <img src="http://www.omdbapi.com/src/poster.jpg">
+                    <div class="baseDetails">
+                        <label>movie</label>
+                        <strong>Hello, my Name Is Doris</strong>
+                        <p>2015</p>
+                        <button>Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pageButton">
+                <button><<</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>>></button>
+            </div>
+        </div>
+
+        <div class="detailsContainer" id="detailsContainerId">
+            <h3>Film info:</h3>
+            <div class="filmDetail">
+                <img src="http://www.omdbapi.com/src/poster.jpg">
+                <div class="detailContainer">
+                    <div>
+                        <strong>Title:</strong>
+                        <label>Hello, My Name is Doris</label>
+                    </div>
+                    <div>
+                        <strong>Released:</strong>
+                        <label>01 Apr 2016</label>
+                    </div>
+                    <div>
+                        <strong>Genre:</strong>
+                        <label>Comedy, Drama, Romance</label>
+                    </div>
+                    <div>
+                        <strong>Country:</strong>
+                        <label>USA</label>
+                    </div>
+                    <div>
+                        <strong>Director:</strong>
+                        <label>Michael Showalter</label>
+                    </div>
+                    <div>
+                        <strong>Writer:</strong>
+                        <label>Laura Terruso (sreenplay), Michael Showalter (screenplay), Laura Terruso (short film "Doris & the intern")</label>
+                    </div>
+                    <div>
+                        <strong>Actors:</strong>
+                        <label>Sally Field, Edmund Lupinski, Norma Michaels, Stephen Root</label>
+                    </div>
+                    <div>
+                        <strong>Awards:</strong>
+                        <label>2 wins & 10 nominations</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
