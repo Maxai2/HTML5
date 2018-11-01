@@ -934,12 +934,111 @@
         //     i.attr('src', 'https://www.google.az/imgres?imgurl=http%3A%2F%2Fimages.math.cnrs.fr%2FIMG%2Fpng%2Fsection8-image.png&imgrefurl=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F42454306%2Fjavascript-next-and-previous-images&docid=kaVoSnLe8J96rM&tbnid=HHyg_4efSYNznM%3A&vet=10ahUKEwiBkZH0wK3eAhUQPewKHY5-Cv0QMwg7KAAwAA..i&w=256&h=256&hl=ru-AZ&bih=969&biw=1920&q=image&ved=0ahUKEwiBkZH0wK3eAhUQPewKHY5-Cv0QMwg7KAAwAA&iact=mrc&uact=8');
         // }
 
-
+    //------------------------------------------------------------AJAX
+        
+     /*
+         function getUsers() {
+            let request = new XMLHttpRequest();
+            request.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+            request.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        let users = JSON.parse(this.responseText);
+                        users.forEach(user => {
+                            console.log(user.name);
+                        });
+                    } else {
+                        console.log('some error: ' + 
+                        this.statusText);
+                    }
+                }
+            }
+            request.send();
+        } 
+        
+        function getUser(userID) {
+            let request = new XMLHttpRequest();
+            request.open('GET', 
+            'https://jsonplaceholder.typicode.com/users/' + userID,
+            true);
+            request.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        let user = JSON.parse(this.responseText);
+                        console.log(user);
+                    } else {
+                        console.log('some error: ' + 
+                        this.statusText);
+                    }
+                }
+            }
+            request.send();
+        }
+    
+        function addUser(name, mail) {
+            let request = new XMLHttpRequest();
+            request.open('POST', 
+            'https://jsonplaceholder.typicode.com/users', 
+            true);
+            request.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 201) {
+                        console.log(this.responseText);
+                    } else {
+                        console.log('some error: ' + 
+                        this.status);
+                    }
+                }
+            }
+            request.send({
+                name: name,
+                email: mail
+            });
+        } 
+    
+        function deleteUser(userID) {
+            let request = new XMLHttpRequest();
+            request.open('DELETE', 
+            'https://jsonplaceholder.typicode.com/users/' + userID, 
+            true);
+            request.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        console.log(this.responseText);
+                    } else {
+                        console.log('some error: ' + 
+                        this.statusText);
+                    }
+                }
+            }
+            request.send();
+        }
+    
+        function updateUser(userID, mail) {
+            let request = new XMLHttpRequest();
+            request.open('PUT', 
+            'https://jsonplaceholder.typicode.com/users/' + userID, 
+            true);
+            request.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        console.log(this.responseText);
+                    } else {
+                        console.log('some error: ' + 
+                        this.statusText);
+                    }
+                }
+            }
+            request.send({
+                email: mail
+            });
+        }
+         */
 
 
      </script>
-
-
+    
+    
      <!-- <form id="evalDiv" style="width: 170px; background-color: antiquewhite; margin: 0 auto; padding: 10px;" onsubmit="EvalDone()">
         <label>
             Reference: 
@@ -984,6 +1083,12 @@
 
 <!-- <script src="https://learn.javascript.ru/article/cookie/cookie.js"></script> -->
      
+<!--<button onclick="getUsers()">Get all users</button>
+    <button onclick="getUser(2)">Get user</button>
+    <button onclick="addUser('Rauf', 'rauf@gmail.com')">Add user</button>
+    <button onclick="deleteUser(2)">Delete user</button>
+    <button onclick="updateUser(2, 'ali@gmail.com')">Update user</button>-->
+    
      <!-- <button onclick="addCookieUserId()">Add cookie UserId</button>
      <button onclick="addCookieUserName()">Add cookie UserName</button>
      <button onclick="removeCookieUserId()">Remove cookie UserId</button>
