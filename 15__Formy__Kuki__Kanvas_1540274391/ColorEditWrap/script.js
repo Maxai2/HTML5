@@ -34,16 +34,21 @@ function colorNameChange()
     {
         colorEditCont.color.nextElementSibling.innerText = '';
         
+        let col = colArr.find(col => col.name == colorVal);
+
+        if (col == undefined)
+            return;
+
         switch (colorEditCont.type.value)
         {
             case 'RGB':
-            colorEditCont.code.value = colArr.find(col => col.name == colorVal).rgbVal;
+            colorEditCont.code.value = col.rgbVal;
             break;
             case 'RGBA':
-            colorEditCont.code.value = colArr.find(col => col.name == colorVal).rgbVal + ',1';
+            colorEditCont.code.value = col.rgbVal + ',1';
             break;
             case 'HEX':
-            colorEditCont.code.value = colArr.find(col => col.name == colorVal).hexVal;
+            colorEditCont.code.value = col.hexVal;
         }
         
         document.getElementById('testColView').style.backgroundColor = colorVal;
@@ -119,40 +124,114 @@ function createCol(colName, colType, colCode)
     let div = document.createElement('div');
     div.className = 'colorContainer';
     div.style.backgroundColor = colName;
-
+    div.id = colName + '|' + colCode;
+    
     let divCont = document.createElement('div');
     divCont.className = 'colorVal';
-    divCont.style.backgroundColor = 'rgba(' + colArr.find(col => col.name == className).rgbVal + ',0.5)';
-
-    divCont.appendChild(document.createElement('label').innerText = colName);
-    divCont.appendChild(document.createElement('p').innerText = colType);
-    divCont.appendChild(document.createElement('strong').innerText = colCode);
+    divCont.style.backgroundColor = 'rgba(255,255,255,0.5)';
+    
+    let label = document.createElement('label');
+    label.innerText = colName;
+    divCont.appendChild(label);
+    
+    let p = document.createElement('p');
+    p.innerText = colType;
+    divCont.appendChild(p);
+    
+    let strong = document.createElement('strong');
+    strong.innerText = colCode;
+    divCont.appendChild(strong);
 
     div.appendChild(divCont);
-    return div;
+
+    // let span = document.createElement('button');
+    // span.onclick = deleteCol;
+    // span.className = 'btnClass';
+    // span.innerText = 'Delete';
+
+    let pre = document.createElement('pre');
+    pre.addEventListener('click', deleteCol);
+    pre.className = 'btnClass';
+    pre.innerText = 'Delete';
+    pre.id = colName + '|' + colCode;
+
+    div.appendChild(pre);
+    
+    document.getElementById('colorContainerId').appendChild(div);
 }
 
-function colorsForCookie(colName, colRGB, colHEX)
+function colorsForCookie(colName, colType, colCode)
 {
     this.colName = colName;
-    this.colRGB = colRGB;
-    this.colHEX = colHEX;
+    this.colType = colType;
+    this.colCode = colCode;
 }
+
+// let date = new Date(Date.now());
+// date = new Date(date.setDate(date.getDate() - 1));
+// document.cookie = 'colorJSON=;expires=' + date.toUTCString();
 
 let colorCookieArray = [];
 
 function addColor()
 {
-    event.preventDefault();
+    event.preventDefault();   
     let colorEditCont = document.getElementById('colorEditor');
+    let color = colorEditCont['color'].value;
+    let type = colorEditCont['type'].value;
+    let code = colorEditCont['code'].value;
 
-    let cookieCol = new colorsForCookie(colorEditCont['color'].value, colorEditCont['type'].value, colorEditCont['code'].value);
+    if (color == '' || code == '')
+        return;
+
+    let cookieCol = new colorsForCookie(color, type, code);
 
     colorCookieArray.push(cookieCol);
-
+    
+    let str = JSON.stringify(colorCookieArray);
+    
     let date = new Date(Date.now());
     date = new Date(date.setDate() + 1);
-    document.cookie = `colorArray=${colorCookieArray};expires=${date.toUTCString()}`;
+    document.cookie = `colorJSON=${str};expires=${date.toUTCString()}`;
+
+    createCol(color, type, code);
+
+    colorEditCont['color'].value = '';
+    colorEditCont['code'].value = '';
+}
+
+function checkColor()
+{
+    event.preventDefault();
+    let cookieJs = document.cookie;
     
-    document.appendChild
+    if (cookieJs == '')
+        return;
+    
+    colorCookieArray = JSON.parse(cookieJs.replace('colorJSON=', ''));
+    
+    colorCookieArray.forEach(color => 
+    {
+        createCol(color.colName, color.colType, color.colCode);
+    });
+}
+    
+function deleteCol()
+{
+    let col = document.getElementById(event.target.id);
+
+    let colName = col.id.substring(0,col.id.indexOf('|'));
+    let codeName = console.log(col.id.substring(col.id.indexOf('|') + 1));
+
+    let arrayElem = colorCookieArray.find(c => (c.colName == colName && c.codeName == codeName));
+    
+    let index = colorCookieArray.indexOf(arrayElem);
+    console.log(index);
+    colorCookieArray.splice(index, 1);
+    
+    col.remove();
+    let str = JSON.stringify(colorCookieArray);
+    let date = new Date(Date.now());
+    date = new Date(date.setDate() + 1);
+    document.cookie = `colorJSON=${str};expires=${date.toUTCString()}`;
 }

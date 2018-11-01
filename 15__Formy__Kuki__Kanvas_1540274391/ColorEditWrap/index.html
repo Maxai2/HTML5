@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="checkColor()">
 
     <form id="colorEditor" onsubmit="addColor()" class="colorEditorCl">
         <div class="editCont">
@@ -34,9 +34,7 @@
             <div id="testColView" class="testColCl"></div>
         </div>
         
-        <div id="colorContainerId" class="colorWrap">
-
-        </div>
+        <div id="colorContainerId" class="colorWrap"></div>
 
     </form>
 
