@@ -14,7 +14,7 @@
             <div class="searchInst">
                 <div>
                     <label>Title:</label>
-                    <input id="movieName" type="text">
+                    <input id="movieName" type="text" onkeydown="enterKey()">
                 </div>
                 <div>
                     <label>Type:</label>
@@ -29,37 +29,9 @@
             <pre id="notFound"></pre>
         </div>
 
-        <div class="findFilms" id="findFilmsId">
+        <div class="findFilms" id="findFilmsId" style="display: none;">
             <h3>Films:</h3>
-            <div class="filmsArray">
-                <div class="filmElement">
-                    <img src="http://www.omdbapi.com/src/poster.jpg">
-                    <div class="baseDetails">
-                        <label>movie</label>
-                        <strong>Hello, my Name Is Doris</strong>
-                        <p>2015</p>
-                        <button>Details</button>
-                    </div>
-                </div>
-                <div class="filmElement">
-                    <img src="http://www.omdbapi.com/src/poster.jpg">
-                    <div class="baseDetails">
-                        <label>movie</label>
-                        <strong>Hello, my Name Is Doris</strong>
-                        <p>2015</p>
-                        <button>Details</button>
-                    </div>
-                </div>
-                <div class="filmElement">
-                    <img src="http://www.omdbapi.com/src/poster.jpg">
-                    <div class="baseDetails">
-                        <label>movie</label>
-                        <strong>Hello, my Name Is Doris</strong>
-                        <p>2015</p>
-                        <button>Details</button>
-                    </div>
-                </div>
-            </div>
+            <div class="filmsArray" id="filmArrayId"></div>
             <div class="pageButton">
                 <button><<</button>
                 <button>1</button>
@@ -72,7 +44,7 @@
             </div>
         </div>
 
-        <div class="detailsContainer" id="detailsContainerId">
+        <div class="detailsContainer" id="detailsContainerId" style="display: none;">
             <h3>Film info:</h3>
             <div class="filmDetail">
                 <img src="http://www.omdbapi.com/src/poster.jpg">
