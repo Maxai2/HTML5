@@ -3,6 +3,7 @@ let movieCount;
 
 function filmSearch()
 {
+    document.getElementById('loaderId').style.display = 'grid';
     let requestStr = `http://www.omdbapi.com/?apikey=dbf23902&s=${document.getElementById('movieName').value}&type=${document.getElementById('movieType').value}`;
     
     let request = new XMLHttpRequest();
@@ -10,16 +11,20 @@ function filmSearch()
     
     request.onreadystatechange = function() 
     {
+        if (this.readyState == 2)
+        {
+        }
+
         if (this.readyState == 4) 
         {
             if (this.status == 200) 
             {
                 let movie = JSON.parse(this.responseText);
+                document.getElementById('findFilmsId').style.display = 'none';
                 
                 if (movie.Response == 'False')
                 {
                     document.getElementById('notFound').innerText = movie.Error;
-                    document.getElementById('findFilmsId').style.display = 'none';
                     return;
                 }
                 else
@@ -31,13 +36,11 @@ function filmSearch()
                 movieCount = movie.totalResults;
                 fillMovieArray(movieCount);
                 
-                // movieArray = movie.Search;
-                console.log(movieArray);
                 for (let i = 0; i < 3; ++i)
                 {
                     filmCreator(movieArray[i].Poster, movieArray[i].Type, movieArray[i].Title, movieArray[i].Year);
                 }
-
+                
                 numerateButtons(0, true);
                 currentPage = 1;
                 document.getElementById('movieName').value = '';
@@ -52,19 +55,21 @@ function filmSearch()
             }
         }
     }
-
+    
     request.send();
+    document.getElementById('loaderId').style.display = 'none';
 }
 
 function fillMovieArray(count)
 {
     let length = (count % 10 == 0) ? count / 10 : (count / 10) + 1;
-
+    
     for (let i = 1; i < length; ++i)
     {
         let requestStr = `http://www.omdbapi.com/?apikey=dbf23902&s=${document.getElementById('movieName').value}&type=${document.getElementById('movieType').value}&page=${i}`;
         
         let request = new XMLHttpRequest();
+        
         request.open('GET', requestStr, false);
         
         request.onreadystatechange = function() 
@@ -89,6 +94,7 @@ function fillMovieArray(count)
         
         request.send();
     }
+
 }
 
 function numerateButtons(shift, isNext, balance = 0)
@@ -246,9 +252,10 @@ let currentPageId;
 
 function pageChange()
 {
-    currentPage = event.target.innerText;
-    if (currentPage)
+    if (event.target.innerText == '')
         return;
+
+    currentPage = event.target.innerText;
 
     currentPageId = event.target.id; 
     selectedPage(currentPageId);
@@ -294,7 +301,7 @@ function nextPage()
     }
     else
     {
-        if (currentPage == '')
+        if (document.getElementById(currentPageId).nextElementSibling.innerText == '')
             return;
         currentPage++;
         selectedPage(document.getElementById(currentPageId).nextElementSibling.id);
