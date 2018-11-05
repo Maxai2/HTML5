@@ -14,7 +14,7 @@
             <div class="searchInst">
                 <div>
                     <label>Title:</label>
-                    <input id="movieName" type="text" onkeydown="enterKey()">
+                    <input id="movieName" type="text" onkeydown="enterKey()" autofocus>
                 </div>
                 <div>
                     <label>Type:</label>
@@ -24,7 +24,7 @@
                         <option>Episode</option>
                     </select>
                 </div>
-                <button onclick="filmSearch()">Search</button>
+                <button onclick="filmSearch()" id="searchButton">Search</button>
             </div>
             <pre id="notFound"></pre>
         </div>
@@ -33,53 +33,53 @@
             <h3>Films:</h3>
             <div class="filmsArray" id="filmArrayId"></div>
             <div class="pageButton">
-                <button><<</button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>>></button>
+                <button onclick="previousPage()"><<</button>
+                <button id="firstButton" onclick="pageChange()"></button>
+                <button id="secondButton" onclick="pageChange()"></button>
+                <button id="thirdButton" onclick="pageChange()"></button>
+                <button id="fourthButton" onclick="pageChange()"></button>
+                <button id="fifthButton" onclick="pageChange()"></button>
+                <button id="sixthButton" onclick="pageChange()"></button>
+                <button onclick="nextPage()">>></button>
             </div>
         </div>
 
         <div class="detailsContainer" id="detailsContainerId" style="display: none;">
             <h3>Film info:</h3>
             <div class="filmDetail">
-                <img src="http://www.omdbapi.com/src/poster.jpg">
+                <img id="idPoster">
                 <div class="detailContainer">
                     <div>
                         <strong>Title:</strong>
-                        <label>Hello, My Name is Doris</label>
+                        <label id="idTitle"></label>
                     </div>
                     <div>
                         <strong>Released:</strong>
-                        <label>01 Apr 2016</label>
+                        <label id="idReleased"></label>
                     </div>
                     <div>
                         <strong>Genre:</strong>
-                        <label>Comedy, Drama, Romance</label>
+                        <label id="idGenre"></label>
                     </div>
                     <div>
                         <strong>Country:</strong>
-                        <label>USA</label>
+                        <label id="idCountry"></label>
                     </div>
                     <div>
                         <strong>Director:</strong>
-                        <label>Michael Showalter</label>
+                        <label id="idDirector"></label>
                     </div>
                     <div>
                         <strong>Writer:</strong>
-                        <label>Laura Terruso (sreenplay), Michael Showalter (screenplay), Laura Terruso (short film "Doris & the intern")</label>
+                        <label id="idWriter"></label>
                     </div>
                     <div>
                         <strong>Actors:</strong>
-                        <label>Sally Field, Edmund Lupinski, Norma Michaels, Stephen Root</label>
+                        <label id="idActors"></label>
                     </div>
                     <div>
                         <strong>Awards:</strong>
-                        <label>2 wins & 10 nominations</label>
+                        <label id="idAwards"></label>
                     </div>
                 </div>
             </div>
