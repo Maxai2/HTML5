@@ -28,17 +28,17 @@ function filmSearch()
                 document.getElementById('searchButton').disabled = true;
                 movieArray = [];
                 clearFilms();
-                // fillMovieArray(movie.totalResults);
                 movieCount = movie.totalResults;
-                movieArray = movie.Search;
+                fillMovieArray(movieCount);
                 
+                // movieArray = movie.Search;
                 console.log(movieArray);
                 for (let i = 0; i < 3; ++i)
                 {
                     filmCreator(movieArray[i].Poster, movieArray[i].Type, movieArray[i].Title, movieArray[i].Year);
                 }
 
-                numerateButtons(0);
+                numerateButtons(0, true);
                 currentPage = 1;
                 document.getElementById('movieName').value = '';
                 currentPageId = 'firstButton';
@@ -58,12 +58,14 @@ function filmSearch()
 
 function fillMovieArray(count)
 {
-    for (let i = 1; i < (count % 10 == 0 ? count / 10 : (count / 10) + 1); ++i)
+    let length = (count % 10 == 0) ? count / 10 : (count / 10) + 1;
+
+    for (let i = 1; i < length; ++i)
     {
         let requestStr = `http://www.omdbapi.com/?apikey=dbf23902&s=${document.getElementById('movieName').value}&type=${document.getElementById('movieType').value}&page=${i}`;
         
         let request = new XMLHttpRequest();
-        request.open('GET', requestStr, true);
+        request.open('GET', requestStr, false);
         
         request.onreadystatechange = function() 
         {
@@ -89,13 +91,28 @@ function fillMovieArray(count)
     }
 }
 
-function numerateButtons(shift)
+function numerateButtons(shift, isNext, balance = 0)
 {                
     let buttons = document.querySelectorAll('.pageButton button');
     
     for (let i = 1; i < buttons.length - 1; ++i)
     {
-        buttons[i].innerText = i + shift;
+        buttons[i].innerText = '';
+    }
+
+    if (isNext)
+    {
+        for (let i = 1; i < buttons.length - 1 - balance; ++i)
+        {
+            buttons[i].innerText = i + shift;
+        }
+    }
+    else
+    {
+        for (let i = 1; i < buttons.length - 1; ++i)
+        {
+            buttons[i].innerText = shift - 7 + i;
+        }
     }
 }
 
@@ -104,9 +121,9 @@ let lastButtonId = '';
 function selectedPage(buttonId)
 {
     if (lastButtonId != '')
-        document.getElementById(lastButtonId).style.fontWeight = 'normal';
+        document.getElementById(lastButtonId).style.backgroundColor = '#dddddd';
     
-    document.getElementById(buttonId).style.fontWeight = 'bold';
+    document.getElementById(buttonId).style.backgroundColor = 'gray';
     lastButtonId = buttonId;
     currentPageId = buttonId;
 }
@@ -208,11 +225,12 @@ function previousPage()
 {
     if (currentPageId == 'firstButton')
     {
-        if (currentPage > 0)
+        if (currentPage > 1)
         {
-            numerateButtons(Number.parseInt(document.getElementById('firstButton').innerText) - 5);
+            numerateButtons(Number.parseInt(document.getElementById('firstButton').innerText), false);
             currentPage--;
             selectedPage('sixthButton');
+            navigationByPages(currentPage);
         }
     }
     else
@@ -229,6 +247,9 @@ let currentPageId;
 function pageChange()
 {
     currentPage = event.target.innerText;
+    if (currentPage)
+        return;
+
     currentPageId = event.target.id; 
     selectedPage(currentPageId);
     
@@ -249,15 +270,32 @@ function nextPage()
 {
     if (currentPageId == 'sixthButton')
     {
-        if (currentPage + 6 <= movieCount)
+        let curentPageCount = (Number.parseInt(currentPage) * 3) + (6 * 3);
+
+        if (curentPageCount <= movieCount)
         {
-            numerateButtons(Number.parseInt(document.getElementById('firstButton').innerText) + 5);
+            numerateButtons(Number.parseInt(document.getElementById('firstButton').innerText) + 5, true);
             currentPage++;
             selectedPage('firstButton');
+            navigationByPages(currentPage);
+        }
+        else
+        {
+            let balance = (curentPageCount - movieCount) / 3;
+            
+            if (balance != 0)
+            {
+                numerateButtons(Number.parseInt(document.getElementById('firstButton').innerText) + 5, true, balance);
+                selectedPage('firstButton');
+                currentPage++;
+                navigationByPages(currentPage);
+            }
         }
     }
     else
     {
+        if (currentPage == '')
+            return;
         currentPage++;
         selectedPage(document.getElementById(currentPageId).nextElementSibling.id);
         navigationByPages(currentPage);
