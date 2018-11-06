@@ -54,10 +54,10 @@ function filmSearch()
                 console.log('some error: ' + this.statusText);
             }
         }
+        document.getElementById('loaderId').style.display = 'none';
     }
     
     request.send();
-    document.getElementById('loaderId').style.display = 'none';
 }
 
 function fillMovieArray(count)
