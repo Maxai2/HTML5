@@ -3,7 +3,7 @@ let movieCount;
 
 function filmSearch()
 {
-    document.getElementById('loaderId').style.display = 'grid';
+    document.getElementById('loaderId').style.display = 'block';
     let requestStr = `http://www.omdbapi.com/?apikey=dbf23902&s=${document.getElementById('movieName').value}&type=${document.getElementById('movieType').value}`;
     
     let request = new XMLHttpRequest();
