@@ -1,0 +1,9 @@
+Сделать упражнения со следующих страниц
+(они в конце статьи)
+https://www.w3schools.com/Jquery/jquery_selectors.asp
+https://www.w3schools.com/Jquery/jquery_dom_get.asp
+https://www.w3schools.com/Jquery/jquery_dom_set.asp
+https://www.w3schools.com/Jquery/jquery_dom_add.asp
+https://www.w3schools.com/Jquery/jquery_dom_remove.asp
+https://www.w3schools.com/Jquery/jquery_css_classes.asp
+https://www.w3schools.com/Jquery/jquery_css.asp
