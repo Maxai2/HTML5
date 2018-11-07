@@ -96,14 +96,7 @@
 
     <!-- Use the correct selector to hide all odd table rows. -->
 
-    <!-- <script>
-        $(document).ready(function()
-        {
-            $("tr:odd").hide();
-        });
-    </script>
-
-    <table border="1">
+    <!-- <table border="1">
         <tr>
             <th>Company</th>
             <th>Country</th>
@@ -128,12 +121,19 @@
             <td>Island Trading</td>
             <td>UK</td>
         </tr>
-    </table> -->
+    </table>
+
+    <script>
+        $(document).ready(function()
+        {
+            $("tr:odd").hide();
+        });
+    </script>-->
 
     <!-- -------------------------------------------------------------------- -->
-
+            
     <!-- Alert the text content of <p> -->
-
+        
     <!-- <script>
         $(document).ready(function()
         {
@@ -228,14 +228,275 @@
 
     <!-- Use a jQuery method to change the value of the image's src attribute to "img_pulpitrock.jpg". -->
 
-    <script>
+    <!-- <script>
         $(document).ready(function()
         {
-            $('img').
+            $('img').attr('src', 'img_pulpitrock.jpg');
         });
     </script>
     
-    <img id="image" src="img_moustiers-sainte-marie.jpg" width="284" height="213">
+    <img id="image" src="img_moustiers-sainte-marie.jpg" width="284" height="213"> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use jQuery to change the text of the link to "W3Schools Home",
+and change the value of href's attribute value to "www.w3schools.com". -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $("a").text("W3Schools Home");
+            $("a").attr("href", "https://www.w3schools.com");
+        });
+    </script>
+        
+    <a href="https://www.w3schools.com/jquery/">Learn jquery here</a> -->
+    
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to insert the text "YES!" at the end of the <p> element. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').append('YES!');
+        });
+    </script>
+            
+    <p>Is jQuery FUN or what? </p> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to insert a third <li> element: "List item 3", at the end of the <ol> element. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('ol').append($('<li></li>').text('List item 3'));
+        });
+    </script>
+
+    <ol>
+        <li>List item 1</li>
+        <li>List item 2</li>
+    </ol> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to insert the text "Hello" at the beginning of the <p> element. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').prepend('Hello');
+        });
+    </script>
+    
+    <p> World!</p> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to add the text "How are you?" after the <p> element. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').after('How are you?');
+        });
+    </script>
+            
+    <p>Hello?</p> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to remove the <div> element. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('div').remove();
+        });
+    </script>
+            
+    <div style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+        This is some text in the div.
+        <p>This is a paragraph in the div.</p>
+        <p>This is another paragraph in the div.</p>
+    </div> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to only remove the child elements of <div>. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('div').empty();
+        });
+    </script>
+            
+    <div style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+        This is some text in the div.
+        <p>This is a paragraph in the div.</p>
+        <p>This is another paragraph in the div.</p>
+    </div> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to remove all <p> elements with class="test". -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').remove('.test');
+        });
+    </script>
+
+    <style>
+        .test 
+        {
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+
+    <p>This is a paragraph.</p>
+    <p class="test">This is another paragraph.</p>
+    <p class="test">This is another paragraph.</p> -->
+                    
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to remove all <p> elements with class="test" and class="demo". -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').remove('.test, .demo');
+        });
+    </script>
+
+    <style>
+        .test 
+        {
+            color: red;
+            font-size: 20px;
+        }
+        
+        .demo 
+        {
+            color: green;
+            font-size: 25px;
+        }
+    </style>
+            
+    <p>This is a paragraph.</p>
+    <p class="test">This is p element with class="test".</p>
+    <p class="test">This is p element with class="test".</p>
+    <p class="demo">This is p element with class="demo".</p> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to add the "important" class to the <p> element. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').addClass('important');
+        });
+    </script>
+
+    <style>
+        .important 
+        {
+            font-weight: bold;
+            font-size: xx-large;
+            background-color: yellow;
+        }
+    </style>
+            
+    <p>This is a paragraph.</p> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to add both the "important" and "test" class to the <p> element. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').addClass('important test');
+        });
+    </script>
+
+    <style>
+        .important 
+        {
+            font-weight: bold;
+            font-size: xx-large;
+            background-color: yellow;
+        }
+        
+        .test 
+        {
+            color: red;
+            border: 5px dotted blue;
+        }
+    </style>
+            
+    <p>This is a paragraph.</p> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to remove the "important" class from the <p> element. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').removeClass('important');
+        });
+    </script>
+
+    <style>
+        .important 
+        {
+            font-weight: bold;
+            font-size: xx-large;
+            background-color: yellow;
+        }
+    </style>
+    
+    <p class="important">This is a paragraph.</p> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use a jQuery method to toggle between adding and 
+removing the "important" class from the <p> element, when you click on it. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $("p").click(function()
+            {
+                $(this).toggleClass('important');
+            });
+        });
+    </script>
+
+    <style>
+        .important 
+        {
+            font-weight: bold;
+            font-size: xx-large;
+            background-color: yellow;
+        }
+    </style>
+            
+    <p>This is a paragraph - Click me!</p> -->
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use the css() method to add a pink background color to <p>. -->
+
+            <!-- https://www.w3schools.com/Jquery/jquery_css.asp -->
 
 </body>
 </html>
