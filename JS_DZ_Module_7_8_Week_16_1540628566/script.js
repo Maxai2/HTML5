@@ -3,6 +3,7 @@ let movieCount;
 
 function filmSearch()
 {
+    document.getElementById('findFilmsId').style.display = 'none';
     document.getElementById('loaderId').style.display = 'block';
     let requestStr = `http://www.omdbapi.com/?apikey=dbf23902&s=${document.getElementById('movieName').value}&type=${document.getElementById('movieType').value}`;
     
@@ -11,16 +12,11 @@ function filmSearch()
     
     request.onreadystatechange = function() 
     {
-        if (this.readyState == 2)
-        {
-        }
-
         if (this.readyState == 4) 
         {
             if (this.status == 200) 
             {
                 let movie = JSON.parse(this.responseText);
-                document.getElementById('findFilmsId').style.display = 'none';
                 
                 if (movie.Response == 'False')
                 {
@@ -54,10 +50,10 @@ function filmSearch()
                 console.log('some error: ' + this.statusText);
             }
         }
+        document.getElementById('loaderId').style.display = 'none';
     }
     
     request.send();
-    document.getElementById('loaderId').style.display = 'none';
 }
 
 function fillMovieArray(count)
