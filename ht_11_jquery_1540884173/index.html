@@ -240,7 +240,7 @@
     <!-- -------------------------------------------------------------------- -->
 
     <!-- Use jQuery to change the text of the link to "W3Schools Home",
-and change the value of href's attribute value to "www.w3schools.com". -->
+    and change the value of href's attribute value to "www.w3schools.com". -->
 
     <!-- <script>
         $(document).ready(function()
@@ -469,7 +469,7 @@ and change the value of href's attribute value to "www.w3schools.com". -->
     <!-- -------------------------------------------------------------------- -->
 
     <!-- Use a jQuery method to toggle between adding and 
-removing the "important" class from the <p> element, when you click on it. -->
+    removing the "important" class from the <p> element, when you click on it. -->
 
     <!-- <script>
         $(document).ready(function()
@@ -496,7 +496,60 @@ removing the "important" class from the <p> element, when you click on it. -->
 
     <!-- Use the css() method to add a pink background color to <p>. -->
 
-            <!-- https://www.w3schools.com/Jquery/jquery_css.asp -->
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').css('background-color', 'pink');
+        });
+    </script>
+    
+    <p>This is a paragraph.</p> -->
+            
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use the css() method to add a 5 pixels, red dotted border to <p>. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').css('border', '5px dotted red');
+        });
+    </script>
+    
+    <p>This is a paragraph.</p> -->
+            
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Alert the background color of <p>. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            alert($('p').css('background-color'));
+        });
+    </script>
+    
+    <p style="background-color:yellow;">This is a paragraph.</p> -->
+    
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- Use the css() method to set the following styles for <p>: 
+    Green background color, white text color, 25 pixels font size and a padding of 15 pixels. -->
+
+    <!-- <script>
+        $(document).ready(function()
+        {
+            $('p').css(
+            {
+                'background-color': 'green',
+                'text-color': 'white',
+                'font-size': '25px',
+                'padding': '15px'
+            });
+        });
+    </script>
+        
+    <p>This is a paragraph.</p> -->
 
 </body>
 </html>
