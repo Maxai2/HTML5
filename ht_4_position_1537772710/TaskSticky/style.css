@@ -2,20 +2,20 @@ body {
   margin: 0;
   background-color: #f8f8f8;
 }
-.wrap header {
+header {
   height: 60px;
   position: sticky;
   background-color: #333333;
+  top: 0;
 }
-.wrap header span {
+header span {
   color: white;
   font-size: 23px;
   position: relative;
   left: 28%;
   top: 15%;
 }
-.wrap main p {
-  position: sticky;
+main p {
   background-color: white;
   box-shadow: 0 0 10px grey;
   width: 40%;
@@ -23,10 +23,12 @@ body {
   margin: 10px auto;
   height: 100vh;
 }
-.wrap main div {
+main div {
   float: left;
+  position: fixed;
+  z-index: 1;
 }
-.wrap main div img {
+main div img {
   display: block;
   line-height: 20px;
   margin: 5px 11px;

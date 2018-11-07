@@ -9,47 +9,46 @@ body
     background-color: @mainBCol;
 }
 
-.wrap
+header
 {
-    header
-    {
-        height: 60px;
-        position: sticky;
-        background-color: @headerBCol;
+    height: 60px;
+    position: sticky;
+    background-color: @headerBCol;
+    top: 0;
 
-        span
-        {       
-            color: @whiteCol;
-            font-size: 23px;
-            position: relative;
-            left: 28%;
-            top: 15%;
-        }
+    span
+    {       
+        color: @whiteCol;
+        font-size: 23px;
+        position: relative;
+        left: 28%;
+        top: 15%;
     }
+}
 
-    main
+main
+{
+    p
     {
-        p
+        background-color: white;
+        box-shadow: 0 0 10px grey;
+        width: 40%;
+        padding: 20px 20px;
+        margin: 10px auto;
+        height: 100vh;
+    }
+    
+    div
+    {
+        float: left;
+        position: fixed;
+        z-index: 1;
+        
+        img
         {
-            position: sticky;
-            background-color: white;
-            box-shadow: 0 0 10px grey;
-            width: 40%;
-            padding: 20px 20px;
-            margin: 10px auto;
-            height: 100vh;
-        }
-
-        div
-        {
-            float: left;
-
-            img
-            {
-                display: block;
-                line-height: 20px;
-                margin: 5px 11px;
-            }
+            display: block;
+            line-height: 20px;
+            margin: 5px 11px;
         }
     }
 }
