@@ -3,11 +3,22 @@ body
     margin: 0;
 }
 
+.modalClass
+{
+    margin: 10px 90px;
+    background-color: #6b8e23;
+    border: 0;
+    color: white;
+    height: 30px;
+    width: 120px;
+    cursor: pointer;
+}
+
 .wrap
 {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr 0.5fr;
+    grid-template-rows: 1fr auto;
     width: 100%;
     height: 100vh;
     background-color: #fafad2;
@@ -24,18 +35,6 @@ body
             background-color: #add8e6;
             grid-column: 1;
             width: 300px;
-            // transition-delay: 2s;
-
-            .modalClass
-            {
-                margin: 10px 90px;
-                background-color: #6b8e23;
-                border: 0;
-                color: white;
-                height: 30px;
-                width: 120px;
-                cursor: pointer;
-            }
         }
 
         .clickDiv
@@ -72,7 +71,7 @@ body
     {
         grid-column: 2;
         grid-row: 1;
-        min-width: 100px;
+        min-height: 100px;
 
         .buttonContainerClass
         {
@@ -94,9 +93,8 @@ body
         grid-column: 2;
         grid-row: 2;
         display: grid;
-        grid-template-rows: auto auto;
-        resize: vertical;
-        z-index: 5;
+        grid-template-rows: 20px auto;
+        // resize: vertical;
 
         .dragDiv
         {
@@ -116,7 +114,8 @@ body
         {
             background-color: #ffa07a;
             grid-row: 2;
-            // min-width: 100px;
+            min-height: 100px;
+
         }
     }
 }

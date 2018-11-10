@@ -28,7 +28,7 @@ $(document).ready( function()
         button.text(`Page ${i + 1}`);
         button.attr('id', `Page ${i + 1}`);
         button.click(pageChanger);
-        // button.addClass('modalClass');
+        button.addClass('modalClass');
         button.css(
         {
             'margin': '10px',
@@ -51,8 +51,6 @@ function pageChanger()
 {
     if (lastId == event.target.id)
         return;
-
-    console.log(event.target.id);
 
     switch(event.target.id)
     {
@@ -87,9 +85,39 @@ function closeModalWindow()
     $('#modalW').hide();
 }
 
-function resizeDiv()
+$( function() 
 {
-    console.log(event);
+    $("#horizontalBar").resizable();
+})
+
+$('#resizeDiv').mousedown( function()
+{
+    initDrag();
+
+    $(document).mousemove( function()
+    {
+        resize();
+    });
+});
+
+$('#resizeDiv').mouseup( function()
+{
+    $(document).unbind('mousemove');
+});
+
+let startY, startHeight;
+
+let resDiv = $('#horizontalBarId');
+let pageDiv = $('#pagesId');
+
+function initDrag() 
+{
+    startY = event.clientY;
+    startHeight = resDiv.outerHeight();
 }
 
-$('#resizeDiv').keydown(resizeDiv).drag(resizeDiv);
+function resize()
+{
+    resDiv.css('height', `${startHeight + startY - event.clientY}px`);
+    pageDiv.css('height', `${startHeight + event.clientY - startY}px`);
+}
