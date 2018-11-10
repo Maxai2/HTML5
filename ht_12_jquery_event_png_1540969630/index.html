@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -13,14 +14,37 @@
 <body>
     <div class="wrap">
         <div class="verticalSlider">
-            <div class="verticalBar">
-                <button class="modalClass" id="modalOpen">Open modal</button>
+            <div class="verticalBar" style="display: none;" id="verticalBarId">
+                <button class="modalClass" id="modalOpen" style="display: none;" onclick="openModal()">Open modal</button>
+            </div>
+            <div class="clickDiv" onclick="clickSlider()">
+                <div class="triangle-right" id="triangleCh"></div>
             </div>
         </div>
+
         <div class="pages" id="pagesId">
-            <div id></div>
+            <div id="buttonContainerId" class="buttonContainerClass"></div>
+            <div id="pageContentId" class="pageContentClass">
+                <h3 id="pageHeader"></h3>
+                <p id="pageContent"></p>
+            </div>
         </div>
-        <div class="horizontalSlider"></div>
+
+        <div class="horizontalSlider">
+            <div class="dragDiv" id="resizeDiv">
+                <a>=</a>
+            </div>
+            <div class="horizontalBar" style="display: none;" id="horizontalBarId"></div>
+        </div>
+    </div>
+
+    <div class="modalWindow" id="modalW">
+        <div class="content">
+            <h3>Hello!</h3>
+            <br/>
+            <label>I am modal window!</label>
+            <button onclick="closeModalWindow()">Close</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -7,23 +7,151 @@ body
 {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr auto;
-    width: 100vh;
+    grid-template-rows: 1fr 0.5fr;
+    width: 100%;
     height: 100vh;
     background-color: #fafad2;
 
     .verticalSlider
     {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        display: grid;
+        grid-template-columns: auto 10px;
 
+        .verticalBar
+        {
+            background-color: #add8e6;
+            grid-column: 1;
+            width: 300px;
+            // transition-delay: 2s;
+
+            .modalClass
+            {
+                margin: 10px 90px;
+                background-color: #6b8e23;
+                border: 0;
+                color: white;
+                height: 30px;
+                width: 120px;
+                cursor: pointer;
+            }
+        }
+
+        .clickDiv
+        {
+            grid-column: 2;
+            background-color: lightgray;
+            cursor: pointer;
+
+            .triangle-right 
+            {
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-left: 10px solid #555;
+                border-bottom: 10px solid transparent;
+                top: 50%;
+                position: absolute;
+            }
+            
+            .triangle-left 
+            {
+                width: 0;
+                height: 0;
+                border-top: 10px solid transparent;
+                border-right: 10px solid #555;
+                border-bottom: 10px solid transparent;
+                top: 50%;
+                position: absolute;
+            }
+        }
+    }
+    
+    .pages
+    {
+        grid-column: 2;
+        grid-row: 1;
+        min-width: 100px;
+
+        .buttonContainerClass
+        {
+            display: flex;
+        }
+
+        .pageContentClass
+        {
+            border: 1px solid lightgray;
+            border-radius: 3px;
+            padding: 10px;
+            width: 1000px;
+            margin-left: 10px;
+        }
     }
 
     .horizontalSlider
     {
-        
+        grid-column: 2;
+        grid-row: 2;
+        display: grid;
+        grid-template-rows: auto auto;
+        resize: vertical;
+        z-index: 5;
+
+        .dragDiv
+        {
+            grid-row: 1;
+            background-color: lightgray;
+            cursor: n-resize;
+
+            a
+            {
+                left: 50%;
+                position: absolute;
+                font-weight: bold;
+            }
+        }
+
+        .horizontalBar
+        {
+            background-color: #ffa07a;
+            grid-row: 2;
+            // min-width: 100px;
+        }
     }
+}
 
-    .pages
+.modalWindow
+{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    display: none;
+
+    .content
     {
+        background-color: #faf0e6;
+        width: 320px;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        margin: 200px auto;
+        position: relative;
 
+        label
+        {
+            display: flex;
+            font-weight: bold;
+            justify-content: center;
+        }
+        
+        button
+        {
+            width: 100%;
+            box-sizing: border-box;
+            margin: 15px 0;
+        }
     }
 }
