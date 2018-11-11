@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+}
+.wrap {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.wrap header {
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 50px 25px;
+}
+.wrap header .logoSearch {
+  grid-row: 1;
+  grid-column: 2;
+  padding: 10px 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.wrap header .logoSearch img {
+  grid-column: 1;
+  width: 250px;
+  height: 36px;
+  margin: auto auto;
+}
+.wrap header .logoSearch .searchCl {
+  grid-column: 2;
+  background: #edeceb;
+  border-radius: 3px;
+  border: 1px solid #999;
+  margin: 0 50px;
+  display: grid;
+  grid-template-columns: auto auto;
+  height: 30px;
+}
+.wrap header .logoSearch .searchCl input {
+  grid-column: 1;
+  box-sizing: border-box;
+  border: 0;
+  background-color: transparent;
+  padding-left: 15px;
+  font-size: 16px;
+  width: 300px;
+}
+.wrap header .logoSearch .searchCl input:focus {
+  outline: none;
+}
+.wrap header .logoSearch .searchCl img {
+  grid-column: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 30px;
+  box-sizing: border-box;
+  margin: auto 0;
+  position: relative;
+}
+.wrap header .nowFor5DaysCl {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  background-color: #3b4148;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+.wrap header .nowFor5DaysCl .daysContent {
+  grid-column: 2;
+  display: flex;
+}
+.wrap header .nowFor5DaysCl .daysContent span {
+  color: #fff;
+  padding: 0 35px;
+  vertical-align: middle;
+  border-right: 0.5px solid #4f545b;
+  border-left: 0.5px solid #4f545b;
+  cursor: pointer;
+  margin: auto 0;
+}
+.wrap header .nowFor5DaysCl .daysContent span:hover {
+  background-color: #525a64;
+}
+.wrap .weatherInfoContent {
+  grid-row: 2;
+  background-color: #d6d3d2;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+.wrap .weatherInfoContent .nowWeatherCl {
+  grid-column: 2;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl {
+  grid-row: 1;
+  background-color: #fff;
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .leftSide .mainHeader {
+  color: #4acee2;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .nearbyPlacesCl {
+  grid-row: 2;
+  background-color: #fff;
+  margin: 20px 0;
+}
+.wrap .weatherInfoContent .for5DaysPageCl {
+  grid-column: 2;
+}

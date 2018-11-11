@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.js"
+    integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrap">
+
+        <header>
+            <div class="logoSearch">
+                <img src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" class="logo">
+                <div class="searchCl">
+                    <input type="text">
+                    <img src="https://vortex.accuweather.com/adc2010/images/slate/search-glass.svg">
+                </div>
+            </div>
+            <div class="nowFor5DaysCl">
+                <div class="daysContent">
+                    <span id="nowId">Now</span>
+                    <span id="for5DaysId">For 5 days</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="weatherInfoContent">
+            <div class="nowWeatherCl" id="nowWeatherId">
+                <div class="currentWeatherCl" id="currentWeatherId">
+                    <div class="mainContentCl">
+                        <div class="leftSide">
+                            <label class="mainHeader">Current Weather</label>
+                            <img>
+                            <label></label>
+                            <span></span>
+                            <label></label>
+                        </div>
+                        
+                        <div class="rightSide">
+                            
+                            <label></label>
+
+                        </div>
+                    </div>
+
+                    <div class="seeHourlyCl">
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="nearbyPlacesCl" id="nearbyPlacesId">
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="errorPageCl" id="errorPageId" style="display: none;">
+                <img src="https://vortex.accuweather.com/adc2010/images/slate/error.png">
+            </div>
+
+            <div class="for5DaysPageCl" id="for5DaysPageId" style="display: none;">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
