@@ -12,7 +12,7 @@ body
     {
         grid-row: 1;
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: 1fr 700px 1fr;
         grid-template-rows: 50px 25px;
         
         .logoSearch
@@ -20,7 +20,7 @@ body
             grid-row: 1;
             grid-column: 2;
             padding: 10px 0;
-            margin: 0 auto;
+            // margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             
@@ -51,7 +51,7 @@ body
                     background-color: transparent;
                     padding-left: 15px;
                     font-size: 16px;
-                    width: 300px;
+                    width: 345px;
                 }
                 
                 input:focus
@@ -78,7 +78,7 @@ body
             grid-row: 2;
             background-color: #3b4148;
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 700px 1fr;
             
             .daysContent
             {
@@ -110,7 +110,7 @@ body
         background-color: #d6d3d2;
         height: 100vh;
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: 1fr 700px 1fr;
         // grid-template-rows: 50px 25px;
 
         .nowWeatherCl
@@ -129,12 +129,35 @@ body
                     margin: 20px 0;
                     display: grid;
                     grid-template-columns: 1fr 2fr;
+                    padding: 10px;
 
                     .leftSide
                     {
+                        display: flex;
+                        flex-direction: column;
+
                         .mainHeader
                         {
                             color: #4acee2;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            font-size: small;
+                        }
+
+                        img
+                        {
+                            width: 120px;
+                            margin-top: 10px;
+                        }
+
+                        .degreeCl
+                        {
+                            font-size: 45px;
+
+                            .celciusCl
+                            {
+                                
+                            }
                         }
                     }
                 }
