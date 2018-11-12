@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: "Lucida Grande", Menlo, Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
 }
 .wrap {
   display: grid;
@@ -87,28 +88,23 @@ body {
 }
 .wrap .weatherInfoContent .nowWeatherCl {
   grid-column: 2;
+  margin-top: 20px;
 }
 .wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl {
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 270px auto;
+  background-color: #fff;
 }
 .wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl {
   grid-row: 1;
-  background-color: #fff;
-  margin: 20px 0;
+  grid-column: 1 / span 2;
   display: grid;
-  grid-template-columns: 1fr 2fr;
   padding: 10px;
 }
 .wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .leftSide {
   display: flex;
   flex-direction: column;
-}
-.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .leftSide .mainHeader {
-  color: #4acee2;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: small;
+  grid-column: 1;
 }
 .wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .leftSide img {
   width: 120px;
@@ -117,11 +113,136 @@ body {
 .wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .leftSide .degreeCl {
   font-size: 45px;
 }
-.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .nearbyPlacesCl {
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .leftSide .degreeCl .celciusCl {
+  color: #999;
+  font-size: 21px;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .leftSide .realFeelCl {
+  color: #999;
+  font-size: 12px;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .leftSide .weatherState {
+  font-size: 20px;
+  margin-top: 15px;
+  padding-bottom: 15px;
+  color: #1f384d;
+  font-weight: 550;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .rightSide {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  margin-top: 90px;
+  margin-left: 180px;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .rightSide .verticalLine {
+  border-left: 1px solid rgba(153, 153, 153, 0.5);
+  height: 150px;
+  grid-column: 1;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .rightSide .sunsetSunriseCl {
+  grid-column: 2;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .rightSide .sunsetSunriseCl .captionCl {
+  color: #999;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .rightSide .sunsetSunriseCl .valueCl {
+  color: #1f384d;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .rightSide .sunsetSunriseCl .sunriseTop {
+  top: 10px;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .mainContentCl .rightSide img {
+  grid-column: 3;
+  width: 70px;
+  margin-left: 70px;
+  margin-top: 20px;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .seeHourlyCl {
+  grid-row: 2;
+  grid-column: 1 / span 2;
+  background: #f7f6f5;
+  box-shadow: inset 0 7px 9px -11px;
+  width: 100%;
+  height: 50px;
+  position: relative;
+  cursor: pointer;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .seeHourlyCl .seeHourCl {
+  color: #f05514;
+  padding: 13px 25px 13px 15px;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+.wrap .weatherInfoContent .nowWeatherCl .currentWeatherCl .seeHourlyCl .arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
+  width: 25px;
+  background: url(https://vortex.accuweather.com/adc2010/images/slate/arrow-right-solid-orange.svg) no-repeat;
+  background-size: 25px auto;
+  background-position: center 50%;
+}
+.wrap .weatherInfoContent .nowWeatherCl .mainHeader {
+  color: #4acee2;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: small;
+}
+.wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl {
   grid-row: 2;
   background-color: #fff;
-  margin: 20px 0;
+  margin-top: 20px;
 }
-.wrap .weatherInfoContent .for5DaysPageCl {
+.wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl h3 {
+  padding: 15px;
+  color: #1f384d;
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0;
+}
+.wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl .nearbyWeatherCl {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl .nearbyWeatherCl .cityCl {
+  background-color: #f7f6f5;
+  border: 1px solid rgba(153, 153, 153, 0.5);
+  padding: 10px 0;
+}
+.wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl .nearbyWeatherCl .cityCl .cityNameCl {
+  width: 60%;
+  padding-left: 15px;
+}
+.wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl .nearbyWeatherCl .cityCl .degreeImgCl {
+  width: 25px;
+  position: relative;
+  top: 6px;
+  margin-left: 135px;
+}
+.wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl .nearbyWeatherCl .cityCl .degreeCl {
+  margin-left: 15px;
+  color: #1f384d;
+}
+.wrap .errorPageCl {
   grid-column: 2;
+  margin-top: 20px;
+  background-color: #fff;
+  height: 220px;
+  padding: 10px;
+}
+.wrap .errorPageCl label {
+  display: block;
+  color: #1f384d;
+  font-weight: 700;
+  font-size: 22px;
+  margin-top: 10px;
+}
+.wrap .for5DaysPageCl {
+  grid-column: 2;
+  margin-top: 20px;
 }
