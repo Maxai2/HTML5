@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <script
-    src="https://code.jquery.com/jquery-3.3.1.slim.js"
-    integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,8 +18,8 @@
             <div class="logoSearch">
                 <img src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" class="logo">
                 <div class="searchCl">
-                    <input type="text">
-                    <img src="https://vortex.accuweather.com/adc2010/images/slate/search-glass.svg">
+                    <input type="text" id="cityName" onkeydown="enterKey()">
+                    <img onclick="findWeather()" src="https://vortex.accuweather.com/adc2010/images/slate/search-glass.svg">
                 </div>
             </div>
             <div class="nowFor5DaysCl">
@@ -35,6 +35,7 @@
             <div class="nowWeatherCl" id="nowWeatherId" style="display: none;">
                 <div class="currentWeatherCl" id="currentWeatherId">
                     <div class="mainContentCl">
+
                         <div class="leftSide">
                             <label class="mainHeader">Current Weather</label>
                             <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/01.svg">
@@ -149,12 +150,8 @@
                 </label>
                 
             </div>
-
-
-
             
-            
-            <div class="for5DaysPageCl" id="for5DaysPageId">
+            <div class="for5DaysPageCl" id="for5DaysPageId" style="display: none;">
                 
                 <div class="for5DaysCl">
                     <div class="todayCl">
@@ -169,21 +166,215 @@
                         <label>Clear; warm</label>
                     </div>
 
-                    <div class="firstDay">
-                        <label></label>
-                        <span></span>
-                        <img>
-                        <div>
-                            <label></label>
-                            <label></label>
+                    <div class="FirstWeathCl todayCl">
+                        <label class="mainHeader">SUN</label>
+                        <span class="dayCl">JUL 1</span>
+                        <img class="imgCustom"   src="https://vortex.accuweather.com/adc2010/images/slate/icons/01.svg">
+                        <div class="degreeTodayShowCusomCl">
+                            <label class="degreeValCl">25&#186;</label>
+                            <label class="degreeCl">/27&#186;</label>
                         </div>
-                        <label></label>
-                        <label></label>
+                        <label class="weatherDescCl">Blazing sunshine; breezy; hot</label>
+                        <label class="MoreCl">More</label>
+                    </div>
+
+                    <div class="SecondWeathCl todayCl">
+                        <label class="mainHeader">SUN</label>
+                        <span class="dayCl">JUL 1</span>
+                        <img class="imgCustom" src="https://vortex.accuweather.com/adc2010/images/slate/icons/01.svg">
+                        <div class="degreeTodayShowCusomCl">
+                            <label class="degreeValCl">25&#186;</label>
+                            <label class="degreeCl">/27&#186;</label>
+                        </div>
+                        <label class="weatherDescCl">Blazing sunshine; breezy; hot</label>
+                        <label class="MoreCl">More</label>
+                    </div>
+
+                    <div class="ThirdWeathCl todayCl">
+                        <label class="mainHeader">SUN</label>
+                        <span class="dayCl">JUL 1</span>
+                        <img class="imgCustom" src="https://vortex.accuweather.com/adc2010/images/slate/icons/01.svg">
+                        <div class="degreeTodayShowCusomCl">
+                            <label class="degreeValCl">25&#186;</label>
+                            <label class="degreeCl">/27&#186;</label>
+                        </div>
+                        <label class="weatherDescCl">Blazing sunshine; breezy; hot</label>
+                        <label class="MoreCl">More</label>
+                    </div>
+
+                    <div class="FourthWeathCl todayCl">
+                        <label class="mainHeader">SUN</label>
+                        <span class="dayCl">JUL 1</span>
+                        <img class="imgCustom" src="https://vortex.accuweather.com/adc2010/images/slate/icons/01.svg">
+                        <div class="degreeTodayShowCusomCl">
+                            <label class="degreeValCl">25&#186;</label>
+                            <label class="degreeCl">/27&#186;</label>
+                        </div>
+                        <label class="weatherDescCl">Blazing sunshine; breezy; hot</label>
+                        <label class="MoreCl">More</label>
                     </div>
                 </div>
                 
-                <div>
+                <div class="hourlyCl">
+                    <div class="hourHeaderCl">
+                        <label>Hourly</label>
+                    </div>
 
+                    <div class="hourlyTableCl">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="mainHeader">
+                                        Tuesday
+                                    </th>
+                                    <td>
+                                        <span>2pm</span>
+                                        <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/05.svg">
+                                    </td>
+                                    <td>
+                                        <span>2pm</span>
+                                        <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/05.svg">
+                                    </td>
+                                    <td>
+                                        <span>2pm</span>
+                                        <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/05.svg">
+                                    </td>
+                                    <td>
+                                        <span>2pm</span>
+                                        <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/05.svg">
+                                    </td>
+                                    <td>
+                                        <span>2pm</span>
+                                        <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/05.svg">
+                                    </td>
+                                    <td>
+                                        <span>2pm</span>
+                                        <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/05.svg">
+                                    </td>
+                                    <td>
+                                        <span>2pm</span>
+                                        <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/05.svg">
+                                    </td>
+                                    <td>
+                                        <span>2pm</span>
+                                        <img src="https://vortex.accuweather.com/adc2010/images/slate/icons/05.svg">
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th>Forecast</th>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Temp (&#186;C)</th>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>RealFeel&reg;</th>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Wind (km/h)</th>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                    <td>
+                                        <span>Mostly Cloudly</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
                 </div>
 
             </div>

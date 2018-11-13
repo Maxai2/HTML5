@@ -64,5 +64,3 @@ Day icon	Night icon	Description			|	Day icon	Night icon
 
 Вот так выглядит путь к красивой иконке - 
 https://vortex.accuweather.com/adc2010/images/slate/icons/08.svg
-
-
