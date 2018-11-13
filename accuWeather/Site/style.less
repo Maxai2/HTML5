@@ -252,20 +252,13 @@ body
                 }
             }
             
-            .mainHeader
-            {
-                color: #4acee2;
-                text-transform: uppercase;
-                font-weight: bold;
-                font-size: small;
-            }
-
+            
             .nearbyPlacesCl
             {
                 grid-row: 2;
                 background-color: #fff;
                 margin-top: 20px;
-
+                
                 h3
                 {
                     padding: 15px;
@@ -274,18 +267,18 @@ body
                     font-size: 22px;
                     margin: 0;
                 }
-
+                
                 .nearbyWeatherCl
                 {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
-
+                    
                     .cityCl
                     {
                         background-color: #f7f6f5;
                         border: 1px solid rgba(153, 153, 153, 0.5);
                         padding: 10px 0;
-
+                        
                         .cityNameCl
                         {
                             width: 60%;
@@ -299,7 +292,7 @@ body
                             top: 6px;
                             margin-left: 135px;
                         }
-
+                        
                         .degreeCl
                         {
                             margin-left: 15px;
@@ -310,7 +303,7 @@ body
             }
         }
     }
-
+    
     .errorPageCl
     {
         grid-column: 2;
@@ -318,7 +311,7 @@ body
         background-color: #fff;
         height: 220px;
         padding: 10px;
-
+        
         label
         {
             display: block;
@@ -328,14 +321,74 @@ body
             margin-top: 10px;
         }
     }
-
+    
     .for5DaysPageCl
     {
         grid-column: 2;
         margin-top: 20px;
-        // background-color: #fff;
-
         
+        .for5DaysCl
+        {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(4, 1fr);
+            
+            .todayCl
+            {
+                background-color: #fff;
+                grid-column: 1;
+                display: flex;
+                flex-direction: column;
 
+                .dayCl
+                {
+                    color: #999;
+                }
+                
+                img
+                {
+                    width: 80px;
+                }
+
+                .degreeTodayShowCl
+                {
+                    display: grid;
+                    grid-template-columns: 0.5fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                    
+
+                    .degreeValCl
+                    {
+                        grid-column: 1;
+                        grid-row: 1 / span 2;
+                        font-size: 45px;
+                    }
+
+                    .degreeCl
+                    {
+                        grid-column: 2;
+                        grid-row: 1;
+                        font-size: 21px;
+                    }
+
+                    span
+                    {
+                        grid-column: 2;
+                        grid-row: 2;
+                        color: #999;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        
+        
+    }
+
+    .mainHeader
+    {
+        color: #4acee2;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: small;
     }
 }

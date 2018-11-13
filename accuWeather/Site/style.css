@@ -187,12 +187,6 @@ body {
   background-size: 25px auto;
   background-position: center 50%;
 }
-.wrap .weatherInfoContent .nowWeatherCl .mainHeader {
-  color: #4acee2;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: small;
-}
 .wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl {
   grid-row: 2;
   background-color: #fff;
@@ -245,4 +239,47 @@ body {
 .wrap .for5DaysPageCl {
   grid-column: 2;
   margin-top: 20px;
+}
+.wrap .for5DaysPageCl .for5DaysCl {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+}
+.wrap .for5DaysPageCl .for5DaysCl .todayCl {
+  background-color: #fff;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+}
+.wrap .for5DaysPageCl .for5DaysCl .todayCl .dayCl {
+  color: #999;
+}
+.wrap .for5DaysPageCl .for5DaysCl .todayCl img {
+  width: 80px;
+}
+.wrap .for5DaysPageCl .for5DaysCl .todayCl .degreeTodayShowCl {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.wrap .for5DaysPageCl .for5DaysCl .todayCl .degreeTodayShowCl .degreeValCl {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  font-size: 45px;
+}
+.wrap .for5DaysPageCl .for5DaysCl .todayCl .degreeTodayShowCl .degreeCl {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 21px;
+}
+.wrap .for5DaysPageCl .for5DaysCl .todayCl .degreeTodayShowCl span {
+  grid-column: 2;
+  grid-row: 2;
+  color: #999;
+  font-size: 12px;
+}
+.wrap .mainHeader {
+  color: #4acee2;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: small;
 }
