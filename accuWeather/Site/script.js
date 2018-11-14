@@ -15,6 +15,10 @@ let weatherByCity;
 
 let findWeather = () =>
 {
+    $('#nowWeatherId').hide();
+    $('#errorPageId').hide();
+    $('#for5DaysPageId').hide();
+    
     $.ajax
     ({
         url: `http://api.openweathermap.org/data/2.5/weather?q=${$('#cityName').val()}&units=metric&appid=f284eac603d628bfb6d7570e53c1567c`,
@@ -25,15 +29,15 @@ let findWeather = () =>
             currentWeather(weatherByCity);
             nearbyPlaces(weatherByCity.coord.lat, weatherByCity.coord.lon, weatherByCity.name);
             $('#nowWeatherId').show();
-            // console.log(status);
-            // console.log(xhr);
         },
-
+        
         error: (result, status, xhr) => 
         {
-            console.log(result);
-            console.log(status);
-            console.log(xhr.stat);
+            console.log('asdasd');
+            $('#errorPageId').append($('<img>').attr('src', 'https://vortex.accuweather.com/adc2010/images/slate/error.png'));
+            $('#errorPageId').append($('<label></label>').text(`${$('#cityName').val()} could not be found. Please enter a different location.`));
+            
+            $('#errorPageId').show();
         }
     })
 }
@@ -82,7 +86,7 @@ function nearbyPlaces(lat, lon, city)
                 let img = $('<img>').addClass('degreeImgCl').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[weath.weather[0].icon]}`);
                 weathDiv.append(img);
 
-                let span = $('<span></span>').addClass('degreeCl').html(`${weath.main.temp}&#186;`);
+                let span = $('<span></span>').addClass('degreeCl').html(`${Number.parseInt(weath.main.temp)}&#186;`);
                 weathDiv.append(span);
 
                 div.append(weathDiv);
@@ -109,12 +113,12 @@ function currentWeather(res)
     let imgL = $('<img>').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[res.weather[0].icon]}`);
     divLeft.append(imgL);
 
-    let labelDeg = $('<label></label>').addClass('degreeCl').html(`${res.main.temp}&#186;`);
+    let labelDeg = $('<label></label>').addClass('degreeCl').html(`${Number.parseInt(res.main.temp)}&#186;`);
     let spanLab = $('<span></span>').addClass('celciusCl').text('C');
     labelDeg.append(spanLab);
     divLeft.append(labelDeg);
 
-    let span = $('<span></span>').addClass('realFeelCl').html(`RealFeel&reg; ${res.main.temp - 5}&#186;`);
+    let span = $('<span></span>').addClass('realFeelCl').html(`RealFeel&reg; ${Number.parseInt(res.main.temp) - 5}&#186;`);
     divLeft.append(span);
 
     let labelState = $('<label></label>').addClass('weatherState').text(res.weather[0].main);

@@ -207,20 +207,29 @@ body {
   background-color: #f7f6f5;
   border: 1px solid rgba(153, 153, 153, 0.5);
   padding: 10px 0;
+  display: grid;
+  grid-template-columns: 270px 30px 30px;
 }
 .wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl .nearbyWeatherCl .cityCl .cityNameCl {
-  width: 60%;
+  grid-column: 1;
   padding-left: 15px;
+  margin: 0;
+  position: relative;
+  top: 6px;
 }
 .wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl .nearbyWeatherCl .cityCl .degreeImgCl {
+  grid-column: 2;
   width: 25px;
   position: relative;
   top: 6px;
-  margin-left: 135px;
+  margin: 0;
 }
 .wrap .weatherInfoContent .nowWeatherCl .nearbyPlacesCl .nearbyWeatherCl .cityCl .degreeCl {
-  margin-left: 15px;
+  grid-column: 3;
+  position: relative;
+  top: 6px;
   color: #1f384d;
+  margin: 0;
 }
 .wrap .errorPageCl {
   grid-column: 2;
