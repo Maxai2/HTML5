@@ -33,7 +33,8 @@ let findWeather = () =>
         
         error: (result, status, xhr) => 
         {
-            console.log('asdasd');
+            $('#errorPageId').empty();
+
             $('#errorPageId').append($('<img>').attr('src', 'https://vortex.accuweather.com/adc2010/images/slate/error.png'));
             $('#errorPageId').append($('<label></label>').text(`${$('#cityName').val()} could not be found. Please enter a different location.`));
             
@@ -65,12 +66,15 @@ let picWeather = {
 
 function nearbyPlaces(lat, lon, city)
 {
-    $.ajax
-    ({
-        url: `http://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lon}&cnt=10&units=metric&appid=f284eac603d628bfb6d7570e53c1567c`,
+    $('#nearbyPlacesId').empty();
 
+    $.ajax
+    ({    
+        url: `http://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lon}&cnt=10&units=metric&appid=f284eac603d628bfb6d7570e53c1567c`,
+        
         success: (result, status, xhr) =>
         {
+
             let h3 = $('<h3></h3>').text(`${city} Weather Conditions - Nearby Places`);
             $('#nearbyPlacesId').append(h3);
 
@@ -92,6 +96,7 @@ function nearbyPlaces(lat, lon, city)
                 div.append(weathDiv);
             })
 
+
             $('#nearbyPlacesId').append(div);
         }
     });
@@ -102,6 +107,8 @@ function currentWeather(res)
 {
     $('#nowId').text(`Now ${secToTime(res.dt)}`);
     $('#nowId').css('border-bottom', '2px solid #f05514');
+
+    $('#currentWeatherId').empty();
 
     let div = $('<div></div>').addClass('mainContentCl');
 
@@ -162,8 +169,18 @@ function currentWeather(res)
     divRight.append(imgR);
 
     div.append(divRight);
-    
+
     $('#currentWeatherId').append(div);
+
+    let seeHourlyDiv = $('<div></div>').addClass('seeHourlyCl');
+
+    let seeHourTextDiv = $('<div></div>').addClass('seeHourCl').text('See Hourly');
+    seeHourlyDiv.append(seeHourTextDiv);
+
+    let arrow = $('<div></div>').addClass('arrow');
+    seeHourlyDiv.append(arrow);
+
+    $('#currentWeatherId').append(seeHourlyDiv);
 }
 
 function secToTime(sec)

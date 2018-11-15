@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="wrap">
 
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </header>
-        
+
         <div class="weatherInfoContent">
 
             <div class="nowWeatherCl" id="nowWeatherId" style="display: none;">
@@ -65,12 +65,12 @@
                         </div>
                     </div> -->
 
-                    <div class="seeHourlyCl">
+                    <!-- <div class="seeHourlyCl">
                         <div class="seeHourCl">See Hourly</div>
                         <div class="arrow"></div>
-                    </div>
+                    </div> -->
                 </div>
-                
+
                 <div class="nearbyPlacesCl" id="nearbyPlacesId">
                     <!-- <h3>Baku Weather Conditions - Nearby Places</h3>
                     <div class="nearbyWeatherCl">
@@ -141,11 +141,19 @@
                         </div>
                     </div>
                 </div> -->
+                </div>
             </div>
+
+            <div class="errorPageCl" id="errorPageId" style="display: none;">
+                <!-- <img src="https://vortex.accuweather.com/adc2010/images/slate/error.png">
+                <label>
+                    Qwerty could not be found. Please enter a different location.
+                </label> -->
+
             </div>
-            
+
             <div class="for5DaysPageCl" id="for5DaysPageId" style="display: none;">
-                
+
                 <div class="for5DaysCl">
                     <div class="todayCl">
                         <label class="mainHeader">Tonight</label>
@@ -162,7 +170,7 @@
                     <div class="FirstWeathCl todayCl">
                         <label class="mainHeader">SUN</label>
                         <span class="dayCl">JUL 1</span>
-                        <img class="imgCustom"   src="https://vortex.accuweather.com/adc2010/images/slate/icons/01.svg">
+                        <img class="imgCustom" src="https://vortex.accuweather.com/adc2010/images/slate/icons/01.svg">
                         <div class="degreeTodayShowCusomCl">
                             <label class="degreeValCl">25&#186;</label>
                             <label class="degreeCl">/27&#186;</label>
@@ -207,7 +215,7 @@
                         <label class="MoreCl">More</label>
                     </div>
                 </div>
-                
+
                 <div class="hourlyCl">
                     <div class="hourHeaderCl">
                         <label>Hourly</label>
@@ -376,16 +384,9 @@
 
 
         </div>
-
-            <div class="errorPageCl" id="errorPageId" style="display: none;">
-                <!-- <img src="https://vortex.accuweather.com/adc2010/images/slate/error.png">
-                <label>
-                    Qwerty could not be found. Please enter a different location.
-                </label> -->
-                
-            </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
