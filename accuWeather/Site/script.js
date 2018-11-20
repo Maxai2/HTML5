@@ -15,13 +15,18 @@ let weatherByCity;
 
 let findWeather = () =>
 {
+    let cityName = $('#cityName').val();
+
+    if (cityName == '')
+        return;
+
     $('#nowWeatherId').hide();
     $('#errorPageId').hide();
     $('#for5DaysPageId').hide();
     
     $.ajax
     ({
-        url: `http://api.openweathermap.org/data/2.5/weather?q=${$('#cityName').val()}&units=metric&appid=f284eac603d628bfb6d7570e53c1567c`,
+        url: `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=f284eac603d628bfb6d7570e53c1567c`,
 
         success: (result, status, xhr) =>
         {
@@ -36,11 +41,11 @@ let findWeather = () =>
             $('#errorPageId').empty();
 
             $('#errorPageId').append($('<img>').attr('src', 'https://vortex.accuweather.com/adc2010/images/slate/error.png'));
-            $('#errorPageId').append($('<label></label>').text(`${$('#cityName').val()} could not be found. Please enter a different location.`));
+            $('#errorPageId').append($('<label></label>').text(`${cityName} could not be found. Please enter a different location.`));
             
             $('#errorPageId').show();
         }
-    })
+    });
 }
 
 let picWeather = {
@@ -172,7 +177,7 @@ function currentWeather(res)
 
     $('#currentWeatherId').append(div);
 
-    let seeHourlyDiv = $('<div></div>').addClass('seeHourlyCl');
+    let seeHourlyDiv = $('<div></div>').addClass('seeHourlyCl').click(for5DaysPageShow);
 
     let seeHourTextDiv = $('<div></div>').addClass('seeHourCl').text('See Hourly');
     seeHourlyDiv.append(seeHourTextDiv);
@@ -181,6 +186,63 @@ function currentWeather(res)
     seeHourlyDiv.append(arrow);
 
     $('#currentWeatherId').append(seeHourlyDiv);
+}
+
+let monthByNum = {
+    '01': 'JAN',
+    '02': 'FEB',
+    '03': 'MAR',
+    '04': 'APR',
+    '05': 'MAY',
+    '06': 'JUN',
+    '07': 'JUL',
+    '08': 'AUG',
+    '09': 'SEP',
+    '10': 'OKT',
+    '11': 'NOV',
+    '12': 'DEC'
+};
+
+function for5DaysPageShow()
+{
+    $.ajax
+    ({
+        url: `http://api.openweathermap.org/data/2.5/forecast?q=${$('#cityName').val()}&units=metric&appid=f284eac603d628bfb6d7570e53c1567c`,
+
+        success: (result, status, xhr) =>
+        {
+            let fiveDays = result;
+            let dateAndTime = fiveDays.list[0].dt_txt;
+
+            $('#nowWeatherId').hide();
+            
+            let divFor5Days = $('<div></div>').addClass('for5DaysCl');
+        
+            let divToday = $('<div></div>').addClass('todayCl');
+            divToday.append('<label></label>').addClass('mainHeader').text('Tonight');
+            divToday.append('<span></span>').addClass('dayCl').text(`${dateAndTime.substring(9, 11)} ${monthByNum[dateAndTime.substring(5, 7)]}`);
+            divToday.append('<img>').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[fiveDays.list[0].weather[0].icon]}`)
+            let degreeTodayShowDiv = $('<div></div>').addClass('degreeTodayShowCl');
+            degreeTodayShowDiv.append($('<lavel></lavel>').addClass('degreeValCl').html())
+
+
+
+            $('#for5DaysPageId')
+        },
+        
+        error: (result, status, xhr) => 
+        {
+            alert(xhr);
+        }
+    });
+}
+
+function minMaxDegree(weathers, isOneDay, todayDay)
+{
+    if (isOneDay)
+    {
+        
+    }
 }
 
 function secToTime(sec)

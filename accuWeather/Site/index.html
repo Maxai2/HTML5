@@ -18,14 +18,14 @@
             <div class="logoSearch">
                 <img src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" class="logo">
                 <div class="searchCl">
-                    <input type="text" id="cityName" onkeydown="enterKey()">
+                    <input type="text" id="cityName" onkeydown="enterKey()" spellcheck="false">
                     <img onclick="findWeather()" src="https://vortex.accuweather.com/adc2010/images/slate/search-glass.svg">
                 </div>
             </div>
             <div class="nowFor5DaysCl">
                 <div class="daysContent">
                     <span id="nowId">Now</span>
-                    <span id="for5DaysId">For 5 days</span>
+                    <span id="for5DaysId" onclick="for5DaysPageShow()">For 5 days</span>
                 </div>
             </div>
         </header>
@@ -65,7 +65,7 @@
                         </div>
                     </div> -->
 
-                    <!-- <div class="seeHourlyCl">
+                    <!-- <div class="seeHourlyCl" onclick="for5DaysPageShow()">
                         <div class="seeHourCl">See Hourly</div>
                         <div class="arrow"></div>
                     </div> -->
@@ -154,7 +154,7 @@
 
             <div class="for5DaysPageCl" id="for5DaysPageId" style="display: none;">
 
-                <div class="for5DaysCl">
+           <!-- <div class="for5DaysCl">
                     <div class="todayCl">
                         <label class="mainHeader">Tonight</label>
                         <span class="dayCl">JUN 30</span>
@@ -214,9 +214,9 @@
                         <label class="weatherDescCl">Blazing sunshine; breezy; hot</label>
                         <label class="MoreCl">More</label>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="hourlyCl">
+                <!-- <div class="hourlyCl">
                     <div class="hourHeaderCl">
                         <label>Hourly</label>
                     </div>
@@ -378,10 +378,7 @@
                     </div>
                 </div>
 
-            </div>
-
-
-
+            </div> -->
 
         </div>
     </div>
