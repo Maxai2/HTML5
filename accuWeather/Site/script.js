@@ -95,12 +95,11 @@ function nearbyPlaces(lat, lon, city)
                 let img = $('<img>').addClass('degreeImgCl').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[weath.weather[0].icon]}`);
                 weathDiv.append(img);
 
-                let span = $('<span></span>').addClass('degreeCl').html(`${Number.parseInt(weath.main.temp)}&#186;`);
+                let span = $('<span></span>').addClass('degreeCl').html(`${Math.round(weath.main.temp)}&#186;`);
                 weathDiv.append(span);
 
                 div.append(weathDiv);
             })
-
 
             $('#nearbyPlacesId').append(div);
         }
@@ -125,12 +124,12 @@ function currentWeather(res)
     let imgL = $('<img>').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[res.weather[0].icon]}`);
     divLeft.append(imgL);
 
-    let labelDeg = $('<label></label>').addClass('degreeCl').html(`${Number.parseInt(res.main.temp)}&#186;`);
+    let labelDeg = $('<label></label>').addClass('degreeCl').html(`${Math.round(res.main.temp)}&#186;`);
     let spanLab = $('<span></span>').addClass('celciusCl').text('C');
     labelDeg.append(spanLab);
     divLeft.append(labelDeg);
 
-    let span = $('<span></span>').addClass('realFeelCl').html(`RealFeel&reg; ${Number.parseInt(res.main.temp) - 5}&#186;`);
+    let span = $('<span></span>').addClass('realFeelCl').html(`RealFeel&reg; ${Math.round(res.main.temp) - 5}&#186;`);
     divLeft.append(span);
 
     let labelState = $('<label></label>').addClass('weatherState').text(res.weather[0].main);
@@ -211,6 +210,8 @@ function for5DaysPageShow()
 
         success: (result, status, xhr) =>
         {
+            $('#for5DaysPageId').empty();
+
             let fiveDays = result;
             let dateAndTime = fiveDays.list[0].dt_txt;
 
@@ -219,15 +220,46 @@ function for5DaysPageShow()
             let divFor5Days = $('<div></div>').addClass('for5DaysCl');
         
             let divToday = $('<div></div>').addClass('todayCl');
-            divToday.append('<label></label>').addClass('mainHeader').text('Tonight');
-            divToday.append('<span></span>').addClass('dayCl').text(`${dateAndTime.substring(9, 11)} ${monthByNum[dateAndTime.substring(5, 7)]}`);
-            divToday.append('<img>').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[fiveDays.list[0].weather[0].icon]}`)
+            divToday.append($('<label></label>').addClass('mainHeader').text('Tonight'));
+            divToday.append($('<span></span>').addClass('dayCl').text(`${monthByNum[dateAndTime.substring(5, 7)]} ${dateAndTime.substring(8, 11)}`));
+            divToday.append($('<img>').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[fiveDays.list[0].weather[0].icon]}`));
             let degreeTodayShowDiv = $('<div></div>').addClass('degreeTodayShowCl');
-            degreeTodayShowDiv.append($('<lavel></lavel>').addClass('degreeValCl').html())
+            let mmD = minMaxDegree(fiveDays.list, true, dateAndTime.substring(8, 11));
+            degreeTodayShowDiv.append($('<label></label>').addClass('degreeValCl').html(`${mmD.maxTempL}&#186;`));
+            degreeTodayShowDiv.append($('<label></label>').addClass('degreeCl').text('C'));
+            degreeTodayShowDiv.append($('<span></span>').html(`${mmD.minTempL}&#186;`));
+            divToday.append(degreeTodayShowDiv);
+            divToday.append($('<label></label>').text(weatherDesc(dateAndTime.substring(8, 11), fiveDays.list)));
+            divFor5Days.append(divToday);
 
+            for (let i = 0; i < 4; i++)
+            {
+                let d = new Date();
+                let divNextDayWeath = $('<div></div>').addClass('todayCl').addClass(weathCl[i]);
 
+                d.setDate(d.getDate() + i + 1);
 
-            $('#for5DaysPageId')
+                divNextDayWeath.append($('<label></label>').addClass('mainHeader').text(weekDayByDate[d.getDay()]));
+                divNextDayWeath.append($('<span></span>').addClass('dayCl').text(`${monthByNum[d.getMonth() + 1]} ${d.getDate()}`));
+                divNextDayWeath.append($('<img>').addClass('imgCustom').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[getPicIcon(d.getDate(), fiveDays.list)]}`));//?
+                let minMaxTempDiv = $('<div></div>').addClass('degreeTodayShowCusomCl');
+
+                let minMaxT = minMaxDegree(fiveDays.list, false, d.getDate());
+                minMaxTempDiv.append($('<label></label>').addClass('degreeValCl').html(`${minMaxT.maxTempL}&#186;`));
+                minMaxTempDiv.append($('<label></label>').addClass('degreeCl').html(`/${minMaxT.minTempL}&#186;`));
+                divNextDayWeath.append(minMaxTempDiv);
+
+                divNextDayWeath.append($('<label></label>').addClass('weatherDescCl').text(weatherDesc(d.getDate(), fiveDays.list)));
+                divNextDayWeath.append($('<label></label>').addClass('MoreCl').text('More'));
+                
+                divFor5Days.append(divNextDayWeath);
+            }
+            
+            $('#for5DaysPageId').append(divFor5Days);
+
+            $('#for5DaysPageId').append(createTableByDay(dateAndTime));
+
+            $('#for5DaysPageId').show();
         },
         
         error: (result, status, xhr) => 
@@ -237,12 +269,113 @@ function for5DaysPageShow()
     });
 }
 
+function createTableByDay(day)
+{
+    let hourlyDiv = $('<div></div>').addClass('hourlyCl');
+    hourlyDiv.append($('<div></div>').addClass('hourHeaderCl').append($('<label></label>').text('Hourly')));
+
+    let hourlyTableDiv = $('<div></div>').addClass('hourlyTableCl');
+
+    let hourlyTable = $('<table></table>');
+
+    let tHead = $('<thead></thead>');
+
+
+
+    hourlyTable.append(tHead);
+    
+    let tBody = $('<tbody></tbody>');
+
+    hourlyTable.append(tBody);
+
+    hourlyTableDiv.append(hourlyTable);
+    hourlyDiv.append(hourlyTableDiv);
+
+    return hourlyDiv;
+}
+
+let weekDayByDate = {
+    '1': 'MON',
+    '2': 'TUE',
+    '3': 'WEN',
+    '4': 'THU',
+    '5': 'FRI',
+    '6': 'SAT',
+    '0': 'SUN'
+};
+
+let weathCl = ['FirstWeathCl', 'SecondWeathCl', 'ThirdWeathCl', 'FourthWeathCl'];
+
+function getPicIcon(date, list)
+{
+    list.forEach(d => 
+    {
+        if ((d.dt_txt.substring(8, 11) == date) && (d.dt_txt.substring(11, 13) == '12'))
+        {
+            // console.log(date + ' ' + d.weather[0].icon);
+            return d.weather[0].icon;
+        }
+    });
+}
+
+function weatherDesc(day, list)
+{
+    let weathDesc = '';
+
+    list.forEach(d =>
+    {
+        if (day == d.dt_txt.substring(8, 11))
+        {
+            if (!weathDesc.includes(d.weather[0].description))
+                weathDesc += d.weather[0].description + '; ';
+        }
+    });
+
+    return weathDesc.substring(0, weathDesc.length - 1);
+}
+
 function minMaxDegree(weathers, isOneDay, todayDay)
 {
+    let minTemp = Math.round(weathers[0].main.temp_min);
+    let maxTemp = Math.round(weathers[0].main.temp_max);
+
     if (isOneDay)
     {
-        
+        let index = 0;
+
+        while (true)
+        {
+            if (minTemp > Math.round(weathers[index].main.temp_min))
+                minTemp = Math.round(weathers[index].main.temp_min);
+            
+            if (maxTemp < Math.round(weathers[index].main.temp_max))
+                maxTemp = Math.round(weathers[index].main.temp_max);
+
+            if (weathers[index].dt_txt.substring(8, 11) != todayDay)
+                break;
+            else
+                index++;
+        }
     }
+    else
+    {
+        weathers.forEach(w =>
+        {
+            if (w.dt_txt.substring(8, 11) == todayDay)
+            {
+                if (minTemp > Math.round(w.main.temp_min))
+                minTemp = Math.round(w.main.temp_min);
+                
+                if (maxTemp < Math.round(w.main.temp_max))
+                maxTemp = Math.round(w.main.temp_max);
+            }
+        });
+    }
+
+    return {
+        minTempL: minTemp,
+        maxTempL: maxTemp
+    };
 }
 
 function secToTime(sec)
