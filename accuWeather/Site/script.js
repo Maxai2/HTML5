@@ -204,9 +204,15 @@ let monthByNum = {
 
 function for5DaysPageShow()
 {
+    let cityName = $('#cityName').val();
+    if (cityName == '')
+    {
+        return;
+    }
+
     $.ajax
     ({
-        url: `http://api.openweathermap.org/data/2.5/forecast?q=${$('#cityName').val()}&units=metric&appid=f284eac603d628bfb6d7570e53c1567c`,
+        url: `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=f284eac603d628bfb6d7570e53c1567c`,
 
         success: (result, status, xhr) =>
         {
@@ -241,7 +247,15 @@ function for5DaysPageShow()
 
                 divNextDayWeath.append($('<label></label>').addClass('mainHeader').text(weekDayByDate[d.getDay()]));
                 divNextDayWeath.append($('<span></span>').addClass('dayCl').text(`${monthByNum[d.getMonth() + 1]} ${d.getDate()}`));
-                divNextDayWeath.append($('<img>').addClass('imgCustom').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[getPicIcon(d.getDate(), fiveDays.list)]}`));//?
+
+                for (let i = 0; i < fiveDays.list.length; i++)
+                {
+                    if ((fiveDays.list[i].dt_txt.substring(8, 11) == d.getDate()) && (fiveDays.list[i].dt_txt.substring(11, 13) == '12'))
+                    {
+                        divNextDayWeath.append($('<img>').addClass('imgCustom').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[fiveDays.list[i].weather[0].icon]}`));
+                    }
+                }
+
                 let minMaxTempDiv = $('<div></div>').addClass('degreeTodayShowCusomCl');
 
                 let minMaxT = minMaxDegree(fiveDays.list, false, d.getDate());
@@ -257,7 +271,7 @@ function for5DaysPageShow()
             
             $('#for5DaysPageId').append(divFor5Days);
 
-            $('#for5DaysPageId').append(createTableByDay(dateAndTime));
+            $('#for5DaysPageId').append(createTableByDay(dateAndTime, fiveDays.list));
 
             $('#for5DaysPageId').show();
         },
@@ -269,8 +283,20 @@ function for5DaysPageShow()
     });
 }
 
-function createTableByDay(day)
+let weekDayByDateFull = {
+    '1': 'Monday',
+    '2': 'Tuesday',
+    '3': 'Wendsday',
+    '4': 'Thursday',
+    '5': 'Friday',
+    '6': 'Saturday',
+    '0': 'Sunday'
+};
+
+function createTableByDay(day, list)
 {
+    let d = new Date(day);
+
     let hourlyDiv = $('<div></div>').addClass('hourlyCl');
     hourlyDiv.append($('<div></div>').addClass('hourHeaderCl').append($('<label></label>').text('Hourly')));
 
@@ -280,11 +306,94 @@ function createTableByDay(day)
 
     let tHead = $('<thead></thead>');
 
+    let trHead = $('<tr></tr>');
 
+    trHead.append($('<th></th>').addClass('mainHeader').text(weekDayByDateFull[d.getDay()]));
+
+    for (let j = 0; j < list.length; j++)
+    {
+        if (list[j].dt_txt.substring(8, 11) == day.substring(8, 11))
+        {
+            for (let i = j; i < j + 8; i++)
+            {
+                let td = $('<td></td>');
+                td.append($('<span></span>').text(timeIn12Format(list[i].dt_txt.substring(11, 13))));
+                td.append($('<img>').attr('src', `https://vortex.accuweather.com/adc2010/images/slate/icons/${picWeather[list[i].weather[0].icon]}`));
+
+                trHead.append(td);
+            }
+            break;
+        }
+    }
+    tHead.append(trHead);
 
     hourlyTable.append(tHead);
     
     let tBody = $('<tbody></tbody>');
+
+    let trForecast = $('<tr></tr>');
+    trForecast.append($('<th></th>').text('Forecast'));
+
+    for (let j = 0; j < list.length; j++)
+    {
+        if (list[j].dt_txt.substring(8, 11) == day.substring(8, 11))
+        {
+            for (let i = j; i < j + 8; i++)
+            {
+                trForecast.append($('<td></td>').append($('<span></span>').text(list[i].weather[0].main)));
+            }
+            break;
+        }
+    }
+    tBody.append(trForecast);
+
+    let trTemp = $('<tr></tr>');
+    trTemp.append($('<th></th>').html('Temp (&#186;C)'));
+
+    for (let j = 0; j < list.length; j++)
+    {
+        if (list[j].dt_txt.substring(8, 11) == day.substring(8, 11))
+        {
+            for (let i = j; i < j + 8; i++)
+            {
+                trTemp.append($('<td></td>').append($('<span></span>').html(Math.round(list[i].main.temp) + '&#186;')));
+            }
+            break;
+        }
+    }
+    tBody.append(trTemp);
+
+    let trRealFeel = $('<tr></tr>');
+    trRealFeel.append($('<th></th>').html('RealFeel&reg;'));
+
+    for (let j = 0; j < list.length; j++)
+    {
+        if (list[j].dt_txt.substring(8, 11) == day.substring(8, 11))
+        {
+            for (let i = j; i < j + 8; i++)
+            {
+                trRealFeel.append($('<td></td>').append($('<span></span>').html(Math.round(list[i].main.temp + (Math.random() * (5 + 5) - 5)) + '&#186;')));
+            }
+            break;
+        }
+    }
+    tBody.append(trRealFeel);
+
+    let trWind = $('<tr></tr>');
+    trWind.append($('<th></th>').text('Wind (km/h)'));
+
+    for (let j = 0; j < list.length; j++)
+    {
+        if (list[j].dt_txt.substring(8, 11) == day.substring(8, 11))
+        {
+            for (let i = j; i < j + 8; i++)
+            {
+                trWind.append($('<td></td>').append($('<span></span>').text(Math.round(list[i].wind.speed) + ' ' + SideOfTheWorldByDegree(list[i].wind.deg))));
+            }
+            break;
+        }
+    }
+    tBody.append(trWind);
 
     hourlyTable.append(tBody);
 
@@ -292,6 +401,77 @@ function createTableByDay(day)
     hourlyDiv.append(hourlyTableDiv);
 
     return hourlyDiv;
+}
+
+function SideOfTheWorldByDegree(degree)
+{
+    if (degree == 0 || degree == 360)
+        return 'N';
+    else
+    if (degree <= 22.5)
+        return 'NNE';
+    else
+    if (degree <= 45)
+        return 'NE';
+    else
+    if (degree <= 67.5)
+        return 'ENE';
+    else
+    if (degree <= 90)
+        return 'E';
+    else
+    if (degree <= 122.5)
+        return 'ESE';
+    else
+    if (degree <= 135)
+        return 'SE';
+    else
+    if (degree <= 157.5)
+        return 'SSE';
+    else
+    if (degree <= 180)
+        return 'S';
+    else
+    if (degree <= 202.5)
+        return 'SSW';
+    else
+    if (degree <= 225)
+        return 'SW';
+    else
+    if (degree <= 247.5)
+        return 'WSW';
+    else
+    if (degree <= 270)
+        return 'W';
+    else
+    if (degree <= 292.5)
+        return 'WNW';
+    else
+    if (degree <= 315)
+        return 'NW';
+    else
+    if (degree <= 337.5)
+        return 'NNW';
+}
+
+function timeIn12Format(time24)
+{
+    console.log(time24);
+
+    if (time24 < 12)
+    {
+        if (time24 == 0)
+            return '12am';
+        else
+            return time24.substring(1) + 'am';
+    }
+    else
+    {
+        if (time24 == 12)
+            return '12pm';
+        else
+            return (time24 - 12) + 'pm';
+    }
 }
 
 let weekDayByDate = {
@@ -305,18 +485,6 @@ let weekDayByDate = {
 };
 
 let weathCl = ['FirstWeathCl', 'SecondWeathCl', 'ThirdWeathCl', 'FourthWeathCl'];
-
-function getPicIcon(date, list)
-{
-    list.forEach(d => 
-    {
-        if ((d.dt_txt.substring(8, 11) == date) && (d.dt_txt.substring(11, 13) == '12'))
-        {
-            // console.log(date + ' ' + d.weather[0].icon);
-            return d.weather[0].icon;
-        }
-    });
-}
 
 function weatherDesc(day, list)
 {
