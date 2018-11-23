@@ -349,7 +349,7 @@ body {
   margin-top: 20px;
   grid-row: 2;
   display: grid;
-  grid-template-rows: 22px 330px;
+  grid-template-rows: 22px 295px;
 }
 .wrap .for5DaysPageCl .hourlyCl .hourHeaderCl {
   grid-row: 1;

@@ -150,18 +150,18 @@ function currentWeather(res)
     sunSet.append($('<br><br>'));
     
     let spanRise = $('<span></span>').addClass('captionCl').text('Sunrise:');
-    spanRise.append($('<span></span>').addClass('valueCl').text(secToTime(res.sys.sunrise)));
+    spanRise.append($('<span></span>').addClass('valueCl').text(secToTime(res.sys.sunrise, false)));
     sunSet.append(spanRise);
 
     sunSet.append($('<br>'));
 
     let spanSet = $('<span></span>').addClass('captionCl').text('Sunset:');
-    spanSet.append($('<span></span>').addClass('valueCl').text(secToTime(res.sys.sunset)));
+    spanSet.append($('<span></span>').addClass('valueCl').text(secToTime(res.sys.sunset, false)));
     sunSet.append(spanSet);
     
     sunSet.append($('<br><br>'));
 
-    let duration = secToTime(res.sys.sunset - res.sys.sunrise).replace(/\sam|pm/, '');
+    let duration = secToTime(res.sys.sunset - res.sys.sunrise, true).replace(/\sam|pm/, '');
 
     let spanDur = $('<span></span>').addClass('captionCl').text('Duration:');
     spanDur.append($('<span></span>').addClass('valueCl').text(duration + ' hr'));
@@ -264,6 +264,8 @@ function for5DaysPageShow()
                 divNextDayWeath.append(minMaxTempDiv);
 
                 divNextDayWeath.append($('<label></label>').addClass('weatherDescCl').text(weatherDesc(d.getDate(), fiveDays.list)));
+
+                let tempDate = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
                 divNextDayWeath.append($('<label></label>').addClass('MoreCl').text('More'));
                 
                 divFor5Days.append(divNextDayWeath);
@@ -271,7 +273,7 @@ function for5DaysPageShow()
             
             $('#for5DaysPageId').append(divFor5Days);
 
-            $('#for5DaysPageId').append(createTableByDay(dateAndTime, fiveDays.list));
+            createTableByDay(dateAndTime, fiveDays.list);
 
             $('#for5DaysPageId').show();
         },
@@ -400,7 +402,7 @@ function createTableByDay(day, list)
     hourlyTableDiv.append(hourlyTable);
     hourlyDiv.append(hourlyTableDiv);
 
-    return hourlyDiv;
+    $('#for5DaysPageId').append(hourlyDiv);
 }
 
 function SideOfTheWorldByDegree(degree)
@@ -456,8 +458,6 @@ function SideOfTheWorldByDegree(degree)
 
 function timeIn12Format(time24)
 {
-    console.log(time24);
-
     if (time24 < 12)
     {
         if (time24 == 0)
@@ -546,24 +546,31 @@ function minMaxDegree(weathers, isOneDay, todayDay)
     };
 }
 
-function secToTime(sec)
+function secToTime(sec, isCalc)
 {
     sec -= (Number.parseInt(sec / 86400) * 86400);
     let hour = Number.parseInt(sec / 3600);
     sec -= (hour * 3600);
     let min = Number.parseInt(sec / 60);
 
-    let index;
+    let index = '';
     
-    if (hour <= 12)
-    index = ' am';
-    else
-    {    
-        index = ' pm';
-        hour -= 12;
+    if (isCalc == false)
+    {
+        
+        hour += 4; // GT+4
+        
+        if (hour < 12)
+        {
+            index = ' am';
+        }
+        else
+        {    
+            index = ' pm';
+            hour -= 12;
+        }
     }
     
-    hour += 4; // GT+4
     let timeStr = hour + ':' + (min < 10 ? ('0' + min) : min) + index;
 
     return timeStr;
