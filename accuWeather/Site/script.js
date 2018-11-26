@@ -663,11 +663,13 @@ function realFeelCalc(windSpeed, pressure, FTemperature, UltraViolet, dew, preci
 
 function enterKey()
 {
-    console.log(event.keyCode);
     if (event.keyCode == 13)
         findWeather();
-    else
-        console.log($('#cityName').val());
+}
+
+function cityFind()
+{
+    $('#cityName').val()
 }
 
 function findCity(sym)

@@ -18,7 +18,7 @@
             <div class="logoSearch">
                 <img src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" class="logo">
                 <div class="searchCl">
-                    <input type="text" id="cityName" oninput="enterKey()" spellcheck="false">
+                    <input type="text" id="cityName" onkeydown="enterKey()" oninput="cityFind()" spellcheck="false">
                     <img onclick="findWeather()" src="https://vortex.accuweather.com/adc2010/images/slate/search-glass.svg">
                 </div>
             </div>
